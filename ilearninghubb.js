@@ -27,15 +27,15 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use(express.static(path.join(__dirname, 'kidscamp')));
 
-app.get('/dynamic', (req, res) => {
-    res.render('dynamic', {
+app.get('/', (req, res) => {
+    res.render('index', {
         title: 'Dynamic Page',
         message: 'This is a dynamic Handlebars page rendered by Express.',
     });
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'themeforest-template', 'index.html'));
+    res.sendFile(path.join(__dirname, 'kidscamp', 'index.html'));
 });
 
 app.listen(PORT, () => {
