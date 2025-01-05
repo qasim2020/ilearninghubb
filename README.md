@@ -6,10 +6,7 @@
 
 ### Coming soon....
 
--[] Logo
-
--[] Connection to CMS (playground)
-
--[] Single navbar & footer
-
--[] Content connections
+- Logo
+- Connection to CMS (playground)
+- Single navbar & footer
+- Content connections
