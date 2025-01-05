@@ -8,7 +8,7 @@
                     <div class="nav-outer d-flex align-items-center flex-wrap">
                         <!-- Logo Box -->
                         <div class="logo-box">
-                            <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt=""
+                            <div class="logo"><a href="/"><img src="{{data.settings.brandLogo.photo.small}}" alt=""
                                         title="kidscamp" /></a></div>
                         </div>
                         <!-- Main Menu -->
@@ -48,7 +48,7 @@
                                     <li class="dropdown"><a href="#">Pages</a>
                                         <ul>
                                             <li><a href="faq.html">Faq</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="/signin">Login</a></li>
                                             <li><a href="register.html">Register</a></li>
                                             <li><a href="gallery.html">Galery</a></li>
                                             <li><a href="reset-password.html">Forgot
@@ -89,13 +89,12 @@
                     <div class="outer-box d-flex align-items-center flex-wrap">
                         <!-- Button Box -->
                         <div class="header-phone_box">
-                            <a href="tel:+302-555-0107"><i class="flaticon-call"></i> 302
-                                555-0107</a>
+                            <a href="tel:+{{data.settings.brandMobile}}"><i class="flaticon-call"></i> {{data.settings.brandMobile}}</a>
                         </div>
 
                         <!-- Button Box -->
                         <div class="main-header_button">
-                            <a href="about.html" class="theme-btn btn-style-one">
+                            <a href="{{data.siginURL}}" class="theme-btn btn-style-one">
                                 <span class="btn-wrap">
                                     <span class="text-one">Login Now</span>
                                     <span class="text-two">Login Now</span>

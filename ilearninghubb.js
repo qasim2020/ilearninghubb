@@ -27,15 +27,12 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use(express.static(path.join(__dirname, 'kidscamp')));
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Dynamic Page',
-        message: 'This is a dynamic Handlebars page rendered by Express.',
-    });
-});
+const regularRoutes = require('./routes/regularRoutes');
+
+app.use(regularRoutes);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'kidscamp', 'index.html'));
+    res.redirect('/');
 });
 
 app.listen(PORT, () => {
