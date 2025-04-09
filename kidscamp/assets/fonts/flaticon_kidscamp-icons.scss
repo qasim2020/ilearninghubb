@@ -1,0 +1,417 @@
+$flaticon_kidscamp-icons-font: "flaticon_kidscamp-icons";
+
+@font-face {
+    font-family: $flaticon_kidscamp-icons-font;
+    src: url("./flaticon_kidscamp-icons.woff2?8641e18662f54871b04e68375f810e60") format("woff2"),
+url("./flaticon_kidscamp-icons.woff?8641e18662f54871b04e68375f810e60") format("woff"),
+url("./flaticon_kidscamp-icons.eot?8641e18662f54871b04e68375f810e60#iefix") format("embedded-opentype"),
+url("./flaticon_kidscamp-icons.ttf?8641e18662f54871b04e68375f810e60") format("truetype"),
+url("./flaticon_kidscamp-icons.svg?8641e18662f54871b04e68375f810e60#flaticon_kidscamp-icons") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_kidscamp-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_kidscamp-icons-map: (
+    "up-right-arrow": "\f101",
+    "send": "\f102",
+    "search-interface-symbol": "\f103",
+    "user": "\f104",
+    "globe": "\f105",
+    "star": "\f106",
+    "star-1": "\f107",
+    "read": "\f108",
+    "padlock": "\f109",
+    "check-mark": "\f10a",
+    "phone-call": "\f10b",
+    "call": "\f10c",
+    "smartphone": "\f10d",
+    "phone": "\f10e",
+    "telephone": "\f10f",
+    "plus": "\f110",
+    "minus": "\f111",
+    "maps-and-flags": "\f112",
+    "envelope": "\f113",
+    "email": "\f114",
+    "shopping-cart": "\f115",
+    "shopping-cart-1": "\f116",
+    "shopping-bag": "\f117",
+    "facebook-app-symbol": "\f118",
+    "twitter": "\f119",
+    "linkedin": "\f11a",
+    "pinterest": "\f11b",
+    "dribbble-logo": "\f11c",
+    "behance": "\f11d",
+    "whatsapp": "\f11e",
+    "tik-tok": "\f11f",
+    "snapchat": "\f120",
+    "islam": "\f121",
+    "next": "\f122",
+    "next-1": "\f123",
+    "back": "\f124",
+    "left-arrow": "\f125",
+    "share": "\f126",
+    "share-1": "\f127",
+    "menu": "\f128",
+    "dots-menu": "\f129",
+    "visualization": "\f12a",
+    "close": "\f12b",
+    "down-arrow": "\f12c",
+    "arrow-up": "\f12d",
+    "up-arrow": "\f12e",
+    "up-arrows": "\f12f",
+    "up-arrow-1": "\f130",
+    "right": "\f131",
+    "left": "\f132",
+    "left-quote": "\f133",
+    "right-quote": "\f134",
+    "play": "\f135",
+    "play-button": "\f136",
+    "play-1": "\f137",
+    "iphone": "\f138",
+    "email-1": "\f139",
+    "comment": "\f13a",
+    "close-1": "\f13b",
+    "home": "\f13c",
+    "document": "\f13d",
+    "save-money": "\f13e",
+    "windows": "\f13f",
+    "apple-logo": "\f140",
+    "user-1": "\f141",
+    "mail": "\f142",
+    "arrow": "\f143",
+    "right-1": "\f144",
+    "arrow-1": "\f145",
+    "arrow-2": "\f146",
+    "arrow-3": "\f147",
+    "share-2": "\f148",
+    "checked": "\f149",
+    "play-2": "\f14a",
+    "check-mark-1": "\f14b",
+    "calendar": "\f14c",
+    "tag": "\f14d",
+    "label": "\f14e",
+    "targeting": "\f14f",
+    "personal": "\f150",
+    "main-menu": "\f151",
+    "programmer": "\f152",
+    "leader": "\f153",
+    "network": "\f154",
+    "happiness": "\f155",
+    "volume": "\f156",
+    "trophy": "\f157",
+    "mountain": "\f158",
+    "smile": "\f159",
+    "arroba": "\f15a",
+    "instagram": "\f15b",
+    "calendar-1": "\f15c",
+    "paper-plane": "\f15d",
+    "like": "\f15e",
+    "team": "\f15f",
+    "clock": "\f160",
+    "calendar-2": "\f161",
+    "pin": "\f162",
+);
+
+.flaticon-up-right-arrow:before {
+    content: map-get($flaticon_kidscamp-icons-map, "up-right-arrow");
+}
+.flaticon-send:before {
+    content: map-get($flaticon_kidscamp-icons-map, "send");
+}
+.flaticon-search-interface-symbol:before {
+    content: map-get($flaticon_kidscamp-icons-map, "search-interface-symbol");
+}
+.flaticon-user:before {
+    content: map-get($flaticon_kidscamp-icons-map, "user");
+}
+.flaticon-globe:before {
+    content: map-get($flaticon_kidscamp-icons-map, "globe");
+}
+.flaticon-star:before {
+    content: map-get($flaticon_kidscamp-icons-map, "star");
+}
+.flaticon-star-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "star-1");
+}
+.flaticon-read:before {
+    content: map-get($flaticon_kidscamp-icons-map, "read");
+}
+.flaticon-padlock:before {
+    content: map-get($flaticon_kidscamp-icons-map, "padlock");
+}
+.flaticon-check-mark:before {
+    content: map-get($flaticon_kidscamp-icons-map, "check-mark");
+}
+.flaticon-phone-call:before {
+    content: map-get($flaticon_kidscamp-icons-map, "phone-call");
+}
+.flaticon-call:before {
+    content: map-get($flaticon_kidscamp-icons-map, "call");
+}
+.flaticon-smartphone:before {
+    content: map-get($flaticon_kidscamp-icons-map, "smartphone");
+}
+.flaticon-phone:before {
+    content: map-get($flaticon_kidscamp-icons-map, "phone");
+}
+.flaticon-telephone:before {
+    content: map-get($flaticon_kidscamp-icons-map, "telephone");
+}
+.flaticon-plus:before {
+    content: map-get($flaticon_kidscamp-icons-map, "plus");
+}
+.flaticon-minus:before {
+    content: map-get($flaticon_kidscamp-icons-map, "minus");
+}
+.flaticon-maps-and-flags:before {
+    content: map-get($flaticon_kidscamp-icons-map, "maps-and-flags");
+}
+.flaticon-envelope:before {
+    content: map-get($flaticon_kidscamp-icons-map, "envelope");
+}
+.flaticon-email:before {
+    content: map-get($flaticon_kidscamp-icons-map, "email");
+}
+.flaticon-shopping-cart:before {
+    content: map-get($flaticon_kidscamp-icons-map, "shopping-cart");
+}
+.flaticon-shopping-cart-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "shopping-cart-1");
+}
+.flaticon-shopping-bag:before {
+    content: map-get($flaticon_kidscamp-icons-map, "shopping-bag");
+}
+.flaticon-facebook-app-symbol:before {
+    content: map-get($flaticon_kidscamp-icons-map, "facebook-app-symbol");
+}
+.flaticon-twitter:before {
+    content: map-get($flaticon_kidscamp-icons-map, "twitter");
+}
+.flaticon-linkedin:before {
+    content: map-get($flaticon_kidscamp-icons-map, "linkedin");
+}
+.flaticon-pinterest:before {
+    content: map-get($flaticon_kidscamp-icons-map, "pinterest");
+}
+.flaticon-dribbble-logo:before {
+    content: map-get($flaticon_kidscamp-icons-map, "dribbble-logo");
+}
+.flaticon-behance:before {
+    content: map-get($flaticon_kidscamp-icons-map, "behance");
+}
+.flaticon-whatsapp:before {
+    content: map-get($flaticon_kidscamp-icons-map, "whatsapp");
+}
+.flaticon-tik-tok:before {
+    content: map-get($flaticon_kidscamp-icons-map, "tik-tok");
+}
+.flaticon-snapchat:before {
+    content: map-get($flaticon_kidscamp-icons-map, "snapchat");
+}
+.flaticon-islam:before {
+    content: map-get($flaticon_kidscamp-icons-map, "islam");
+}
+.flaticon-next:before {
+    content: map-get($flaticon_kidscamp-icons-map, "next");
+}
+.flaticon-next-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "next-1");
+}
+.flaticon-back:before {
+    content: map-get($flaticon_kidscamp-icons-map, "back");
+}
+.flaticon-left-arrow:before {
+    content: map-get($flaticon_kidscamp-icons-map, "left-arrow");
+}
+.flaticon-share:before {
+    content: map-get($flaticon_kidscamp-icons-map, "share");
+}
+.flaticon-share-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "share-1");
+}
+.flaticon-menu:before {
+    content: map-get($flaticon_kidscamp-icons-map, "menu");
+}
+.flaticon-dots-menu:before {
+    content: map-get($flaticon_kidscamp-icons-map, "dots-menu");
+}
+.flaticon-visualization:before {
+    content: map-get($flaticon_kidscamp-icons-map, "visualization");
+}
+.flaticon-close:before {
+    content: map-get($flaticon_kidscamp-icons-map, "close");
+}
+.flaticon-down-arrow:before {
+    content: map-get($flaticon_kidscamp-icons-map, "down-arrow");
+}
+.flaticon-arrow-up:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arrow-up");
+}
+.flaticon-up-arrow:before {
+    content: map-get($flaticon_kidscamp-icons-map, "up-arrow");
+}
+.flaticon-up-arrows:before {
+    content: map-get($flaticon_kidscamp-icons-map, "up-arrows");
+}
+.flaticon-up-arrow-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "up-arrow-1");
+}
+.flaticon-right:before {
+    content: map-get($flaticon_kidscamp-icons-map, "right");
+}
+.flaticon-left:before {
+    content: map-get($flaticon_kidscamp-icons-map, "left");
+}
+.flaticon-left-quote:before {
+    content: map-get($flaticon_kidscamp-icons-map, "left-quote");
+}
+.flaticon-right-quote:before {
+    content: map-get($flaticon_kidscamp-icons-map, "right-quote");
+}
+.flaticon-play:before {
+    content: map-get($flaticon_kidscamp-icons-map, "play");
+}
+.flaticon-play-button:before {
+    content: map-get($flaticon_kidscamp-icons-map, "play-button");
+}
+.flaticon-play-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "play-1");
+}
+.flaticon-iphone:before {
+    content: map-get($flaticon_kidscamp-icons-map, "iphone");
+}
+.flaticon-email-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "email-1");
+}
+.flaticon-comment:before {
+    content: map-get($flaticon_kidscamp-icons-map, "comment");
+}
+.flaticon-close-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "close-1");
+}
+.flaticon-home:before {
+    content: map-get($flaticon_kidscamp-icons-map, "home");
+}
+.flaticon-document:before {
+    content: map-get($flaticon_kidscamp-icons-map, "document");
+}
+.flaticon-save-money:before {
+    content: map-get($flaticon_kidscamp-icons-map, "save-money");
+}
+.flaticon-windows:before {
+    content: map-get($flaticon_kidscamp-icons-map, "windows");
+}
+.flaticon-apple-logo:before {
+    content: map-get($flaticon_kidscamp-icons-map, "apple-logo");
+}
+.flaticon-user-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "user-1");
+}
+.flaticon-mail:before {
+    content: map-get($flaticon_kidscamp-icons-map, "mail");
+}
+.flaticon-arrow:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arrow");
+}
+.flaticon-right-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "right-1");
+}
+.flaticon-arrow-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arrow-1");
+}
+.flaticon-arrow-2:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arrow-2");
+}
+.flaticon-arrow-3:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arrow-3");
+}
+.flaticon-share-2:before {
+    content: map-get($flaticon_kidscamp-icons-map, "share-2");
+}
+.flaticon-checked:before {
+    content: map-get($flaticon_kidscamp-icons-map, "checked");
+}
+.flaticon-play-2:before {
+    content: map-get($flaticon_kidscamp-icons-map, "play-2");
+}
+.flaticon-check-mark-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "check-mark-1");
+}
+.flaticon-calendar:before {
+    content: map-get($flaticon_kidscamp-icons-map, "calendar");
+}
+.flaticon-tag:before {
+    content: map-get($flaticon_kidscamp-icons-map, "tag");
+}
+.flaticon-label:before {
+    content: map-get($flaticon_kidscamp-icons-map, "label");
+}
+.flaticon-targeting:before {
+    content: map-get($flaticon_kidscamp-icons-map, "targeting");
+}
+.flaticon-personal:before {
+    content: map-get($flaticon_kidscamp-icons-map, "personal");
+}
+.flaticon-main-menu:before {
+    content: map-get($flaticon_kidscamp-icons-map, "main-menu");
+}
+.flaticon-programmer:before {
+    content: map-get($flaticon_kidscamp-icons-map, "programmer");
+}
+.flaticon-leader:before {
+    content: map-get($flaticon_kidscamp-icons-map, "leader");
+}
+.flaticon-network:before {
+    content: map-get($flaticon_kidscamp-icons-map, "network");
+}
+.flaticon-happiness:before {
+    content: map-get($flaticon_kidscamp-icons-map, "happiness");
+}
+.flaticon-volume:before {
+    content: map-get($flaticon_kidscamp-icons-map, "volume");
+}
+.flaticon-trophy:before {
+    content: map-get($flaticon_kidscamp-icons-map, "trophy");
+}
+.flaticon-mountain:before {
+    content: map-get($flaticon_kidscamp-icons-map, "mountain");
+}
+.flaticon-smile:before {
+    content: map-get($flaticon_kidscamp-icons-map, "smile");
+}
+.flaticon-arroba:before {
+    content: map-get($flaticon_kidscamp-icons-map, "arroba");
+}
+.flaticon-instagram:before {
+    content: map-get($flaticon_kidscamp-icons-map, "instagram");
+}
+.flaticon-calendar-1:before {
+    content: map-get($flaticon_kidscamp-icons-map, "calendar-1");
+}
+.flaticon-paper-plane:before {
+    content: map-get($flaticon_kidscamp-icons-map, "paper-plane");
+}
+.flaticon-like:before {
+    content: map-get($flaticon_kidscamp-icons-map, "like");
+}
+.flaticon-team:before {
+    content: map-get($flaticon_kidscamp-icons-map, "team");
+}
+.flaticon-clock:before {
+    content: map-get($flaticon_kidscamp-icons-map, "clock");
+}
+.flaticon-calendar-2:before {
+    content: map-get($flaticon_kidscamp-icons-map, "calendar-2");
+}
+.flaticon-pin:before {
+    content: map-get($flaticon_kidscamp-icons-map, "pin");
+}

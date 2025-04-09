@@ -1,0 +1,45 @@
+<div class="error-container">
+    <h1>{{data.error}}</h1>
+    <p>{{data.message}}</p>
+    
+    {{#if data.stack}}
+    <div class="error-stack">
+        <pre>{{data.stack}}</pre>
+    </div>
+    {{/if}}
+    
+    <div class="error-actions">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
+
+<style>
+    .error-container {
+        padding: 50px 20px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .error-stack {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: left;
+        overflow-x: auto;
+        border-radius: 5px;
+    }
+    
+    .error-actions {
+        margin-top: 30px;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+    }
+</style> 

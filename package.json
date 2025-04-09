@@ -1,0 +1,21 @@
+{
+  "name": "ilearninghubb",
+  "version": "1.0.0",
+  "description": "iLearningHubb - Educational Platform",
+  "main": "ilearninghubb.js",
+  "scripts": {
+    "start": "node ilearninghubb.js",
+    "dev": "nodemon ilearninghubb.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "moment": "^2.29.4",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
