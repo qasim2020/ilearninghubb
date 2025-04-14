@@ -1,46 +1,50 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
+const mongoose = require('./config/db');
+const MongoStore = require('connect-mongo');
+require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
+
 const path = require('path');
-const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const fs = require('fs');
 
 const hbsHelpers = require('./modules/helpers');
-const seedDatabase = require('./modules/seedData');
+
+mongoose();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/ilearninghubb';
-console.log('Attempting to connect to MongoDB at:', MONGO_URI);
-
-// Set up MongoDB connection with fallback for rendering
-let dbConnected = false;
-
-mongoose
-    .connect(MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // Auto-create the database if it doesn't exist
-        autoCreate: true
-    })
-    .then(() => {
-        dbConnected = true;
-        console.log('Connected to MongoDB successfully');
-        // Seed the database with initial data
-        seedDatabase().catch(err => console.error('Seed error:', err));
-    })
-    .catch((err) => {
-        console.error('MongoDB connection error:', err);
-        console.log('Starting server without database connection...');
-    });
-
+app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', exphbs.engine({ helpers: hbsHelpers }));
 app.set('view engine', 'handlebars');
+app.use(
+    session({
+        name: 'i-learning-hubb',
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI,
+            collectionName: 'sessions_ilearninghubb'
+        }),
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24,
+        },
+    }),
+);
+
+app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json({ limit: '50mb' }));
+app.use('/static', express.static(path.join(__dirname, 'static')));
+
+const indexController = require('./controllers/indexController');
+
+// Redirect root to index.html for direct HTML serving
+app.get('/', indexController.landingPage);
+
+const seedDatabase = require('./modules/seedData');
+
+const PORT = process.env.PORT || 3000;
 
 // Determine the correct path by checking if we're in a nested directory structure
 const getCorrectPath = (basePath, relativePath) => {
@@ -177,10 +181,6 @@ app.get('/assets/images/:filename', (req, res) => {
     res.sendFile(path.join(kidscampPath, 'assets', 'images', req.params.filename));
 });
 
-// Redirect root to index.html for direct HTML serving
-app.get('/', (req, res) => {
-    res.sendFile(path.join(kidscampPath, 'index-2.html'));
-});
 
 // Direct route handling for the HTML files
 const htmlPages = [

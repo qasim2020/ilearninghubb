@@ -41,6 +41,8 @@ const renderPage = async (req, res, template, additionalData = {}, statusCode = 
                 ...additionalData
             }
         };
+
+        console.log(responseData);
         
         if (statusCode !== 200) {
             return res.status(statusCode).render(template, responseData);
