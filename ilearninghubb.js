@@ -93,6 +93,36 @@ app.use((req, res, next) => {
     next();
 });
 
+// Handle form submissions from sendemail.php
+app.post('/sendemail.php', async (req, res) => {
+    const { username, email, phone, service, message } = req.body;
+    
+    // Validate required fields
+    if (!username || !email || !message) {
+        return res.redirect('/contact.html?message=missing');
+    }
+    
+    try {
+        // Import the Contact model
+        const Contact = require('./models/contact');
+        
+        // Save to database
+        await Contact.create({
+            name: username,
+            email,
+            phone,
+            service,
+            message
+        });
+        
+        // Redirect with success message
+        res.redirect('/contact.html?message=success');
+    } catch (err) {
+        // Redirect with error message
+        res.redirect('/contact.html?message=error');
+    }
+});
+
 // Dynamic routes for handlebars templates
 const regularRoutes = require('./routes/regularRoutes');
 app.use('/api', regularRoutes);

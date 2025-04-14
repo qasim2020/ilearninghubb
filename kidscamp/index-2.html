@@ -452,7 +452,7 @@
 						<!-- Sec Title -->
 						<div class="sec-title style-two title-anim">
 							<div class="sec-title_title">About Kidcamp</div>
-							<h2 class="sec-title_heading">Empowering Children’s, Inspiring <span>Futures</span></h2>
+							<h2 class="sec-title_heading">Empowering Children's, Inspiring <span>Futures</span></h2>
 							<div class="sec-title_text">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, matti ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Null quis imperdiet augue.</div>
 						</div>
 						<!-- About One List -->
@@ -828,7 +828,7 @@
 			<!-- Sec Title -->
 			<div class="sec-title style-two centered">
 				<div class="sec-title_title">Kid-approved Stories</div>
-				<h2 class="sec-title_heading">Voices of Adventure from <br> Kids’ <span>Parents</span></h2>
+				<h2 class="sec-title_heading">Voices of Adventure from <br> Kids' <span>Parents</span></h2>
 			</div>
 			<div class="testimonial-two_carousel">
 				<div class="swiper-wrapper">
@@ -993,6 +993,82 @@
 		</div>
 	</section>
 	<!-- End Faq One -->
+	
+	<!-- Contact Form -->
+	<section class="contact-form-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<!-- Column -->
+				<div class="form-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<h3>Contact Us Right Now</h3>
+						<div class="text">Your email address will not be published. Required fields are marked *</div>
+						
+						<!-- Notification Messages -->
+						<div id="form-message" class="mb-4" style="display: none;">
+							<div id="success-message" class="alert alert-success" style="display: none;">
+								Thank you! Your message has been sent successfully.
+							</div>
+							<div id="error-message" class="alert alert-danger" style="display: none;">
+								Sorry, there was an error sending your message. Please try again later.
+							</div>
+							<div id="missing-message" class="alert alert-warning" style="display: none;">
+								Please fill out all required fields.
+							</div>
+						</div>
+						
+						<div class="default-form contact-form">
+							<form method="post" action="sendemail.php" id="home-contact-form">
+								<div class="row clearfix">
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="text" name="username" value="" placeholder="Name" required>
+									</div>
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="email" name="email" value="" placeholder="Email" required>
+									</div>
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="text" name="phone" value="" placeholder="Phone" required>
+									</div>
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<select name="service" class="custom-select-box">
+											<option>Select service</option>
+											<option>Service 01</option>
+											<option>Service 02</option>
+											<option>Service 03</option>
+										</select>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+										<textarea name="message" placeholder="Type comment here*"></textarea>
+									</div>
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<button type="submit" class="template-btn btn-style-one">
+											<span class="btn-wrap">
+												<span class="text-one">Submit now <i class="flaticon-next-1"></i></span>
+												<span class="text-two">Submit now <i class="flaticon-next-1"></i></span>
+											</span>
+										</button>
+									</div>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- Column -->
+				<div class="map-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<div class="map-one_map">
+							<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=18&ie=UTF8&iwloc=&output=embed"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Contact Form -->
 	
 	<!-- Blog Two -->
 	<section class="blog-two">

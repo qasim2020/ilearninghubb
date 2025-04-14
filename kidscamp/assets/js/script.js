@@ -1062,4 +1062,54 @@
 
     window.parent.postMessage(window.location.href, '*');
     
+    // Add a function to handle form submission success and error messages
+    $(document).ready(function() {
+        // Check for URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        
+        if (message) {
+            // Show the form message container
+            $('#form-message').show();
+            
+            // Show appropriate message
+            if (message === 'success') {
+                $('#success-message').show();
+            } else if (message === 'error') {
+                $('#error-message').show();
+            } else if (message === 'missing') {
+                $('#missing-message').show();
+            }
+            
+            // Scroll to the message
+            $('html, body').animate({
+                scrollTop: $('#form-message').offset().top - 100
+            }, 500);
+            
+            // Hide the message after 5 seconds
+            setTimeout(function() {
+                $('#form-message').fadeOut();
+                $('#success-message, #error-message, #missing-message').hide();
+            }, 5000);
+        }
+    });
+
+    // Make sure the home contact form validation works
+    if ($('#home-contact-form').length) {
+        $('#home-contact-form').validate({
+            rules: {
+                username: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+                },
+                message: {
+                    required: true,
+                },
+            },
+        });
+    }
+
 })(window.jQuery);

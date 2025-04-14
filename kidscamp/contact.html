@@ -288,12 +288,26 @@
 					<div class="inner-column">
 						<h3>Contact Us Right Now</h3>
 						<div class="text">Your email address will not be published. Required fields are marked *</div>
+						
+						<!-- Notification Messages -->
+						<div id="form-message" class="mb-4" style="display: none;">
+							<div id="success-message" class="alert alert-success" style="display: none;">
+								Thank you! Your message has been sent successfully.
+							</div>
+							<div id="error-message" class="alert alert-danger" style="display: none;">
+								Sorry, there was an error sending your message. Please try again later.
+							</div>
+							<div id="missing-message" class="alert alert-warning" style="display: none;">
+								Please fill out all required fields.
+							</div>
+						</div>
+						
 						<div class="default-form contact-form">
 							<form method="post" action="sendemail.php" id="contact-form">
 								<div class="row clearfix">
 									<!--Form Group-->
 									<div class="form-group col-lg-6 col-md-6 col-sm-6">
-										<input type="text" name="name" value="" placeholder="Name" required>
+										<input type="text" name="username" value="" placeholder="Name" required>
 									</div>
 									<!--Form Group-->
 									<div class="form-group col-lg-6 col-md-6 col-sm-6">
@@ -304,7 +318,7 @@
 									</div>
 									<!--Form Group-->
 									<div class="form-group col-lg-6 col-md-6 col-sm-6">
-										<select name="country" class="custom-select-box">
+										<select name="service" class="custom-select-box">
 											<option>Select service</option>
 											<option>Service 01</option>
 											<option>Service 02</option>
@@ -315,7 +329,7 @@
 										<textarea class="" name="message" placeholder="Type comment here*"></textarea>
 									</div>
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<button type="button" class="template-btn btn-style-one">
+										<button type="submit" class="template-btn btn-style-one">
 											<span class="btn-wrap">
 												<span class="text-one">Submit now <i class="flaticon-next-1"></i></span>
 												<span class="text-two">Submit now <i class="flaticon-next-1"></i></span>
