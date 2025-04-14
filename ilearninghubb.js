@@ -190,6 +190,7 @@ const htmlPages = [
     'team', 'team-detail', 'testimonial'
 ];
 
+// QASIM: here we need to load content from database for each page, process it (if needed) and then render the page
 htmlPages.forEach(page => {
     app.get(`/${page}`, (req, res) => {
         res.sendFile(path.join(kidscampPath, `${page}.html`));
