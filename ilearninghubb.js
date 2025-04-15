@@ -64,10 +64,6 @@ const getCorrectPath = (basePath, relativePath) => {
 const kidscampPath = getCorrectPath(__dirname, 'kidscamp');
 const assetsPath = path.join(kidscampPath, 'assets');
 
-console.log('Serving static files from:');
-console.log('- Kidscamp path:', kidscampPath);
-console.log('- Assets path:', assetsPath);
-
 // Serve static files from the correct paths
 app.use(express.static(kidscampPath));
 app.use('/assets', express.static(assetsPath));
