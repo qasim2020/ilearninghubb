@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const Collections = require('../models/collections');
+const connectDB = require('../config/db')
 
 const seedDatabase = async () => {
     try {
         // Check if MongoDB is connected
-        if (mongoose.connection.readyState !== 1) {
+        if (!connectDB) {
             console.log('Cannot seed database: MongoDB not connected');
-            return;
+            return; 
         }
 
         console.log('Checking for existing theme collection...');
@@ -15,7 +16,7 @@ const seedDatabase = async () => {
         let existingTheme;
         try {
             existingTheme = await Collections.findOne({ name: 'myapp-themes' });
-            console.log('Existing theme check result:', existingTheme ? 'Found' : 'Not found');
+            console.log(existingTheme);
         } catch (err) {
             console.error('Error checking for existing theme:', err);
             return;
@@ -89,8 +90,8 @@ const seedDatabase = async () => {
                         heading: 'Poppins, sans-serif',
                         body: 'Roboto, sans-serif'
                     },
-                    logo: '/assets/images/logo.png',
-                    favicon: '/assets/images/favicon.ico',
+                    logo: 'kidscamp/assets/images/logo.png',
+                    favicon: 'kidscamp/assets/images/favicon.ico',
                     header: {
                         style: 'default',
                         sticky: true,

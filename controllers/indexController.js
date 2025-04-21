@@ -2,13 +2,24 @@ const mongoose = require('mongoose');
 const createModel = require('../modules/createModel');
 const { renderPage } = require('./controllerUtils');
 const { getBrandData } = require('../modules/brandCollectionModules');
+const Event = require('../models/events');
 
 /**
  * Index/Home page controller
  */
 exports.index = async (req, res) => {
-    console.log('rendering index');
-    await renderPage(req, res, 'index');
+    try {
+        // Fetch the 3 most recent featured events
+        const recentEvents = await Event.find({ featured: true })
+            .sort({ date: -1 })
+            .limit(3)
+            .lean();
+
+        await renderPage(req, res, 'index', { recentEvents });
+    } catch (error) {
+        console.error('Error in index controller:', error);
+        await renderPage(req, res, 'index', {});
+    }
 };
 
 exports.landingPage = async (req,res) => {

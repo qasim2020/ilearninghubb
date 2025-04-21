@@ -16,21 +16,21 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', exphbs.engine({ helpers: hbsHelpers }));
 app.set('view engine', 'handlebars');
-app.use(
-    session({
-        name: 'i-learning-hubb',
-        secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        store: MongoStore.create({
-            mongoUrl: process.env.MONGO_URI,
-            collectionName: 'sessions_ilearninghubb'
-        }),
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24,
-        },
-    }),
-);
+// app.use(
+//     session({
+//         name: 'i-learning-hubb',
+//         secret: process.env.SESSION_SECRET,
+//         resave: false,
+//         saveUninitialized: false,
+//         store: MongoStore.create({
+//             mongoUrl: process.env.MONGO_URI,
+//             collectionName: 'sessions_ilearninghubb'
+//         }),
+//         cookie: {
+//             maxAge: 1000 * 60 * 60 * 24,
+//         },
+//     }),
+// );
 
 app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -43,6 +43,8 @@ const indexController = require('./controllers/indexController');
 app.get('/', indexController.landingPage);
 
 const seedDatabase = require('./modules/seedData');
+
+seedDatabase()
 
 const PORT = process.env.PORT || 3000;
 
@@ -125,7 +127,7 @@ app.post('/sendemail.php', async (req, res) => {
 
 // Dynamic routes for handlebars templates
 const regularRoutes = require('./routes/regularRoutes');
-app.use('/api', regularRoutes);
+app.use('/', regularRoutes);
 
 // Debug route to list available images
 app.get('/debug/images', (req, res) => {

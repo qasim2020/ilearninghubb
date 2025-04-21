@@ -90,7 +90,10 @@
                                                     background-image: url(assets/images/main-slider/icon-3.png);
                                                 "></div>
                                 <div class="slider-one_image">
-                                    <img src="assets/images/main-slider/image-1.png" alt="" />
+                                   <div class="image-wrapper">
+                                    <img src="assets/images/main-slider/image-3i.jpg" alt="" />
+                                    </div>
+
                                 </div>
                                 <div class="slider-one_booking">
                                     <div class="slider-one_booking-title"><i><img
@@ -157,7 +160,9 @@
                                                     background-image: url(assets/images/main-slider/icon-3.png);
                                                 "></div>
                                 <div class="slider-one_image">
-                                    <img src="assets/images/main-slider/image-1.png" alt="" />
+                                     <div class="image-wrapper">
+                                    <img src="assets/images/main-slider/image1i.jpg" alt="" />
+                                    </div>
                                 </div>
                                 <div class="slider-one_booking">
                                     <div class="slider-one_booking-title"><i><img
@@ -224,7 +229,11 @@
                                                     background-image: url(assets/images/main-slider/icon-3.png);
                                                 "></div>
                                 <div class="slider-one_image">
-                                    <img src="assets/images/main-slider/image-1.png" alt="" />
+                                     <div class="image-wrapper">
+                                         <div class="image-wrapper">
+                                    <img src="assets/images/main-slider/image1i.jpg" alt="" />
+                                    </div>
+                                    </div>
                                 </div>
                                 <div class="slider-one_booking">
                                     <div class="slider-one_booking-title"><i><img
@@ -374,7 +383,14 @@
                         <div class="about-one_image">
                             <div class="about-one_color-one"></div>
                             <div class="about-one_color-two"></div>
-                            <img src="assets/images/resource/about-1.png" alt="" />
+                            <div style="width: 510px; height: 583px; overflow: hidden;">
+                            <img 
+                                src="assets/images/resource/about-1i.jpg" 
+                                alt="" 
+                                style="width: 100%; height: 100%; object-fit: cover;" 
+                            />
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -385,7 +401,7 @@
                         <!-- Sec Title -->
                         <div class="sec-title title-anim">
                             <div class="sec-title_title">About kidscamp</div>
-                            <h2 class="sec-title_heading">Empowering Children’s, Inspiring
+                            <h2 class="sec-title_heading">Empowering Children's, Inspiring
                                 <span>Futures</span>
                             </h2>
                             <div class="sec-title_text">Lorem ipsum dolor sit amet
@@ -450,7 +466,14 @@
                     <div class="program-block_one">
                         <div class="program-block_one-inner">
                             <div class="program-block_one-image">
-                                <img src="assets/images/resource/program-1.jpg" alt="" />
+                                <div style="width: 352px; height: 250px; overflow: hidden;">
+                                    <img 
+                                        src="assets/images/resource/about-2i.jpg" 
+                                        alt="" 
+                                        style="width: 100%; height: 100%; object-fit: cover;" 
+                                    />
+                                    </div>
+
                             </div>
                             <div class="program-block_one-content">
                                 <div class="program-block_one-date">12 <span>days</span></div>
@@ -477,7 +500,7 @@
                     <div class="program-block_one">
                         <div class="program-block_one-inner">
                             <div class="program-block_one-image">
-                                <img src="assets/images/resource/program-2.jpg" alt="" />
+                                <img src="assets/images/resource/about-5i.jpg" alt="" />
                             </div>
                             <div class="program-block_one-content">
                                 <div class="program-block_one-date">12 <span>days</span></div>
@@ -504,7 +527,14 @@
                     <div class="program-block_one">
                         <div class="program-block_one-inner">
                             <div class="program-block_one-image">
-                                <img src="assets/images/resource/program-3.jpg" alt="" />
+                                <div style="width: 352px; height: 250px; overflow: hidden;">
+                                    <img 
+                                        src="assets/images/resource/about-2i.jpg" 
+                                        alt="" 
+                                        style="width: 100%; height: 100%; object-fit: cover;" 
+                                    />
+                                    </div>
+
                             </div>
                             <div class="program-block_one-content">
                                 <div class="program-block_one-date">12 <span>days</span></div>
@@ -536,6 +566,244 @@
     </div>
 </section>
 <!-- End Program One -->
+<section class="contact-form-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<!-- Column -->
+				<div class="form-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<h3>Contact Us Right Now</h3>
+						<div class="text">Your email address will not be published. Required fields are marked *</div>
+						
+						<!-- Notification Messages -->
+						<div id="form-message" class="mb-4" style="display: none;">
+							<div id="success-message" class="alert alert-success" style="display: none;">
+								Thank you! Your message has been sent successfully.
+							</div>
+							<div id="error-message" class="alert alert-danger" style="display: none;">
+								Sorry, there was an error sending your message. Please try again later.
+							</div>
+							<div id="missing-message" class="alert alert-warning" style="display: none;">
+								Please fill out all required fields.
+							</div>
+						</div>
+						
+						<div class="default-form contact-form">
+							<form method="post" action="sendemail.php" id="home-contact-form">
+								<div class="row clearfix">
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="text" name="username" value="" placeholder="Name" required>
+									</div>
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="email" name="email" value="" placeholder="Email" required>
+									</div>
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<input type="text" name="phone" value="" placeholder="Phone" required>
+									</div>
+									<!--Form Group-->
+									<div class="form-group col-lg-6 col-md-6 col-sm-6">
+										<select name="service" class="custom-select-box">
+											<option>Select service</option>
+											<option>Service 01</option>
+											<option>Service 02</option>
+											<option>Service 03</option>
+										</select>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+										<textarea name="message" placeholder="Type comment here*"></textarea>
+									</div>
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<button type="submit" class="template-btn btn-style-one">
+											<span class="btn-wrap">
+												<span class="text-one">Submit now <i class="flaticon-next-1"></i></span>
+												<span class="text-two">Submit now <i class="flaticon-next-1"></i></span>
+											</span>
+										</button>
+									</div>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- Column -->
+				<div class="map-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<div class="map-one_map">
+							<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=18&ie=UTF8&iwloc=&output=embed"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<!-- End Contact Form -->
+
+<!-- Recent Events -->
+<section class="program-one events-section">
+    <div class="program-one_icon" style="
+                        background-image: url(assets/images/icons/icon-7.png);
+                    "></div>
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title">
+            <div class="sec-title_title">Our Events</div>
+            <h2 class="sec-title_heading">From Our Most <span>Recent</span> <br />
+                Events</h2>
+        </div>
+        <div class="program-one_carousel swiper-container">
+            <div class="swiper-wrapper">
+                {{#if recentEvents}}
+                    {{#each recentEvents}}
+                    <!-- Slide -->
+                    <div class="swiper-slide">
+                        <!-- Program Block One -->
+                        <div class="program-block_one">
+                            <div class="program-block_one-inner">
+                                <div class="program-block_one-image">
+                                    {{#if this.imageUrl}}
+                                    <img src="{{this.imageUrl}}" alt="{{this.title}}" />
+                                    {{else}}
+                                    <img src="assets/images/resource/event-placeholder.jpg" alt="{{this.title}}" onerror="this.src='assets/images/resource/program-1.jpg'"/>
+                                    {{/if}}
+                                    {{#if this.videoUrl}}
+                                    <div class="program-block_one-video">
+                                        <a href="{{this.videoUrl}}" class="lightbox-video program-block_one-play">
+                                            <span class="flaticon-play"><i class="ripple"></i></span>
+                                        </a>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                                <div class="program-block_one-content">
+                                    <div class="program-block_one-date">
+                                        {{formatDate this.date "D"}} <span>{{formatDate this.date "MMM"}}</span>
+                                    </div>
+                                    <h5 class="program-block_one-title"><a href="/event-detail?id={{this._id}}">{{this.title}}</a></h5>
+                                    <div class="program-block_one-text">{{this.description}}</div>
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <div class="program-block_one-experiance">{{this.ageRange}}</div>
+                                        <a class="program-block_one-join" href="/event-detail?id={{this._id}}">view more
+                                            <i class="flaticon-next-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                {{else}}
+                    <!-- Slide -->
+                    <div class="swiper-slide">
+                        <!-- Program Block One -->
+                        <div class="program-block_one">
+                            <div class="program-block_one-inner">
+                                <div class="program-block_one-image">
+                                    <div style="width: 352px; height: 250px; overflow: hidden;">
+                                        <img 
+                                            src="assets/images/resource/about-5i.jpg" 
+                                            alt="" 
+                                            style="width: 100%; height: 100%; object-fit: cover;" 
+                                        />
+                                        </div>
+                                    <div class="program-block_one-video">
+                                        <a href="assets/videos/event1.mov" class="lightbox-video program-block_one-play">
+                                            <span class="flaticon-play"><i class="ripple"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="program-block_one-content">
+                                    <div class="program-block_one-date">5 <span>days</span></div>
+                                    <h5 class="program-block_one-title"><a href="/event-detail">Hamstadel 2022</a></h5>
+                                    <div class="program-block_one-text">Our annual summer camp brought together children of all ages for a week of outdoor adventures, creativity, and skill-building activities.</div>
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <div class="program-block_one-experiance">5-15 years old</div>
+                                        <a class="program-block_one-join" href="/event-detail">view more
+                                            <i class="flaticon-next-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide -->
+                    <div class="swiper-slide">
+                        <!-- Program Block One -->
+                        <div class="program-block_one">
+                            <div class="program-block_one-inner">
+                                <div class="program-block_one-image">
+                                    <div style="width: 352px; height: 250px; overflow: hidden;">
+                                        <img 
+                                            src="assets/images/main-slider/image1i.jpg" 
+                                            alt="" 
+                                            style="width: 100%; height: 100%; object-fit: cover;" 
+                                        />
+                                        </div>
+                                    <div class="program-block_one-video">
+                                        <a href="assets/videos/event2.mov" class="lightbox-video program-block_one-play">
+                                            <span class="flaticon-play"><i class="ripple"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="program-block_one-content">
+                                    <div class="program-block_one-date">3 <span>days</span></div>
+                                    <h5 class="program-block_one-title"><a href="/event-detail">Hamstadel Tour 2021</a></h5>
+                                    <div class="program-block_one-text">Our science fair showcased amazing projects created by young scientists, exploring topics from environmental science to robotics and chemistry.</div>
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <div class="program-block_one-experiance">8-16 years old</div>
+                                        <a class="program-block_one-join" href="/event-detail">view more
+                                            <i class="flaticon-next-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide -->
+                    <div class="swiper-slide">
+                        <!-- Program Block One -->
+                        <div class="program-block_one">
+                            <div class="program-block_one-inner">
+                                <div class="program-block_one-image">
+                                    <div style="width: 352px; height: 250px; overflow: hidden;">
+                                        <img 
+                                            src="assets/images/resource/about-2i.jpg" 
+                                            alt="" 
+                                            style="width: 100%; height: 100%; object-fit: cover;" 
+                                        />
+                                        </div>
+                                    <div class="program-block_one-video">
+                                        <a href="assets/videos/event3.mov" class="lightbox-video program-block_one-play">
+                                            <span class="flaticon-play"><i class="ripple"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="program-block_one-content">
+                                    <div class="program-block_one-date">2 <span>days</span></div>
+                                    <h5 class="program-block_one-title"><a href="/event-detail">Turkiya 2020</a></h5>
+                                    <div class="program-block_one-text">Our young artists displayed their creative talents in a vibrant exhibition featuring paintings, sculptures, digital art, and mixed media projects.</div>
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <div class="program-block_one-experiance">6-14 years old</div>
+                                        <a class="program-block_one-join" href="/event-detail">view more
+                                            <i class="flaticon-next-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="program-one_carousel-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="program-one_carousel-prev fas fa-angle-left fa-fw"></div>
+            <div class="program-one_carousel-next fas fa-angle-right fa-fw"></div>
+        </div>
+    </div>
+</section>
+<!-- End Recent Events -->
 
 <!-- Testimonial One -->
 <section class="testimonial-one">
@@ -553,7 +821,7 @@
             <div class="sec-title centered light">
                 <div class="sec-title_title">Kid-approved Stories</div>
                 <h2 class="sec-title_heading">Voices of Adventure from <br />
-                    Kids’ <span>Parents</span></h2>
+                    Kids' <span>Parents</span></h2>
             </div>
 
             <div class="testimonial__slider-wrap">
@@ -725,6 +993,7 @@
     </div>
 </section>
 <!-- End Testimonial One -->
+
 
 <!-- Choose One -->
 <section class="choose-one">
@@ -1073,7 +1342,9 @@
             <div class="news-block_one col-lg-4 col-md-6 col-sm-12">
                 <div class="news-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="news-block_one-image">
-                        <a href="blog-detail.html"><img src="assets/images/resource/blog-1.jpg" alt="" /></a>
+                        <a href="blog-detail.html"><div style="width: 352px; height: 250px; overflow: hidden;">
+                            <img src="assets/images/main-slider/image1i.jpg" alt=""  style="width: 100%; height: 100%; object-fit: cover;"/></a>
+                            </div></a>
                     </div>
                     <div class="news-block_one-content">
                         <ul class="news-block_one-meta">
@@ -1093,7 +1364,9 @@
             <div class="news-block_one col-lg-4 col-md-6 col-sm-12">
                 <div class="news-block_one-inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="news-block_one-image">
-                        <a href="blog-detail.html"><img src="assets/images/resource/blog-2.jpg" alt="" /></a>
+                        <a href="blog-detail.html"><div style="width: 352px; height: 250px; overflow: hidden;">
+                            <img src="assets/images/resource/about-2i.jpg" alt=""  style="width: 100%; height: 100%; object-fit: cover;"/></a>
+                            </div></a>
                     </div>
                     <div class="news-block_one-content">
                         <ul class="news-block_one-meta">
@@ -1113,7 +1386,10 @@
             <div class="news-block_one col-lg-4 col-md-6 col-sm-12">
                 <div class="news-block_one-inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="news-block_one-image">
-                        <a href="blog-detail.html"><img src="assets/images/resource/blog-3.jpg" alt="" /></a>
+                        <a href="blog-detail.html">
+                            <div style="width: 352px; height: 250px; overflow: hidden;">
+                            <img src="assets/images/resource/about-5i.jpg" alt=""  style="width: 100%; height: 100%; object-fit: cover;"/></a>
+                            </div>
                     </div>
                     <div class="news-block_one-content">
                         <ul class="news-block_one-meta">

@@ -28,6 +28,9 @@ router.get("/gallery", viewsController.gallery);
 router.get("/program", viewsController.program);
 router.get("/program-detail", viewsController.programDetail);
 
+// Event pages
+router.get("/event-detail", viewsController.eventDetail);
+
 // Authentication pages
 router.get("/register", viewsController.register);
 router.get("/reset-password", viewsController.resetPassword);

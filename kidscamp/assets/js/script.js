@@ -592,6 +592,49 @@
         },
     });
 
+    // Events Section Slider (uses the same structure as Program One Slider)
+    var eventsSlider = new Swiper('.events-section .program-one_carousel', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            enabled: true,
+            delay: 6000,
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.events-section .program-one_carousel-next',
+            prevEl: '.events-section .program-one_carousel-prev',
+            clickable: true,
+        },
+        //Pagination
+        pagination: {
+            el: '.events-section .program-one_carousel-pagination',
+            clickable: true,
+        },
+        speed: 500,
+        breakpoints: {
+            1600: {
+                slidesPerView: 3,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            992: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            576: {
+                slidesPerView: 1,
+            },
+            0: {
+                slidesPerView: 1,
+            },
+        },
+    });
+
     // Program Carousel Two
     if ($('.program-two_carousel').length) {
         $('.program-two_carousel').owlCarousel({

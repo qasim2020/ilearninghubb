@@ -23,7 +23,10 @@ const dec = function(a) {
     return a - 1;
 };
 
-const formatDate = function(date) {
+const formatDate = function(date, format) {
+    if (format) {
+        return moment(date).format(format);
+    }
     return moment(date).format('DD-MM-YYYY'); 
 };
 
