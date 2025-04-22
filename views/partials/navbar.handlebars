@@ -9,7 +9,7 @@
                                     src="assets/images/logo-11.png" 
                                     alt="iLearningHubb Logo" 
                                     title="iLearningHubb"
-                                    style="width: 250px; height: 70px; object-fit: contain;" 
+                                    class="responsive-logo" 
                                     /></a></div>
                         </div>
                         <nav class="main-menu navbar-expand-md">
@@ -92,7 +92,11 @@
         <div class="close-btn"><span class="icon flaticon-close"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="{{brandSettings.logoUrl}}" alt="iLearningHubb Logo" title="iLearningHubb" /></a>
+            <div class="nav-logo"><a href="/"><img 
+                src="assets/images/logo-11.png" 
+                alt="iLearningHubb Logo" 
+                title="iLearningHubb"
+                class="responsive-mobile-logo" /></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -102,3 +106,48 @@
     <!-- End Mobile Menu -->
 </header>
 <!-- End Main Header -->
+
+<!-- Add responsive logo styles -->
+<style>
+.responsive-logo {
+    max-width: 90px;
+    height: auto;
+    display: block;
+}
+
+.responsive-mobile-logo {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .responsive-logo {
+        max-width: 85px;
+    }
+}
+
+@media (max-width: 991px) {
+    .responsive-logo {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-logo {
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-logo {
+        max-width: 60px;
+    }
+    
+    .responsive-mobile-logo {
+        max-width: 70px;
+    }
+}
+</style>

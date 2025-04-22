@@ -1244,3 +1244,32 @@
     </div>
 </section>
 <!-- End Blog One -->
+
+<!-- Custom Script to Disable Hero Slider Movement -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the main slider Swiper instance
+  const mainSlider = document.querySelector('.slider-one .main-slider').swiper;
+  
+  // If the Swiper instance exists
+  if (mainSlider) {
+    // Disable autoplay
+    if (mainSlider.autoplay) {
+      mainSlider.autoplay.stop();
+    }
+    
+    // Disable swiping/sliding
+    mainSlider.allowSlideNext = false;
+    mainSlider.allowSlidePrev = false;
+    mainSlider.allowTouchMove = false;
+    
+    // Destroy the pagination and navigation if they exist
+    if (mainSlider.pagination) {
+      mainSlider.pagination.destroy();
+    }
+    
+    // Update the Swiper instance to apply changes
+    mainSlider.update();
+  }
+});
+</script>
