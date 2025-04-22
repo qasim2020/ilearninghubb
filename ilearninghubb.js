@@ -37,9 +37,13 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json({ limit: '50mb' }));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
+app.use((req, res, next) => {
+    console.log(req.originalUrl);
+    next();
+});
+
 const indexController = require('./controllers/indexController');
 
-// Redirect root to index.html for direct HTML serving
 app.get('/', indexController.landingPage);
 
 const seedDatabase = require('./modules/seedData');
@@ -48,33 +52,26 @@ seedDatabase()
 
 const PORT = process.env.PORT || 3000;
 
-// Determine the correct path by checking if we're in a nested directory structure
 const getCorrectPath = (basePath, relativePath) => {
-    // First try the direct path
     const directPath = path.join(basePath, relativePath);
     if (fs.existsSync(directPath)) {
         return directPath;
     }
     
-    // If not found, try one level up (nested case)
     const nestedPath = path.join(basePath, '..', relativePath);
     if (fs.existsSync(nestedPath)) {
         return nestedPath;
     }
     
-    // Default to the direct path if neither exists
     return directPath;
 };
 
-// Get the correct kidscamp path
 const kidscampPath = getCorrectPath(__dirname, 'kidscamp');
 const assetsPath = path.join(kidscampPath, 'assets');
 
-// Serve static files from the correct paths
 app.use(express.static(kidscampPath));
 app.use('/assets', express.static(assetsPath));
 
-// Add proper MIME types for common image formats
 app.use((req, res, next) => {
     const ext = path.extname(req.url).toLowerCase();
     switch (ext) {
@@ -95,20 +92,16 @@ app.use((req, res, next) => {
     next();
 });
 
-// Handle form submissions from sendemail.php
 app.post('/sendemail.php', async (req, res) => {
     const { username, email, phone, service, message } = req.body;
     
-    // Validate required fields
     if (!username || !email || !message) {
         return res.redirect('/contact.html?message=missing');
     }
     
     try {
-        // Import the Contact model
         const Contact = require('./models/contact');
         
-        // Save to database
         await Contact.create({
             name: username,
             email,
@@ -117,23 +110,18 @@ app.post('/sendemail.php', async (req, res) => {
             message
         });
         
-        // Redirect with success message
         res.redirect('/contact.html?message=success');
     } catch (err) {
-        // Redirect with error message
         res.redirect('/contact.html?message=error');
     }
 });
 
-// Dynamic routes for handlebars templates
 const regularRoutes = require('./routes/regularRoutes');
 app.use('/', regularRoutes);
 
-// Debug route to list available images
 app.get('/debug/images', (req, res) => {
     const imagesDir = path.join(kidscampPath, 'assets', 'images');
     
-    // Function to get all files in a directory and subdirectories
     const getAllFiles = function(dirPath, arrayOfFiles) {
         files = fs.readdirSync(dirPath);
         
@@ -169,7 +157,6 @@ app.get('/debug/images', (req, res) => {
     }
 });
 
-// Direct route for serving images if static middleware doesn't catch them
 app.get('/assets/images/:folder/:filename', (req, res) => {
     const { folder, filename } = req.params;
     res.sendFile(path.join(kidscampPath, 'assets', 'images', folder, filename));
@@ -180,7 +167,6 @@ app.get('/assets/images/:filename', (req, res) => {
 });
 
 
-// Direct route handling for the HTML files
 const htmlPages = [
     'about', 'blog', 'blog-classic', 'blog-detail', 'blog-sidebar',
     'contact', 'faq', 'gallery', 'index-2', 'index-3', 'not-found',
@@ -195,15 +181,12 @@ htmlPages.forEach(page => {
     });
 });
 
-// Import error controller
 const errorController = require('./controllers/errorController');
 
-// Catch-all route for 404 errors
 app.use(async (req, res) => {
     await errorController.notFound(req, res);
 });
 
-// Global error handler
 app.use(async (err, req, res, next) => {
     await errorController.serverError(req, res, err);
 });

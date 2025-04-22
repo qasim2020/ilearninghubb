@@ -4,7 +4,6 @@ const connectDB = require('../config/db')
 
 const seedDatabase = async () => {
     try {
-        // Check if MongoDB is connected
         if (!connectDB) {
             console.log('Cannot seed database: MongoDB not connected');
             return; 
@@ -12,11 +11,9 @@ const seedDatabase = async () => {
 
         console.log('Checking for existing theme collection...');
         
-        // Check if we already have a themes collection
         let existingTheme;
         try {
             existingTheme = await Collections.findOne({ name: 'myapp-themes' });
-            console.log(existingTheme);
         } catch (err) {
             console.error('Error checking for existing theme:', err);
             return;
@@ -26,7 +23,6 @@ const seedDatabase = async () => {
             console.log('Seeding database with initial theme data...');
             
             try {
-                // Create a themes collection
                 const themeCollection = new Collections({
                     name: 'myapp-themes',
                     brand: 'hubb',
@@ -63,9 +59,7 @@ const seedDatabase = async () => {
                 });
                 
                 await themeCollection.save();
-                console.log('Theme collection created successfully');
                 
-                // Now create a model for myapp-themes using the same mongoose connection
                 let ThemeModel;
                 try {
                     ThemeModel = mongoose.model('myapp-themes');
@@ -76,7 +70,6 @@ const seedDatabase = async () => {
                     );
                 }
                 
-                // Create a default theme
                 const defaultTheme = new ThemeModel({
                     brand: 'hubb',
                     colors: {

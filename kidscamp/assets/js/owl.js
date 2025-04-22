@@ -2531,7 +2531,6 @@
 						this.stop();
 					}
 				} else if (e.namespace && e.property.name === 'position') {
-					//console.log('play?', e);
 					if (this._core.settings.autoplay) {
 						this._setAutoPlayInterval();
 					}
