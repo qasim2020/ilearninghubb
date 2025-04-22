@@ -16,21 +16,41 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', exphbs.engine({ helpers: hbsHelpers }));
 app.set('view engine', 'handlebars');
-// app.use(
-//     session({
-//         name: 'i-learning-hubb',
-//         secret: process.env.SESSION_SECRET,
-//         resave: false,
-//         saveUninitialized: false,
-//         store: MongoStore.create({
-//             mongoUrl: process.env.MONGO_URI,
-//             collectionName: 'sessions_ilearninghubb'
-//         }),
-//         cookie: {
-//             maxAge: 1000 * 60 * 60 * 24,
-//         },
-//     }),
-// );
+
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    console.log(req.originalUrl);
+    let oldSend = res.send;
+    let oldJson = res.json;
+
+    let responseBody;
+
+    res.send = function (data) {
+        responseBody = data;
+        return oldSend.apply(res, arguments);
+    };
+
+    res.json = function (data) {
+        responseBody = data;
+        return oldJson.apply(res, arguments);
+    };
+
+    const forbiddenErrors = ['/overlay/fonts/Karla-regular.woff', '/robots.txt'];
+
+    res.on('finish', () => {
+        if (res.statusCode > 399 && !forbiddenErrors.includes(req.originalUrl)) {
+            const errorData = {
+                message: responseBody,
+                status: res.statusCode,
+                url: req.originalUrl,
+            };
+
+            console.log(errorData);
+        }
+    });
+
+    next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -44,7 +64,7 @@ app.get('/', indexController.landingPage);
 
 const seedDatabase = require('./modules/seedData');
 
-seedDatabase()
+seedDatabase();
 
 const PORT = process.env.PORT || 3000;
 
@@ -55,13 +75,13 @@ const getCorrectPath = (basePath, relativePath) => {
     if (fs.existsSync(directPath)) {
         return directPath;
     }
-    
+
     // If not found, try one level up (nested case)
     const nestedPath = path.join(basePath, '..', relativePath);
     if (fs.existsSync(nestedPath)) {
         return nestedPath;
     }
-    
+
     // Default to the direct path if neither exists
     return directPath;
 };
@@ -98,25 +118,25 @@ app.use((req, res, next) => {
 // Handle form submissions from sendemail.php
 app.post('/sendemail.php', async (req, res) => {
     const { username, email, phone, service, message } = req.body;
-    
+
     // Validate required fields
     if (!username || !email || !message) {
         return res.redirect('/contact.html?message=missing');
     }
-    
+
     try {
         // Import the Contact model
         const Contact = require('./models/contact');
-        
+
         // Save to database
         await Contact.create({
             name: username,
             email,
             phone,
             service,
-            message
+            message,
         });
-        
+
         // Redirect with success message
         res.redirect('/contact.html?message=success');
     } catch (err) {
@@ -132,39 +152,36 @@ app.use('/', regularRoutes);
 // Debug route to list available images
 app.get('/debug/images', (req, res) => {
     const imagesDir = path.join(kidscampPath, 'assets', 'images');
-    
+
     // Function to get all files in a directory and subdirectories
-    const getAllFiles = function(dirPath, arrayOfFiles) {
+    const getAllFiles = function (dirPath, arrayOfFiles) {
         files = fs.readdirSync(dirPath);
-        
+
         arrayOfFiles = arrayOfFiles || [];
-        
-        files.forEach(function(file) {
-            if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-                arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+
+        files.forEach(function (file) {
+            if (fs.statSync(dirPath + '/' + file).isDirectory()) {
+                arrayOfFiles = getAllFiles(dirPath + '/' + file, arrayOfFiles);
             } else {
                 arrayOfFiles.push(path.join(dirPath, file).replace(imagesDir, ''));
             }
         });
-        
+
         return arrayOfFiles;
     };
-    
+
     try {
         const allImages = getAllFiles(imagesDir);
         res.json({
             imagesCount: allImages.length,
             imagesDirectory: imagesDir,
             images: allImages,
-            staticPaths: [
-                kidscampPath,
-                assetsPath
-            ]
+            staticPaths: [kidscampPath, assetsPath],
         });
     } catch (err) {
         res.status(500).json({
             error: err.message,
-            imagesDirectory: imagesDir
+            imagesDirectory: imagesDir,
         });
     }
 });
@@ -179,17 +196,30 @@ app.get('/assets/images/:filename', (req, res) => {
     res.sendFile(path.join(kidscampPath, 'assets', 'images', req.params.filename));
 });
 
-
 // Direct route handling for the HTML files
 const htmlPages = [
-    'about', 'blog', 'blog-classic', 'blog-detail', 'blog-sidebar',
-    'contact', 'faq', 'gallery', 'index-2', 'index-3', 'not-found',
-    'program', 'program-detail', 'register', 'reset-password',
-    'team', 'team-detail', 'testimonial'
+    'about',
+    'blog',
+    'blog-classic',
+    'blog-detail',
+    'blog-sidebar',
+    'contact',
+    'faq',
+    'gallery',
+    'index-2',
+    'index-3',
+    'not-found',
+    'program',
+    'program-detail',
+    'register',
+    'reset-password',
+    'team',
+    'team-detail',
+    'testimonial',
 ];
 
 // QASIM: here we need to load content from database for each page, process it (if needed) and then render the page
-htmlPages.forEach(page => {
+htmlPages.forEach((page) => {
     app.get(`/${page}`, (req, res) => {
         res.sendFile(path.join(kidscampPath, `${page}.html`));
     });
