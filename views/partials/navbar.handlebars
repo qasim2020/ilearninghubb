@@ -25,22 +25,20 @@
 
                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li><a href="about.html">Home</a></li>
-                                    <li><a href="about.html">About us</a></li>
-                                    <li class="dropdown"><a href="#">Past Events</a>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="dropdown"><a href="#">About</a>
                                         <ul>
-                                            {{#each pastEvents}}
-                                            <li><a href="/event/{{this.slug}}.html">{{this.name}}</a></li>
-                                            {{/each}}
+                                            <li><a href="/about-us.html">About Us</a></li>
+                                            <li><a href="/about-bootcamp.html">About Bootcamp</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="#">Upcoming Events</a>
+                                    <li class="dropdown"><a href="#">Events</a>
                                         <ul>
-                                            {{#each pastEvents}}
-                                            <li><a href="/event/{{this.slug}}.html">{{this.name}}</a></li>
-                                            {{/each}}
+                                            <li><a href="/upcoming-events.html">Upcoming Events</a></li>
+                                            <li><a href="/past-events.html">Past Events</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="/pricing.html">Pricing</a></li>
                                     <li class="dropdown"><a href="#">Blog Posts</a>
                                         <ul>
                                             {{#each blogPosts}}
@@ -48,23 +46,29 @@
                                             {{/each}}
                                         </ul>
                                     </li>
-                                    <li><a href="/contact.html">Contact</a></li>
+                                    <li><a href="/contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
 
                     <div class="outer-box d-flex align-items-center flex-wrap">
-                        <div class="header-phone_box">
-                            <a href="tel:+{{data.settings.brandMobile}}"><i class="flaticon-call"></i> {{data.settings.brandMobile}}</a>
+                        <!-- Button Box -->
+                        <div class="main-header_button me-2">
+                            <a href="/register.html" class="theme-btn btn-style-one">
+                                <span class="btn-wrap">
+                                    <span class="text-one">Register Now</span>
+                                    <span class="text-two">Register Now</span>
+                                </span>
+                            </a>
                         </div>
 
                         <!-- Button Box -->
                         <div class="main-header_button">
-                            <a href="{{data.siginURL}}" class="theme-btn btn-style-one">
+                            <a href="{{data.siginURL}}" class="theme-btn btn-style-three">
                                 <span class="btn-wrap">
-                                    <span class="text-one">Login Now</span>
-                                    <span class="text-two">Login Now</span>
+                                    <span class="text-one">Login</span>
+                                    <span class="text-two">Login</span>
                                 </span>
                             </a>
                         </div>
@@ -107,16 +111,38 @@
 </header>
 <!-- End Main Header -->
 
-<!-- Add responsive logo styles -->
+<!-- Add navbar styling with blue background and reduced padding -->
 <style>
+.header-lower {
+    background-color: var(--color-four) !important;
+    padding: 5px 0 !important;
+}
+
+.navigation > li > a,
+.main-menu .navigation > li > a {
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+}
+
+.navigation > li:hover > a,
+.main-menu .navigation > li:hover > a {
+    color: var(--secondary-color) !important;
+}
+
+.main-header_button .theme-btn {
+    margin-left: 10px;
+    padding: 12px 25px !important;
+    font-size: 16px !important;
+}
+
 .responsive-logo {
-    max-width: 90px;
+    max-width: 80px;
     height: auto;
     display: block;
 }
 
 .responsive-mobile-logo {
-    max-width: 80px;
+    max-width: 70px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -125,29 +151,29 @@
 /* Responsive breakpoints */
 @media (max-width: 1200px) {
     .responsive-logo {
-        max-width: 85px;
+        max-width: 75px;
     }
 }
 
 @media (max-width: 991px) {
     .responsive-logo {
-        max-width: 80px;
+        max-width: 70px;
     }
 }
 
 @media (max-width: 767px) {
     .responsive-logo {
-        max-width: 70px;
+        max-width: 60px;
     }
 }
 
 @media (max-width: 480px) {
     .responsive-logo {
-        max-width: 60px;
+        max-width: 50px;
     }
     
     .responsive-mobile-logo {
-        max-width: 70px;
+        max-width: 60px;
     }
 }
 </style>

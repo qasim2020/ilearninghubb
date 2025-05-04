@@ -171,12 +171,48 @@ const htmlPages = [
     'about', 'blog', 'blog-classic', 'blog-detail', 'blog-sidebar',
     'contact', 'faq', 'gallery', 'index-2', 'index-3', 'not-found',
     'program', 'program-detail', 'register', 'reset-password',
-    'team', 'team-detail', 'testimonial'
+    'team', 'team-detail', 'testimonial', 'pricing',
+    'about-us', 'about-bootcamp', 'past-events', 'upcoming-events'
 ];
 
 // QASIM: here we need to load content from database for each page, process it (if needed) and then render the page
 htmlPages.forEach(page => {
+    // Handle both with and without .html extension
     app.get(`/${page}`, (req, res) => {
+        const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
+        if (fs.existsSync(viewPath)) {
+            // Prepare data for handlebars template
+            const data = {
+                settings: {
+                    brandMobile: '302-555-0107',
+                    brandEmail: 'support@ilearninghubb.com',
+                    address: '123 Education Lane, Learning City, ED 12345'
+                },
+                siginURL: '/login.html'
+            };
+            
+            return res.render(page, { data });
+        }
+        
+        res.sendFile(path.join(kidscampPath, `${page}.html`));
+    });
+    
+    app.get(`/${page}.html`, (req, res) => {
+        const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
+        if (fs.existsSync(viewPath)) {
+            // Prepare data for handlebars template
+            const data = {
+                settings: {
+                    brandMobile: '302-555-0107',
+                    brandEmail: 'support@ilearninghubb.com',
+                    address: '123 Education Lane, Learning City, ED 12345'
+                },
+                siginURL: '/login.html'
+            };
+            
+            return res.render(page, { data });
+        }
+        
         res.sendFile(path.join(kidscampPath, `${page}.html`));
     });
 });

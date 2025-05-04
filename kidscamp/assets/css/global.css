@@ -108,6 +108,14 @@
 	--black-color:rgb(0,0,0);
 	--black-color-rgb:0,0,0;
 
+	--primary-font: 'Poppins', 'Inter', 'Manrope', sans-serif;
+	--secondary-font: 'Playfair Display', serif;
+	--tertiary-font: 'Lato', sans-serif;
+	
+	--primary-color: #204B73;
+	--secondary-color: #F19500;
+	--background-color: #f8f9fa; /* Light gray instead of pure white */
+	--text-color: #333;
 }
 
 /*** 
@@ -155,13 +163,14 @@
 }
 
 body {
-	font-family: "Lato", sans-serif;
-	color:var(--color-four);
+	font-family: var(--primary-font);
+	color: var(--text-color);
 	line-height:1.6em;
 	font-weight:400;
 	font-size:14px;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
+	background-color: var(--background-color);
 }
 
 .text-left{
@@ -216,8 +225,9 @@ h1,h2,h3,h4,h5,h6 {
 	position:relative;
 	margin:0px;
 	background:none;
-	color:var(--color-four);
-    font-family: "Playfair Display", serif;
+	font-family: var(--primary-font);
+	font-weight: 700;
+	color: var(--primary-color);
 }
 
 input,button,select,textarea{
@@ -283,7 +293,7 @@ h6{
 	width:100%;
 	min-width:300px;
     overflow: hidden;
-	background-color:var(--color-five);
+	background-color: var(--background-color);
 }
 
 ul,li{
@@ -1145,4 +1155,154 @@ img{
   height: 20vh;
   text-align: center;
   background-color:var(--color-five); }
+
+/* Reducing newsletter padding */
+.newsletter-one {
+    position: relative;
+    z-index: 1;
+    padding: 30px 50px; /* Reduced from 50px 50px */
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--color-two);
+}
+
+.newsletter-box {
+    position: relative;
+    margin-top: 15px; /* Reduced from 30px */
+}
+
+.newsletter-box .form-group input[type="text"],
+.newsletter-box .form-group input[type="email"] {
+    height: 60px; /* Reduced from 72px */
+}
+
+.newsletter-box .form-group .icon {
+    top: 15px; /* Adjusted from 20px */
+}
+
+.newsletter-box .form-group button {
+    top: 6px; /* Adjusted from 8px */
+    padding: 15px 30px; /* Reduced from 17px 32px */
+}
+
+/* Newsletter in footer */
+.footer-newsletter-section {
+    padding: 15px 0; /* Make it slim */
+}
+
+.newsletter-form {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+/* Fix spacing between sections */
+.about-one, 
+.program-one, 
+.events-section,
+.registration-one {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Section padding consistency */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Testimonial section styling */
+.testimonial-two {
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+
+.testimonial-two .sec-title_heading,
+.testimonial-two .sec-title_title,
+.testimonial-two .testimonial-block_two-text,
+.testimonial-two .testimonial-block_two-author {
+  color: #fff;
+}
+
+/* Card styling for equal height */
+.program-block_one-inner,
+.service-block_two-inner,
+.service-block_three-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-block_one-content,
+.service-block_two-text,
+.service-block_three-text {
+  flex-grow: 1;
+}
+
+/* Slider arrow positioning */
+.program-one_carousel-prev,
+.program-one_carousel-next,
+.appScreenshot-slider-prev,
+.appScreenshot-slider-next,
+.main-slider-prev,
+.main-slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.program-one_carousel-prev,
+.appScreenshot-slider-prev,
+.main-slider-prev {
+  left: 15px;
+}
+
+.program-one_carousel-next,
+.appScreenshot-slider-next,
+.main-slider-next {
+  right: 15px;
+}
+
+/* Footer styling updates */
+.footer-style_two {
+  padding-top: 60px;
+}
+
+.newsletter-box_two {
+  padding: 20px;
+}
+
+.footer-bottom .copyright,
+.footer-bottom .designs_by {
+  text-align: center;
+}
+
+/* Add background color to content sections */
+.page-wrapper {
+  background-color: var(--background-color);
+}
+
+.header-lower,
+.main-header,
+.slider-one,
+.slider-two,
+.slider-three {
+  background-color: #fff;
+}
+
+/* Input fields and forms */
+input, 
+textarea, 
+select {
+  background-color: #f0f2f5 !important; /* Softer background for form elements */
+  border: 1px solid #ddd !important;
+}
+
+/* Buttons */
+.btn-style-one, 
+.btn-style-two, 
+.btn-style-three {
+  font-family: var(--primary-font);
+}
 

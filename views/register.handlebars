@@ -1,0 +1,256 @@
+<!-- Page Title -->
+<section class="page-title" style="background-image:url(assets/images/background/page-title.jpg)">
+    <div class="auto-container">
+        <h1>Register for the Bootcamp</h1>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/">Home</a></li>
+            <li>Register</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title -->
+
+<!-- Registration Page -->
+<section class="registration-page">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Title Column -->
+            <div class="title-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <!-- Sec Title -->
+                    <div class="sec-title title-anim">
+                        <div class="sec-title_title">Join Our Bootcamp</div>
+                        <h2 class="sec-title_heading">Register for an Unforgettable
+                            <span>Adventure</span>
+                        </h2>
+                        <div class="sec-title_text">Join our bootcamp where children discover, learn, and grow through engaging activities designed to spark curiosity and build confidence. Limited spots available - secure your child's place today!</div>
+                    </div>
+
+                    <div class="registration-info mt-5">
+                        <h4>Registration Benefits:</h4>
+                        <ul class="list-style-one">
+                            <li>
+                                <span class="icon fa fa-check"></span>
+                                <strong>Expert Instructors</strong> - Learn from passionate teachers
+                            </li>
+                            <li>
+                                <span class="icon fa fa-check"></span>
+                                <strong>Small Group Sizes</strong> - Personalized attention
+                            </li>
+                            <li>
+                                <span class="icon fa fa-check"></span>
+                                <strong>Safe Environment</strong> - Fully supervised activities
+                            </li>
+                            <li>
+                                <span class="icon fa fa-check"></span>
+                                <strong>Flexible Scheduling</strong> - Options to fit your needs
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info mt-5">
+                        <h4>Questions? Contact Us:</h4>
+                        <ul class="registration-contact-list">
+                            <li>
+                                <i class="icon flaticon-call"></i>
+                                Call Us Now <br />
+                                <a href="tel:302-555-0107">302-555-0107</a>
+                            </li>
+                            <li>
+                                <i class="icon flaticon-arroba"></i>
+                                Email Us <br />
+                                <a href="mailto:support@ilearninghubb.com">support@ilearninghubb.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Column -->
+            <div class="form-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="registration-form-outer">
+                        <h3 class="registration-form-title">Bootcamp Registration</h3>
+
+                        <!-- Registration Form -->
+                        <div class="default-form registration-form">
+                            <form method="post" action="/register">
+                                <div class="row clearfix">
+                                    <!-- Child Information -->
+                                    <div class="col-12 mb-4">
+                                        <h4 class="form-section-title">Child Information</h4>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Child's First Name*</label>
+                                        <input type="text" name="childFirstName" placeholder="" required="" />
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Child's Last Name*</label>
+                                        <input type="text" name="childLastName" placeholder="" required="" />
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Age*</label>
+                                        <select name="age" class="custom-select-box" required>
+                                            <option value="">Select Age</option>
+                                            <option value="5-7">5-7 years</option>
+                                            <option value="8-10">8-10 years</option>
+                                            <option value="11-13">11-13 years</option>
+                                            <option value="14-16">14-16 years</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Gender</label>
+                                        <select name="gender" class="custom-select-box">
+                                            <option value="">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                            <option value="prefer-not">Prefer not to say</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Parent/Guardian Information -->
+                                    <div class="col-12 mb-4 mt-4">
+                                        <h4 class="form-section-title">Parent/Guardian Information</h4>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>First Name*</label>
+                                        <input type="text" name="parentFirstName" placeholder="" required="" />
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Last Name*</label>
+                                        <input type="text" name="parentLastName" placeholder="" required="" />
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Email Address*</label>
+                                        <input type="email" name="email" placeholder="" required="" />
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label>Phone Number*</label>
+                                        <input type="tel" name="phone" placeholder="" required="" />
+                                    </div>
+
+                                    <!-- Additional Information -->
+                                    <div class="col-12 mb-4 mt-4">
+                                        <h4 class="form-section-title">Additional Information</h4>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label>Does your child have any medical conditions or allergies?</label>
+                                        <select name="medicalConditions" class="custom-select-box">
+                                            <option value="no">No</option>
+                                            <option value="yes">Yes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label>If yes, please provide details:</label>
+                                        <textarea name="medicalDetails" placeholder=""></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label>Any additional information we should know?</label>
+                                        <textarea name="additionalInfo" placeholder=""></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <button type="submit" class="theme-btn btn-style-one">
+                                            <span class="btn-wrap">
+                                                <span class="text-one">Submit Registration
+                                                    <i class="flaticon-next-1"></i></span>
+                                                <span class="text-two">Submit Registration
+                                                    <i class="flaticon-next-1"></i></span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Registration Page -->
+
+<!-- Add styling for the registration page -->
+<style>
+    .registration-page {
+        padding: 100px 0;
+        background-color: #f8f8f8;
+    }
+    
+    .registration-form-outer {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        padding: 40px;
+        margin-top: 30px;
+    }
+    
+    .registration-form-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+        color: #333;
+    }
+    
+    .form-section-title {
+        font-size: 18px;
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .registration-contact-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .registration-contact-list li {
+        position: relative;
+        margin-bottom: 20px;
+        padding-left: 50px;
+    }
+    
+    .registration-contact-list li .icon {
+        position: absolute;
+        left: 0;
+        top: 5px;
+        font-size: 24px;
+        color: #F9A826;
+    }
+    
+    .list-style-one {
+        position: relative;
+        padding: 0;
+    }
+    
+    .list-style-one li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+        list-style-type: none;
+    }
+    
+    .list-style-one li .icon {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        color: #F9A826;
+    }
+    
+    .list-style-one li strong {
+        display: block;
+        color: #333;
+    }
+</style> 

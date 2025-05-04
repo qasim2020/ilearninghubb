@@ -1,0 +1,113 @@
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url(assets/images/background/contact-bg.jpg);">
+    <div class="auto-container">
+        <h1>Contact Us</h1>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/">Home</a></li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Contact Form Section -->
+<section class="contact-info-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Info Column -->
+            <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <!-- Contact Info List -->
+                    <ul class="contact-info-list">
+                        <li>
+                            <span class="icon fa fa-map-marker-alt"></span>
+                            <strong>Location</strong>
+                            {{data.settings.address}}
+                        </li>
+                        <li>
+                            <span class="icon fa fa-phone-alt"></span>
+                            <strong>Call us</strong>
+                            <a href="tel:+{{data.settings.brandMobile}}">{{data.settings.brandMobile}}</a>
+                        </li>
+                        <li>
+                            <span class="icon fa fa-envelope"></span>
+                            <strong>Write to us</strong>
+                            <a href="mailto:{{data.settings.brandEmail}}">{{data.settings.brandEmail}}</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Box -->
+                    <ul class="social-box">
+                        <li><a href="{{data.settings.facebook}}" class="fa fa-facebook-f"></a></li>
+                        <li><a href="{{data.settings.twitter}}" class="fa fa-twitter"></a></li>
+                        <li><a href="{{data.settings.instagram}}" class="fa fa-instagram"></a></li>
+                        <li><a href="{{data.settings.youtube}}" class="fa fa-youtube"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Form Column -->
+            <div class="form-column col-lg-8 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <h2>Get in touch with us</h2>
+                        <div class="text">Feel free to contact us if you have any questions or inquiries.</div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <form method="post" action="sendemail.php" id="contact-form">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="username" placeholder="Your Name *" required>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="email" name="email" placeholder="Your Email *" required>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="phone" placeholder="Your Phone">
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="subject" placeholder="Subject">
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <textarea name="message" placeholder="Your Message *" required></textarea>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Send Message</span>
+                                            <span class="text-two">Send Message</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="outer-container">
+        <div class="map-outer">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8173498834115!2d36.81625131475702!3d-1.2845182359880884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3c3b9b801%3A0x37a27bc3ca26354d!2siLearningHubb!5e0!3m2!1sen!2ske!4v1619180158177!5m2!1sen!2ske" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+<!-- End Map Section --> 

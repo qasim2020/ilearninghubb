@@ -10,11 +10,11 @@
     <link href="assets/css/meanmenu.min.css" rel="stylesheet" />
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - Modern Font Stack -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet" />
 
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
@@ -28,6 +28,40 @@
             ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
         ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    
+    <style>
+        /* Modern Font Stack */
+        body {
+            font-family: 'Poppins', 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif !important;
+        }
+        
+        /* Custom styles for newsletter in footer */
+        .newsletter-one {
+            padding: 25px 50px !important; /* Reduced padding */
+        }
+        
+        .newsletter-box {
+            margin-top: 10px !important;
+        }
+        
+        .newsletter-box .form-group input[type="text"],
+        .newsletter-box .form-group input[type="email"] {
+            height: 60px !important;
+        }
+        
+        .newsletter-box .form-group .icon {
+            top: 15px !important;
+        }
+        
+        .newsletter-box .form-group button {
+            top: 6px !important;
+            padding: 14px 30px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,23 +122,46 @@
             <div class="widgets-section">
                 <div class="auto-container">
                     <div class="row clearfix">
-                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <!-- Column 1: Logo and contact info -->
+                        <div class="big-column col-lg-4 col-md-12 col-sm-12">
+                            <div class="footer_column">
+                                <div class="footer-widget">
+                                    <div class="footer-logo">
+                                        <a href="/"><img 
+                                            src="assets/images/footer-logo.png" 
+                                            alt="iLearningHubb Logo" 
+                                            title="iLearningHubb"
+                                            style="width: 450px; height: 150px; object-fit: contain;" 
+                                        /></a>
+                                    </div>
+                                    <div class="footer-text">Inspiring young minds every step of the way. Building brighter futures through fun, safe, and engaging educational experiences.</div>
+                                    <div class="contact-info mt-3">
+                                        <div class="contact-item">
+                                            <i class="flaticon-call"></i> 302-555-0107
+                                        </div>
+                                        <div class="contact-item mt-2">
+                                            <i class="flaticon-arroba"></i> support@ilearninghubb.com
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Quick Links -->
+                        <div class="big-column col-lg-5 col-md-12 col-sm-12">
                             <div class="row clearfix">
                                 <div class="footer_column col-lg-6 col-md-6 col-sm-12">
-                                    <div class="footer-widget">
-                                        <div class="footer-logo"><a href="/"><img 
-                                    src="assets/images/footer-logo.png" 
-                                    alt="iLearningHubb Logo" 
-                                    title="iLearningHubb"
-                                    style="width: 450px; height: 150px; object-fit: contain;" 
-                                    /></a></div>
-                                        <div class="footer-text">Inspiring young minds every step of the way. Building brighter futures through fun, safe, and engaging educational experiences.</div>
-                                        <div class="footer_socials">
-                                            <a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                                            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                                            <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-                                            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                                        </div>
+                                    <div class="footer-widget links-widget">
+                                        <h5 class="footer-title">Quick Links</h5>
+                                        <ul class="footer-list">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="/about-bootcamp">About Bootcamp</a></li>
+                                            <li><a href="/contact">Contact Us</a></li>
+                                            <li><a href="/register">Register</a></li>
+                                            <li><a href="/events">Events</a></li>
+                                            <li><a href="/programs">Programs</a></li>
+                                        </ul>
                                     </div>
                                 </div>
 
@@ -118,77 +175,24 @@
                                             <li><a href="#">Warrior Training</a></li>
                                             <li><a href="#">Adventure Explorers</a></li>
                                             <li><a href="#">Champions Camp</a></li>
-                                            <li><a href="#">Team Building</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                            <div class="row clearfix">
-                                <div class="footer_column col-lg-6 col-md-6 col-sm-12">
-                                    <div class="footer-widget links-widget">
-                                        <h5 class="footer-title">Resources</h5>
-                                        <ul class="footer-list">
-                                            <li><a href="#">Blog</a></li>
-                                            <li><a href="#">FaQs</a></li>
-                                            <li><a href="#">Help Center</a></li>
-                                            <li><a href="#">Case Studies</a></li>
-                                            <li><a href="#">Whitepapers</a></li>
-                                            <li><a href="#">services</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="footer_column col-lg-6 col-md-6 col-sm-12">
-                                    <div class="footer-widget instagram-widget">
-                                        <h5 class="footer-title">Gallery</h5>
-                                        <div class="images-outer clearfix">
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image2.JPG"><img 
-                                                    src="assets/images/gallery/image2.JPG" 
-                                                    alt="Gallery Image 1" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image3.JPG"><img 
-                                                    src="assets/images/gallery/image3.JPG" 
-                                                    alt="Gallery Image 2" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image1.JPG"><img 
-                                                    src="assets/images/gallery/image1.JPG" 
-                                                    alt="Gallery Image 3" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image4.JPG"><img 
-                                                    src="assets/images/gallery/image4.JPG" 
-                                                    alt="Gallery Image 4" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image5.JPG"><img 
-                                                    src="assets/images/gallery/image5.JPG" 
-                                                    alt="Gallery Image 5" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                            <figure class="image-box"><a class="lightbox-image"
-                                                    href="assets/images/gallery/image3.JPG"><img 
-                                                    src="assets/images/gallery/image3.JPG" 
-                                                    alt="Gallery Image 6" 
-                                                    style="width: 95px; height: 95px; object-fit: cover;" 
-                                                    /></a>
-                                            </figure>
-                                        </div>
-                                    </div>
+                        <!-- Column 3: Social Media -->
+                        <div class="big-column col-lg-3 col-md-12 col-sm-12">
+                            <div class="footer_column">
+                                <div class="footer-widget social-widget">
+                                    <h5 class="footer-title">Our Socials</h5>
+                                    <div class="footer-text">Stay updated with our latest news and events.</div>
+                                    <ul class="social-list mt-3">
+                                        <li><a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+                                        <li><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+                                        <li><a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                                        <li><a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -196,20 +200,10 @@
                 </div>
             </div>
 
-            <div class="footer-bottom">
+            <div class="footer-bottom text-center">
                 <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="column col-lg-6 col-md-12 col-sm-12">
-                            <div class="copyright">Copyright &copy; 2024 Kidscamp All Rights
-                                Reserved</div>
-                        </div>
-                        <div class="column col-lg-6 col-md-12 col-sm-12">
-                            <div class="designs_by">Design with
-                                <i class="fa-solid fa-heart fa-fw"></i> by
-                                Themeim
-                            </div>
-                        </div>
-                    </div>
+                    <div class="copyright">Copyright &copy; 2024 iLearningHubb All Rights Reserved</div>
+                    <div class="designs_by text-center">Design with <i class="fa-solid fa-heart fa-fw"></i> by Themeim</div>
                 </div>
             </div>
         </footer>
