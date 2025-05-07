@@ -52,7 +52,7 @@
                         </nav>
                     </div>
 
-                    <div class="outer-box d-flex align-items-center flex-wrap">
+                    <div class="outer-box d-flex align-items-center">
                         <!-- Button Box -->
                         <div class="main-header_button me-2">
                             <a href="/register.html" class="theme-btn btn-style-one">
@@ -74,15 +74,12 @@
                         </div>
 
                         <!-- About Widget -->
-                        <span class="about-widget">
+                        <div class="about-widget d-flex align-items-center">
                             <span class="hamburger">
                                 <span class="top-bun"></span>
                                 <span class="meat"></span>
                             </span>
-                        </span>
-
-                        <!-- Mobile Navigation Toggler -->
-                        <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,6 +130,16 @@
     margin-left: 10px;
     padding: 12px 25px !important;
     font-size: 16px !important;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.about-widget,
+.mobile-nav-toggler {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .responsive-logo {
