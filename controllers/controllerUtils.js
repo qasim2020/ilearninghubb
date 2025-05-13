@@ -1,22 +1,16 @@
 const mongoose = require('mongoose');
 const createModel = require('../modules/createModel');
-
+const BrandSettings = require('../models/brand_settings')
 /**
  * Helper function to get settings with error handling
  * @returns {Promise<Object>} The settings object or a default one
  */
 const getSettings = async () => {
     try {
-        const model = await createModel('myapp-themes');
-        let settings;
-        try {
-            settings = await model.findOne({ brand: 'hubb' }).lean();
-        } catch (err) {
-            console.error('Error finding settings:', err);
-        }
+        const settings = await BrandSettings.findOne({ brand: 'hubb' }).lean();
         return settings || { brand: 'hubb', properties: {} };
     } catch (err) {
-        console.error('Error creating model:', err);
+        console.error('Error Fetching data:', err);
         return { brand: 'hubb', properties: {} };
     }
 };

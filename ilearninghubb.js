@@ -46,9 +46,7 @@ const indexController = require('./controllers/indexController');
 
 app.get('/', indexController.landingPage);
 
-const seedDatabase = require('./modules/seedData');
 
-seedDatabase()
 
 const PORT = process.env.PORT || 3000;
 
