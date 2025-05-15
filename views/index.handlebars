@@ -57,7 +57,7 @@
                                 <div class="slider-one_text">Spark curiosity and build young minds with hands-on learning, teamwork, and fun in every session.</div>
                                 <div class="slider-one_button d-flex align-items-center flex-wrap">
                                     <!-- Replace your current button with a direct link to Ticket Tailor -->
-<a href="https://www.tickettailor.com/all-tickets/islamiclearninghubb/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank" class="theme-btn btn-style-one">
+<a href="#" class="theme-btn btn-style-one" id="ticketRegistrationBtn">
     <span class="btn-wrap">
         <span class="text-one">Register now <i class="flaticon-next-1"></i></span>
         <span class="text-two">Register now <i class="flaticon-next-1"></i></span>
@@ -862,6 +862,55 @@
     </div>
 </section>
 <!-- End Registration One -->
+
+<div id="ticketOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
+    <div id="ticketContainer" style="position: relative; width: 90%; max-width: 1000px; height: 80%; margin: 5% auto; background-color: white; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.4); overflow: hidden;">
+        <div id="closeTicketBtn" style="position: absolute; top: 15px; right: 15px; font-size: 24px; color: #333; cursor: pointer; z-index: 10000; background-color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; box-shadow: 0 0 5px rgba(0,0,0,0.3);">✕</div>
+        <iframe id="ticketTailorFrame" 
+                src="https://www.tickettailor.com/all-tickets/islamiclearninghubb/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" 
+                style="width: 100%; height: 100%; border: none;">
+        </iframe>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ticketBtn = document.getElementById('ticketRegistrationBtn');
+        const overlay = document.getElementById('ticketOverlay');
+        const closeBtn = document.getElementById('closeTicketBtn');
+        
+        // Open overlay when button is clicked
+        ticketBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+        
+        // Close overlay when close button is clicked
+        closeBtn.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+        
+        // Close overlay when clicking outside the container
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+        
+        // Listen for escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+    });
+</script>
+
 
 <!-- Custom Script to Disable Hero Slider Movement -->
 <script>
