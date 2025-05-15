@@ -56,8 +56,7 @@
                                 </h1>
                                 <div class="slider-one_text">Spark curiosity and build young minds with hands-on learning, teamwork, and fun in every session.</div>
                                 <div class="slider-one_button d-flex align-items-center flex-wrap">
-                                    <!-- Replace your current button with a direct link to Ticket Tailor -->
-<a href="#" class="theme-btn btn-style-one" id="ticketRegistrationBtn">
+                                      <a href="#" class="theme-btn btn-style-one ticket-register-btn">
     <span class="btn-wrap">
         <span class="text-one">Register now <i class="flaticon-next-1"></i></span>
         <span class="text-two">Register now <i class="flaticon-next-1"></i></span>
@@ -876,15 +875,18 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const ticketBtn = document.getElementById('ticketRegistrationBtn');
+        // Get all register buttons by class instead of a single button by ID
+        const ticketBtns = document.querySelectorAll('.ticket-register-btn');
         const overlay = document.getElementById('ticketOverlay');
         const closeBtn = document.getElementById('closeTicketBtn');
         
-        // Open overlay when button is clicked
-        ticketBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            overlay.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        // Add click listener to each button
+        ticketBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
         });
         
         // Close overlay when close button is clicked
@@ -910,6 +912,7 @@
         });
     });
 </script>
+
 
 
 <!-- Custom Script to Disable Hero Slider Movement -->
