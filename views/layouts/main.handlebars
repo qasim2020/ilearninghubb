@@ -11,8 +11,10 @@
     <link href="assets/css/responsive.css" rel="stylesheet" />
 
     <!-- Google Fonts - Modern Font Stack -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet" />
@@ -28,38 +30,56 @@
             ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
         ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-    
+
     <style>
         /* Modern Font Stack */
         body {
             font-family: 'Poppins', 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Playfair Display', serif !important;
         }
-        
+
         /* Custom styles for newsletter in footer */
         .newsletter-one {
-            padding: 25px 50px !important; /* Reduced padding */
+            padding: 25px 50px !important;
+            /* Reduced padding */
         }
-        
+
         .newsletter-box {
             margin-top: 10px !important;
         }
-        
+
         .newsletter-box .form-group input[type="text"],
         .newsletter-box .form-group input[type="email"] {
             height: 60px !important;
         }
-        
+
         .newsletter-box .form-group .icon {
             top: 15px !important;
         }
-        
+
         .newsletter-box .form-group button {
             top: 6px !important;
             padding: 14px 30px !important;
+        }
+
+        .footer-social-media {
+            margin-bottom: 10px;
+        }
+
+        .pt-0 {
+            padding-top: 0 !important;
+        }
+
+        .copyright {
+            font-family: 'Playfair Display', serif !important;
         }
     </style>
 </head>
@@ -74,17 +94,18 @@
         {{{body}}}
         <!-- Main Footer -->
         <footer class="main-footer" style="position: relative; margin-top: 150px;">
-    <!-- More complex wave SVG that better matches the reference image -->
-    <div class="footer-wave" style="position: absolute; top: -150px; left: 0; width: 100%; height: 150px; overflow: hidden;">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" style="width: 100%; height: 100%;">
-            <path fill="#002e4d" d="M0,64 
+            <!-- More complex wave SVG that better matches the reference image -->
+            <div class="footer-wave"
+                style="position: absolute; top: -150px; left: 0; width: 100%; height: 150px; overflow: hidden;">
+                <svg viewBox="0 0 1440 150" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path fill="#002e4d" d="M0,64 
                 C180,120 300,0 480,64 
                 C660,128 780,32 960,64 
                 C1140,96 1260,0 1440,64 
                 L1440,150 L0,150 Z">
-            </path>
-        </svg>
-    </div>
+                    </path>
+                </svg>
+            </div>
             <div class="color-one"></div>
             <div class="color-two"></div>
             <div class="main-footer_icon" style="
@@ -138,15 +159,13 @@
                             <div class="footer_column">
                                 <div class="footer-widget">
                                     <div class="footer-logo">
-                                        <a href="/"><img 
-                                            src="assets/images/footer-logo.png" 
-                                            alt="iLearningHubb Logo" 
-                                            title="iLearningHubb"
-                                            style="width: 450px; height: 150px; object-fit: contain;" 
-                                        /></a>
+                                        <a href="/"><img src="assets/images/footer-logo.png" alt="iLearningHubb Logo"
+                                                title="iLearningHubb"
+                                                style="margin-left: -19px; height: 150px; object-fit: contain;" /></a>
                                     </div>
-                                    <div class="footer-text">Inspiring young minds every step of the way. Building brighter futures through fun, safe, and engaging educational experiences.</div>
-                                    
+                                    <div class="footer-text">Inspiring young minds every step of the way. Building
+                                        brighter futures through fun, safe, and engaging educational experiences.</div>
+
                                 </div>
                             </div>
                         </div>
@@ -192,10 +211,34 @@
                                     <h5 class="footer-title">Our Socials</h5>
                                     <div class="footer-text">Stay updated with our latest news and events.</div>
                                     <ul class="social-list mt-3">
-                                        <li><a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                                        <li><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
-                                        <li><a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
-                                        <li><a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                                        <li class="footer-social-media">
+                                            <a class="" href="https://facebook.com/">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-facebook"></i> </span>
+                                                Facebook
+                                            </a>
+                                        </li>
+                                        <li class="footer-social-media">
+                                            <a class="" href="https://twitter.com/">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-twitter"></i> </span>
+                                                Twitter
+                                            </a>
+                                        </li>
+                                        <li class="footer-social-media">
+                                            <a class="" href="https://youtube.com/">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-youtube"></i> </span>
+                                                YouTube
+                                            </a>
+                                        </li>
+                                        <li class="footer-social-media">
+                                            <a class="" href="https://instagram.com/">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-instagram"></i> </span>
+                                                Instagram
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -206,8 +249,10 @@
 
             <div class="footer-bottom text-center">
                 <div class="auto-container">
-                    <div class="copyright">Copyright &copy; 2024 iLearningHubb All Rights Reserved</div>
-                    <div class="designs_by text-center">Design with <i class="fa-solid fa-heart fa-fw"></i> by Themeim</div>
+                    <div class="copyright">Copyright &copy; 2025 iLearningHubb · All Rights Reserved</div>
+                    <div class="designs_by text-center mt-3">Created with <i class="fa-solid fa-heart fa-fw"></i> by
+                        Ayub & Qasim
+                    </div>
                 </div>
             </div>
         </footer>

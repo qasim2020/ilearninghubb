@@ -18,7 +18,7 @@ Handles the main entry point of the application:
 - Uses the centralized rendering logic for consistency
 - Simplified by removing duplicate error handling logic
 
-### Views Controller (`controllers/viewsController.js`)
+### Views Controller (`controllers/pageController.js`)
 
 Handles all standard view routes in the application:
 
@@ -48,17 +48,17 @@ Handles various error scenarios:
 To add a new controller for a simple page:
 
 ```javascript
-// In viewsController.js
+// In pageController.js
 exports.newPage = createPageController('new-page');
 
 // In routes/regularRoutes.js
-router.get('/new-page', viewsController.newPage);
+router.get('/new-page', pageController.newPage);
 ```
 
 For a more complex controller that needs custom data:
 
 ```javascript
-// In viewsController.js
+// In pageController.js
 exports.complexPage = async (req, res) => {
     const customData = {
         // Your custom data here
