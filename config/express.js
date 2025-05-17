@@ -118,4 +118,4 @@ app.get('/assets/images/:filename', (req, res) => {
     res.sendFile(path.join(kidscampPath, 'assets', 'images', req.params.filename));
 });
 
-module.exports = app;
+module.exports = { app, kidscampPath, assetsPath };

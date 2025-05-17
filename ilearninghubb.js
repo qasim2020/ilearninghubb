@@ -3,7 +3,7 @@ const mongoose = require('./config/db');
 mongoose();
 const path = require('path');
 const fs = require('fs');
-const app = require('./config/express');
+const { app, kidscampPath, assetsPath } = require('./config/express');
 const pageRoutes = require('./routes/pageRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 
@@ -32,7 +32,7 @@ htmlPages.forEach(page => {
                     brandMobile: '302-555-0107',
                     brandEmail: 'support@ilearninghubb.com',
                     address: '123 Education Lane, Learning City, ED 12345'
-                },
+                }, 
                 siginURL: '/login.html'
             };
 

@@ -5,52 +5,49 @@
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                     <div class="nav-outer d-flex align-items-center flex-wrap">
                         <div class="logo-box">
-                            <div class="logo"><a href="/"><img 
-                                    src="assets/images/logo-11.png" 
-                                    alt="iLearningHubb Logo" 
-                                    title="iLearningHubb"
-                                    class="responsive-logo" 
-                                    /></a></div>
+                            <div class="logo"><a href="/"><img src="assets/images/logo-11.png" alt="iLearningHubb Logo"
+                                        title="iLearningHubb" class="responsive-logo" /></a></div>
                         </div>
-                        <nav class="main-menu navbar-expand-md">
-                            <div class="navbar-header">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-
-                            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li><a href="/">Home</a></li>
-                                    <li class="dropdown"><a href="#">About</a>
-                                        <ul>
-                                            <li><a href="/about-us.html">About Us</a></li>
-                                            <li><a href="/about-bootcamp.html">About Bootcamp</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Events</a>
-                                        <ul>
-                                            <li><a href="/upcoming-events.html">Upcoming Events</a></li>
-                                            <li><a href="/past-events.html">Past Events</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/pricing.html">Pricing</a></li>
-                                    <li class="dropdown"><a href="#">Blog Posts</a>
-                                        <ul>
-                                            {{#each blogPosts}}
-                                            <li><a href="/blog/{{this.slug}}">{{this.name}}</a></li>
-                                            {{/each}}
-                                        </ul>
-                                    </li>
-                                    <li><a href="/contact.html">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </nav>
                     </div>
+
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li><a href="/">Home</a></li>
+                                <li class="dropdown"><a href="#">About</a>
+                                    <ul>
+                                        <li><a href="/about-us">About Us</a></li>
+                                        <li><a href="/about-bootcamp.html">About Bootcamp</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#">Events</a>
+                                    <ul>
+                                        <li><a href="/upcoming-events.html">Upcoming Events</a></li>
+                                        <li><a href="/past-events.html">Past Events</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/pricing.html">Pricing</a></li>
+                                <li class="dropdown"><a href="#">Blog Posts</a>
+                                    <ul>
+                                        {{#each blogPosts}}
+                                        <li><a href="/blog/{{this.slug}}">{{this.name}}</a></li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                <li><a href="/contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </nav>
 
                     <div class="outer-box d-flex align-items-center">
                         <!-- Button Box -->
@@ -93,11 +90,8 @@
         <div class="close-btn"><span class="icon flaticon-close"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img 
-                src="assets/images/logo-11.png" 
-                alt="iLearningHubb Logo" 
-                title="iLearningHubb"
-                class="responsive-mobile-logo" /></a>
+            <div class="nav-logo"><a href="/"><img src="assets/images/logo-11.png" alt="iLearningHubb Logo"
+                        title="iLearningHubb" class="responsive-mobile-logo" /></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -110,81 +104,90 @@
 
 <!-- Add navbar styling with blue background and reduced padding -->
 <style>
-.main-header {
-    background-color: transparent;
-    padding: 5px 0 !important;
-}
-
-.header-lower {
-    background-color: transparent;
-}
-
-.navigation > li > a,
-.main-menu .navigation > li > a {
-    color: #ffffff !important;
-    padding: 10px 15px !important;
-}
-
-.navigation > li:hover > a,
-.main-menu .navigation > li:hover > a {
-    color: var(--secondary-color) !important;
-}
-
-.main-header_button .theme-btn {
-    margin-left: 10px;
-    padding: 12px 25px !important;
-    font-size: 16px !important;
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.about-widget,
-.mobile-nav-toggler {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.responsive-logo {
-    max-width: 80px;
-    height: auto;
-    display: block;
-}
-
-.responsive-mobile-logo {
-    max-width: 70px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Responsive breakpoints */
-@media (max-width: 1200px) {
-    .responsive-logo {
-        max-width: 75px;
+    .main-header {
+        background-color: transparent;
+        padding: 5px 0 !important;
     }
-}
 
-@media (max-width: 991px) {
-    .responsive-logo {
-        max-width: 70px;
+    .header-lower {
+        background-color: transparent;
     }
-}
 
-@media (max-width: 767px) {
-    .responsive-logo {
-        max-width: 60px;
+    .main-header .header-lower .logo-box .logo {
+        position: relative;
+        padding-left: 60px;
     }
-}
 
-@media (max-width: 480px) {
-    .responsive-logo {
-        max-width: 50px;
+    .navigation>li>a,
+    .main-menu .navigation>li>a {
+        color: #ffffff !important;
+        padding: 10px 15px !important;
     }
-    
+
+    .navigation>li:hover>a,
+    .main-menu .navigation>li:hover>a {
+        color: var(--secondary-color) !important;
+    }
+
+    .main-header_button .theme-btn {
+        margin-left: 10px;
+        padding: 12px 25px !important;
+        font-size: 16px !important;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .about-widget,
+    .mobile-nav-toggler {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .responsive-logo {
+        max-width: 80px;
+        height: auto;
+        display: block;
+    }
+
     .responsive-mobile-logo {
-        max-width: 60px;
+        max-width: 70px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
-}
+
+    @media (max-width: 1200px) {
+
+        .main-header,
+        .header-lower {
+            background-color: var(--color-four);
+        }
+
+        .responsive-logo {
+            max-width: 75px;
+        }
+
+        .main-header .header-lower .logo-box .logo {
+            position: relative;
+            padding: 5px 0px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .responsive-logo {}
+    }
+
+    @media (max-width: 767px) {
+        .responsive-logo {}
+    }
+
+    @media (max-width: 480px) {
+        .responsive-logo {}
+
+        .responsive-mobile-logo {
+            max-width: 60px;
+        }
+    }
 </style>

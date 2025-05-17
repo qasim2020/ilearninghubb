@@ -4,7 +4,7 @@ const pageController = require('../controllers/pageController');
 const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.index);
-router.get("/about", pageController.about);
+router.get("/about-us", pageController.about);
 router.get("/blog", pageController.blog);
 router.get("/blog-classic", pageController.blogClassic);
 router.get("/blog-sidebar", pageController.blogSidebar);

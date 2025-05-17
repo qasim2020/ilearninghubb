@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const createModel = require('../modules/createModel');
 const BrandSettings = require('../models/brand_settings')
-/**
- * Helper function to get settings with error handling
- * @returns {Promise<Object>} The settings object or a default one
- */
+
 const getSettings = async () => {
     try {
         const settings = await BrandSettings.findOne({ brand: 'hubb' }).lean();
@@ -15,14 +12,6 @@ const getSettings = async () => {
     }
 };
 
-/**
- * Generic render function for all pages
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- * @param {string} template - The template to render
- * @param {Object} additionalData - Additional data to include in the render
- * @param {number} statusCode - HTTP status code (optional)
- */
 const renderPage = async (req, res, template, additionalData = {}, statusCode = 200) => {
     try {
         const settings = await getSettings();
