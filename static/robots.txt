@@ -1,0 +1,26 @@
+# robots.txt for [Your Website Name]
+# Last updated: 2025-08-19
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /search
+Disallow: /cart
+Disallow: /checkout
+
+# Allow everything else
+Allow: /
+
+# Sitemap location (update the URL as needed)
+Sitemap: https://ilearninghubb.com/sitemap.xml
+
+# Optional: Block specific bots (example: AhrefsBot)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# End of robots.txt
