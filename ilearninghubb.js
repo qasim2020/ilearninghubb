@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 
 app.use('/xmlrpc.php', express.static(path.join(__dirname, 'static/allowurl.txt')));
 app.use('/robots.txt', express.static(path.join(__dirname, 'static/robots.txt')));
+app.use('/wp-login.php', express.static(path.join(__dirname, 'static/allowurl.txt')));
 app.use(pageRoutes);
 app.use(emailRoutes);
 
