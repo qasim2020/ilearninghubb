@@ -4,3 +4,4 @@
 - Payment done by client
 - Working on planning upcoming trips
 - Once trips are planned we can start collecting tickets using Stripe & Vipps
+- Going to Library to study masters and do some coding...
