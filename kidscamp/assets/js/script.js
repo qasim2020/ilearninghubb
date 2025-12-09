@@ -1043,24 +1043,6 @@
         });
     }
 
-    //Contact Form Validation
-    if ($('#contact-form').length) {
-        $('#contact-form').validate({
-            rules: {
-                username: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-                message: {
-                    required: true,
-                },
-            },
-        });
-    }
-
     // Scroll to a Specific Div
     if ($('.scroll-to-target').length) {
         $('.scroll-to-target').on('click', function () {
@@ -1136,23 +1118,5 @@
             }, 5000);
         }
     });
-
-    // Make sure the home contact form validation works
-    if ($('#home-contact-form').length) {
-        $('#home-contact-form').validate({
-            rules: {
-                username: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-                message: {
-                    required: true,
-                },
-            },
-        });
-    }
 
 })(window.jQuery);

@@ -39,7 +39,7 @@ app.use((req, res, next) => {
                 status: res.statusCode,
                 url: req.originalUrl,
             };
-            sendErrorToTelegram(errorData);
+            // sendErrorToTelegram(errorData);
         }
     });
 
@@ -49,24 +49,28 @@ app.use((req, res, next) => {
 app.use('/xmlrpc.php', express.static(path.join(__dirname, 'static/allowurl.txt')));
 app.use('/robots.txt', express.static(path.join(__dirname, 'static/robots.txt')));
 app.use('/wp-login.php', express.static(path.join(__dirname, 'static/allowurl.txt')));
+
+
 app.use(pageRoutes);
 app.use(emailRoutes);
 
 const htmlPages = [
     'about', 'blog', 'blog-classic', 'blog-detail', 'blog-sidebar',
-    'contact', 'faq', 'gallery', 'index-2', 'index-3', 'not-found',
+    'faq', 'gallery', 'index-2', 'index-3', 'not-found',
     'program', 'program-detail', 'register', 'reset-password',
     'team', 'team-detail', 'testimonial', 'pricing',
-    'about-us', 'about-bootcamp', 'past-events', 'upcoming-events'
+    'about-us', 'about-bootcamp', 'past-events', 'upcoming-events', 'contact',
 ];
 
 htmlPages.forEach(page => {
+    console.log(page);
     app.get(`/${page}.html`, (req, res) => {
         const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
         if (fs.existsSync(viewPath)) {
+            console.log(page + ' page found - rendering view');
             return res.render(page);
         }
-
+        console.log('page not found - opening static route');
         res.sendFile(path.join(kidscampPath, `${page}.html`));
     });
 });

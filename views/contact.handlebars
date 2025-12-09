@@ -1,113 +1,139 @@
-<!-- Page Title Section -->
-<section class="page-title" style="background-image: url(assets/images/background/contact-bg.jpg);">
+<!-- Page Title -->
+<section class="page-title">
+    <div class="color-one"></div>
+    <div class="color-two"></div>
+    <div class="color-three"></div>
+    <div class="color-four"></div>
     <div class="auto-container">
-        <h1>Contact Us</h1>
+        <h2>Contact Us</h2>
         <ul class="bread-crumb clearfix">
-            <li><a href="/">Home</a></li>
+            <li><a href="/"><i class="flaticon-home"></i> Kidscamp</a></li>
             <li>Contact Us</li>
         </ul>
     </div>
+    <!--Waves Container-->
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallaxx">
+                <use xlink:href="#gentle-wave" x="148" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="100" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="70" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+    <!--Waves end-->
 </section>
-<!-- End Page Title Section -->
+<!-- End Page Title -->
 
-<!-- Contact Form Section -->
-<section class="contact-info-section">
+<!-- Contact Info -->
+<section class="contact-info">
     <div class="auto-container">
         <div class="row clearfix">
-            <!-- Info Column -->
-            <div class="info-column col-lg-4 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <!-- Contact Info List -->
-                    <ul class="contact-info-list">
-                        <li>
-                            <span class="icon fa fa-map-marker-alt"></span>
-                            <strong>Location</strong>
-                            {{data.settings.address}}
-                        </li>
-                        <li>
-                            <span class="icon fa fa-phone-alt"></span>
-                            <strong>Call us</strong>
-                            <a href="tel:+{{data.settings.brandMobile}}">{{data.settings.brandMobile}}</a>
-                        </li>
-                        <li>
-                            <span class="icon fa fa-envelope"></span>
-                            <strong>Write to us</strong>
-                            <a href="mailto:{{data.settings.brandEmail}}">{{data.settings.brandEmail}}</a>
-                        </li>
-                    </ul>
-                    
-                    <!-- Social Box -->
-                    <ul class="social-box">
-                        <li><a href="{{data.settings.facebook}}" class="fa fa-facebook-f"></a></li>
-                        <li><a href="{{data.settings.twitter}}" class="fa fa-twitter"></a></li>
-                        <li><a href="{{data.settings.instagram}}" class="fa fa-instagram"></a></li>
-                        <li><a href="{{data.settings.youtube}}" class="fa fa-youtube"></a></li>
-                    </ul>
+
+            <!-- Info Block Two -->
+            <div class="info-block_two col-lg-4 col-md-6 col-sm-12">
+                <div class="info-block_two-inner">
+                    <div class="info-block_two-icon">
+                        <i class="flaticon-phone-call"></i>
+                    </div>
+                    <h4>Phone Number</h4>
+                    <a href="tel:+415-864-8728">(225) 555-0118</a> <br>
+                    <a href="tel:+415-864-8729">(702) 555-0122</a>
                 </div>
             </div>
-            
-            <!-- Form Column -->
-            <div class="form-column col-lg-8 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <div class="sec-title">
-                        <h2>Get in touch with us</h2>
-                        <div class="text">Feel free to contact us if you have any questions or inquiries.</div>
+
+            <!-- Info Block Two -->
+            <div class="info-block_two col-lg-4 col-md-6 col-sm-12">
+                <div class="info-block_two-inner">
+                    <div class="info-block_two-icon">
+                        <i class="flaticon-pin"></i>
                     </div>
-                    
-                    <!-- Contact Form -->
-                    <div class="contact-form">
+                    <h4>Our Location</h4>
+                    <div class="text">Stockton, New Hampshire, 908 <br> hamsarburg, London, UK</div>
+                </div>
+            </div>
+
+            <!-- Info Block Two -->
+            <div class="info-block_two col-lg-4 col-md-6 col-sm-12">
+                <div class="info-block_two-inner">
+                    <div class="info-block_two-icon">
+                        <i class="flaticon-mail"></i>
+                    </div>
+                    <h4>Email Address</h4>
+                    <a href="mailto:Support@kidscamp.com">Support@kidscamp.com</a> <br>
+                    <a href="mailto:info@kidscamp.com">info@kidscamp.com</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Faq One -->
+
+<!-- Contact Form -->
+<section class="contact-form-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Column -->
+            <div class="form-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <h3>Contact Us Right Now</h3>
+                    <div class="text">Your email address will not be published. Required fields are marked *</div>
+                    <div class="default-form contact-form">
                         <form method="post" action="sendemail.php" id="contact-form">
                             <div class="row clearfix">
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="username" placeholder="Your Name *" required>
+                                <!--Form Group-->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" name="name" value="" placeholder="Name" required>
                                 </div>
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="email" name="email" placeholder="Your Email *" required>
+                                <!--Form Group-->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                    <input type="email" name="email" value="" placeholder="Email" required>
                                 </div>
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="phone" placeholder="Your Phone">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" name="phone" value="" placeholder="Phone" required>
                                 </div>
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="subject" placeholder="Subject">
+                                <!--Form Group-->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                    <select name="country" class="custom-select-box">
+                                        <option>Select service</option>
+                                        <option>Service 01</option>
+                                        <option>Service 02</option>
+                                        <option>Service 03</option>
+                                    </select>
                                 </div>
-                                
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <textarea name="message" placeholder="Your Message *" required></textarea>
+                                    <textarea class="" name="message" placeholder="Type comment here*"></textarea>
                                 </div>
-                                
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <button type="button" class="template-btn btn-style-one">
                                         <span class="btn-wrap">
-                                            <span class="text-one">Send Message</span>
-                                            <span class="text-two">Send Message</span>
+                                            <span class="text-one">Submit now <i class="flaticon-next-1"></i></span>
+                                            <span class="text-two">Submit now <i class="flaticon-next-1"></i></span>
                                         </span>
                                     </button>
                                 </div>
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            <!-- Column -->
+            <div class="map-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="map-one_map">
+                        <iframe id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=18&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-
-<!-- Map Section -->
-<section class="map-section">
-    <div class="outer-container">
-        <div class="map-outer">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8173498834115!2d36.81625131475702!3d-1.2845182359880884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3c3b9b801%3A0x37a27bc3ca26354d!2siLearningHubb!5e0!3m2!1sen!2ske!4v1619180158177!5m2!1sen!2ske" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
-        </div>
-    </div>
-</section>
-<!-- End Map Section --> 
+<!-- End Contact Form -->
