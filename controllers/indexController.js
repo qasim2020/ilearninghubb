@@ -6,12 +6,14 @@ const Event = require('../models/events');
 
 exports.index = async (req, res) => {
     try {
+        
         const recentEvents = await Event.find({ featured: true })
             .sort({ date: -1 })
             .limit(3)
             .lean();
 
-        await renderPage(req, res, 'index', { recentEvents });
+        return res.render('index', {});
+
     } catch (error) {
         console.error('Error in index controller:', error);
         await renderPage(req, res, 'index', {});

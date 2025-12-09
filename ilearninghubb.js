@@ -61,51 +61,14 @@ const htmlPages = [
 ];
 
 htmlPages.forEach(page => {
-    app.get(`/${page}`, (req, res) => {
-        const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
-        if (fs.existsSync(viewPath)) {
-            const data = {
-                settings: {
-                    brandMobile: '302-555-0107',
-                    brandEmail: 'support@ilearninghubb.com',
-                    address: '123 Education Lane, Learning City, ED 12345'
-                }, 
-                siginURL: '/login.html'
-            };
-
-            return res.render(page, { data });
-        }
-
-        res.sendFile(path.join(kidscampPath, `${page}.html`));
-    });
-
     app.get(`/${page}.html`, (req, res) => {
         const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
         if (fs.existsSync(viewPath)) {
-            const data = {
-                settings: {
-                    brandMobile: '302-555-0107',
-                    brandEmail: 'support@ilearninghubb.com',
-                    address: '123 Education Lane, Learning City, ED 12345'
-                },
-                siginURL: '/login.html'
-            };
-
-            return res.render(page, { data });
+            return res.render(page);
         }
 
         res.sendFile(path.join(kidscampPath, `${page}.html`));
     });
-});
-
-const errorController = require('./controllers/errorController');
-
-app.use(async (req, res) => {
-    await errorController.notFound(req, res);
-});
-
-app.use(async (err, req, res, next) => {
-    await errorController.serverError(req, res, err);
 });
 
 const PORT = process.env.PORT || 3000;

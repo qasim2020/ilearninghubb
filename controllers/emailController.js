@@ -11,19 +11,4 @@ exports.sendMail = async (req, res) => {
         return res.redirect('/contact.html?message=missing');
     }
 
-    try {
-        const Contact = require('./models/contact');
-
-        await Contact.create({
-            name: username,
-            email,
-            phone,
-            service,
-            message
-        });
-
-        res.redirect('/contact.html?message=success');
-    } catch (err) {
-        res.redirect('/contact.html?message=error');
-    }
 };
