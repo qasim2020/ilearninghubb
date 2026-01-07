@@ -13,7 +13,8 @@
     </div>
     <!--Waves Container-->
     <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
                 <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
             </defs>
@@ -33,7 +34,7 @@
 <div class="sidebar-page-container">
     <div class="auto-container">
         <div class="row clearfix">
-            
+
             <!-- Content Side -->
             <div class="content-side col-lg-8 col-md-12 col-sm-12">
                 <div class="blog-detail">
@@ -42,7 +43,8 @@
                             {{#if event.imageUrl}}
                             <img src="{{event.imageUrl}}" alt="{{event.title}}" />
                             {{else}}
-                            <img src="assets/images/resource/event-1.jpg" alt="Event" onerror="this.src='assets/images/resource/program-1.jpg'"/>
+                            <img src="assets/images/resource/event-1.jpg" alt="Event"
+                                onerror="this.src='assets/images/resource/program-1.jpg'" />
                             {{/if}}
                         </div>
                         <div class="blog-detail_content">
@@ -54,21 +56,29 @@
                                     <i>By</i> iLearningHubb
                                 </div>
                                 <ul class="blog-detail-meta d-flex align-items-center flex-wrap">
-                                    <li><span class="icon fa-regular fa-calendar fa-fw"></span>{{formatDate event.date "D MMM, YYYY"}}</li>
+                                    <li><span class="icon fa-regular fa-calendar fa-fw"></span>{{formatDate event.date
+                                        "D MMM, YYYY"}}</li>
                                     <li><span class="icon fa-solid fa-users fa-fw"></span>{{event.ageRange}}</li>
                                 </ul>
                             </div>
                             <h3 class="blog-detail_heading">{{event.title}}</h3>
-                            
+
                             <div class="event-description">
                                 {{#if event.description}}
                                 <p>{{event.description}}</p>
                                 {{else}}
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet.</p>
-                                <p>Our event brings together children of all backgrounds for an unforgettable experience filled with learning, creativity, and fun. Through engaging activities and expert guidance, participants develop valuable skills while building lasting friendships in a safe, supportive environment.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in
+                                    hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur,
+                                    ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.
+                                    Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque
+                                    nibh nibh, at maximus ante fermentum sit amet.</p>
+                                <p>Our event brings together children of all backgrounds for an unforgettable experience
+                                    filled with learning, creativity, and fun. Through engaging activities and expert
+                                    guidance, participants develop valuable skills while building lasting friendships in
+                                    a safe, supportive environment.</p>
                                 {{/if}}
                             </div>
-                            
+
                             <blockquote>
                                 <i class="fa-solid fa-quote-left fa-fw"></i>
                                 "Education is not the filling of a pail, but the lighting of a fire."
@@ -76,24 +86,28 @@
                                     <span>William Butler Yeats</span>
                                 </div>
                             </blockquote>
-                            
+
                             <!-- Event Video Section -->
                             <div class="event-videos-section">
                                 <h3>Event Highlights</h3>
-                                
+
                                 {{#if event.videoUrl}}
                                 <div class="video-box">
-                                    <img src="{{event.imageUrl}}" alt="{{event.title}}" onerror="this.src='assets/images/resource/blog-16.jpg'"/>
-                                    <a href="{{event.videoUrl}}" class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
+                                    <img src="{{event.imageUrl}}" alt="{{event.title}}"
+                                        onerror="this.src='assets/images/resource/blog-16.jpg'" />
+                                    <a href="{{event.videoUrl}}" class="lightbox-video overlay-box"><span
+                                            class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
                                 </div>
                                 {{else}}
                                 <!-- Default Video Option -->
                                 <div class="video-box">
                                     <img src="assets/images/resource/blog-16.jpg" alt="" />
-                                    <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
+                                    <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
+                                        class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i
+                                                class="ripple"></i></span></a>
                                 </div>
                                 {{/if}}
-                                
+
                                 <!-- Additional Video Gallery Section -->
                                 <div class="additional-videos mt-4">
                                     <h4>More Videos From This Event</h4>
@@ -101,34 +115,44 @@
                                         <!-- This section can be populated dynamically with more videos -->
                                         <div class="col-md-6 col-sm-12 mb-4">
                                             <div class="video-box">
-                                                <img src="assets/images/resource/event-video-1.jpg" alt="" onerror="this.src='assets/images/resource/program-2.jpg'"/>
-                                                <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
+                                                <img src="assets/images/resource/event-video-1.jpg" alt=""
+                                                    onerror="this.src='assets/images/resource/program-2.jpg'" />
+                                                <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
+                                                    class="lightbox-video overlay-box"><span
+                                                        class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12 mb-4">
                                             <div class="video-box">
-                                                <img src="assets/images/resource/event-video-2.jpg" alt="" onerror="this.src='assets/images/resource/program-3.jpg'"/>
-                                                <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
+                                                <img src="assets/images/resource/event-video-2.jpg" alt=""
+                                                    onerror="this.src='assets/images/resource/program-3.jpg'" />
+                                                <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
+                                                    class="lightbox-video overlay-box"><span
+                                                        class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <h3>Event Takeaways</h3>
-                            <p>Participating in this event offers children numerous benefits that extend beyond the immediate experience. The skills and memories gained here will continue to influence their development and shape their future interactions.</p>
-                            
+                            <p>Participating in this event offers children numerous benefits that extend beyond the
+                                immediate experience. The skills and memories gained here will continue to influence
+                                their development and shape their future interactions.</p>
+
                             <ul class="blog-detail_list">
-                                <li><i class="fa-solid fa-check fa-fw"></i>Develop confidence through interactive challenges</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i>Develop confidence through interactive
+                                    challenges</li>
                                 <li><i class="fa-solid fa-check fa-fw"></i>Build teamwork and communication skills</li>
                                 <li><i class="fa-solid fa-check fa-fw"></i>Create lasting memories and friendships</li>
                                 <li><i class="fa-solid fa-check fa-fw"></i>Learn in a safe, supportive environment</li>
                             </ul>
-                            
+
                             <!-- Post Share Options-->
                             <div class="post-share-options">
                                 <div class="post-share-inner d-flex justify-content-between flex-wrap">
-                                    <div class="post-tags"><a href="#">Education</a> <a href="#">Activities</a> <a href="#">Learning</a></div>
+                                    <div class="post-tags"><a href="#">Education</a> <a href="#">Activities</a> <a
+                                            href="#">Learning</a></div>
                                     <ul class="social-links">
                                         <li><a href="#" class="fa-brands fa-facebook-f fa-fw"></a></li>
                                         <li><a href="#" class="fa-brands fa-twitter fa-fw"></a></li>
@@ -139,9 +163,11 @@
                             </div>
 
                             <!-- Registration Info -->
-                            <div class="registration-info mt-5 p-4" style="background-color: #f9f9f9; border-radius: 10px;">
+                            <div class="registration-info mt-5 p-4"
+                                style="background-color: #f9f9f9; border-radius: 10px;">
                                 <h3>Join This Event</h3>
-                                <p>Interested in participating? Fill out our registration form or contact us directly to secure your spot.</p>
+                                <p>Interested in participating? Fill out our registration form or contact us directly to
+                                    secure your spot.</p>
                                 <div class="text-center mt-4">
                                     <a href="/contact" class="theme-btn btn-style-one">
                                         <span class="btn-wrap">
@@ -156,7 +182,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Sidebar Side -->
             <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 <aside class="sidebar">
@@ -197,7 +223,8 @@
                                 <h5 class="sidebar-widget_title">Search Here</h5>
                                 <form method="post" action="/contact">
                                     <div class="form-group">
-                                        <input type="search" name="search-field" value="" placeholder="Search..." required>
+                                        <input type="search" name="search-field" value="" placeholder="Search..."
+                                            required>
                                         <button type="submit"><span class="icon fa fa-search"></span></button>
                                     </div>
                                 </form>
@@ -211,7 +238,9 @@
 
                                 {{#each otherEvents}}
                                 <div class="post">
-                                    <div class="thumb"><a href="/event-detail?id={{this._id}}"><img src="{{this.imageUrl}}" alt="{{this.title}}" onerror="this.src='assets/images/resource/post-thumb-1.jpg'"></a></div>
+                                    <div class="thumb"><a href="/event-detail?id={{this._id}}"><img
+                                                src="{{this.imageUrl}}" alt="{{this.title}}"
+                                                onerror="this.src='assets/images/resource/post-thumb-1.jpg'"></a></div>
                                     <h6><a href="/event-detail?id={{this._id}}">{{this.title}}</a></h6>
                                     <ul class="post-meta">
                                         <li>{{formatDate this.date "D MMM"}}</li>
@@ -221,7 +250,8 @@
                                 {{else}}
                                 <!-- Default events if none from database -->
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-1.jpg" alt=""></a></div>
+                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-1.jpg"
+                                                alt=""></a></div>
                                     <h6><a href="#">Summer Camp Adventure</a></h6>
                                     <ul class="post-meta">
                                         <li>15 Jul</li>
@@ -230,7 +260,8 @@
                                 </div>
 
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-2.jpg" alt=""></a></div>
+                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-2.jpg"
+                                                alt=""></a></div>
                                     <h6><a href="#">Robotics Workshop</a></h6>
                                     <ul class="post-meta">
                                         <li>20 Aug</li>
@@ -239,7 +270,8 @@
                                 </div>
 
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-3.jpg" alt=""></a></div>
+                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-3.jpg"
+                                                alt=""></a></div>
                                     <h6><a href="#">Art and Creativity Festival</a></h6>
                                     <ul class="post-meta">
                                         <li>10 Sep</li>
@@ -251,20 +283,22 @@
                         </div>
 
                         <!-- Contact Widget -->
-                        <div class="blog-contact-widget" style="background-image:url(assets/images/resource/contact-widget_bg.jpg)">
+                        <div class="blog-contact-widget"
+                            style="background-image:url(assets/images/resource/contact-widget_bg.jpg)">
                             <div class="blog-contact-widget_icon">
                                 <i class="flaticon-phone-call"></i>
                             </div>
                             <div class="title">Free Call</div>
                             <a class="blog-contact-widget_phone" href="tel:+02-908-480-20">02 (908) 480-20</a> <br>
-                            <a class="blog-contact-widget_contact" href="/contact">Contact Us<i class="fa-solid fa-angle-right fa-fw"></i></a>
+                            <a class="blog-contact-widget_contact" href="/contact">Contact Us<i
+                                    class="fa-solid fa-angle-right fa-fw"></i></a>
                         </div>
 
                     </div>
                 </aside>
             </div>
-            
+
         </div>
     </div>
 </div>
-<!-- End Sidebar Page Container --> 
+<!-- End Sidebar Page Container -->
