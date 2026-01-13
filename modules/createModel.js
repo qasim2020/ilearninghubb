@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Collections = require('../models/collections.js');
+const chalk = require('chalk');
 
 createModel = async function (modelName) {
     try {
