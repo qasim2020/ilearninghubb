@@ -1,14 +1,13 @@
-{{log event}}
 <section class="page-title">
     <div class="color-one"></div>
     <div class="color-two"></div>
     <div class="color-three"></div>
     <div class="color-four"></div>
     <div class="auto-container">
-        <h2>Event Details</h2>
+        <h2>{{event.title}}</h2>
         <ul class="bread-crumb clearfix">
             <li><a href="/"><i class="flaticon-home"></i> Home</a></li>
-            <li>Event Details</li>
+            <li>{{event.title}}</li>
         </ul>
     </div>
     <!--Waves Container-->
@@ -43,15 +42,15 @@
                             {{#if event.imageUrl}}
                             <img src="{{event.imageUrl}}" alt="{{event.title}}" />
                             {{else}}
-                            <img src="assets/images/resource/event-1.jpg" alt="Event"
-                                onerror="this.src='assets/images/resource/program-1.jpg'" />
+                            <img src="/assets/images/resource/event-1.jpg" alt="Event"
+                                onerror="this.src='/assets/images/resource/program-1.jpg'" />
                             {{/if}}
                         </div>
                         <div class="blog-detail_content">
                             <div class="blog-detail_author-outer d-flex align-items-center flex-wrap">
                                 <div class="blog-detail-author d-flex align-items-center flex-wrap">
                                     <div class="blog-detail-author-image">
-                                        <img src="assets/images/resource/author-16.png" alt="" />
+                                        <img src="/assets/images/resource/author-16.png" alt="" />
                                     </div>
                                     <i>By</i> iLearningHubb
                                 </div>
@@ -94,14 +93,14 @@
                                 {{#if event.videoUrl}}
                                 <div class="video-box">
                                     <img src="{{event.imageUrl}}" alt="{{event.title}}"
-                                        onerror="this.src='assets/images/resource/blog-16.jpg'" />
+                                        onerror="this.src='/assets/images/resource/blog-16.jpg'" />
                                     <a href="{{event.videoUrl}}" class="lightbox-video overlay-box"><span
                                             class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
                                 </div>
                                 {{else}}
                                 <!-- Default Video Option -->
                                 <div class="video-box">
-                                    <img src="assets/images/resource/blog-16.jpg" alt="" />
+                                    <img src="/assets/images/resource/blog-16.jpg" alt="" />
                                     <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
                                         class="lightbox-video overlay-box"><span class="fa-solid fa-play fa-fw"><i
                                                 class="ripple"></i></span></a>
@@ -115,8 +114,8 @@
                                         <!-- This section can be populated dynamically with more videos -->
                                         <div class="col-md-6 col-sm-12 mb-4">
                                             <div class="video-box">
-                                                <img src="assets/images/resource/event-video-1.jpg" alt=""
-                                                    onerror="this.src='assets/images/resource/program-2.jpg'" />
+                                                <img src="/assets/images/resource/event-video-1.jpg" alt=""
+                                                    onerror="this.src='/assets/images/resource/program-2.jpg'" />
                                                 <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
                                                     class="lightbox-video overlay-box"><span
                                                         class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
@@ -124,8 +123,8 @@
                                         </div>
                                         <div class="col-md-6 col-sm-12 mb-4">
                                             <div class="video-box">
-                                                <img src="assets/images/resource/event-video-2.jpg" alt=""
-                                                    onerror="this.src='assets/images/resource/program-3.jpg'" />
+                                                <img src="/assets/images/resource/event-video-2.jpg" alt=""
+                                                    onerror="this.src='/assets/images/resource/program-3.jpg'" />
                                                 <a href="https://www.youtube.com/watch?v=kxPCFljwJws"
                                                     class="lightbox-video overlay-box"><span
                                                         class="fa-solid fa-play fa-fw"><i class="ripple"></i></span></a>
@@ -240,7 +239,7 @@
                                 <div class="post">
                                     <div class="thumb"><a href="/event-detail?id={{this._id}}"><img
                                                 src="{{this.imageUrl}}" alt="{{this.title}}"
-                                                onerror="this.src='assets/images/resource/post-thumb-1.jpg'"></a></div>
+                                                onerror="this.src='/assets/images/resource/post-thumb-1.jpg'"></a></div>
                                     <h6><a href="/event-detail?id={{this._id}}">{{this.title}}</a></h6>
                                     <ul class="post-meta">
                                         <li>{{formatDate this.date "D MMM"}}</li>
@@ -250,7 +249,7 @@
                                 {{else}}
                                 <!-- Default events if none from database -->
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-1.jpg"
+                                    <div class="thumb"><a href="#"><img src="/assets/images/resource/post-thumb-1.jpg"
                                                 alt=""></a></div>
                                     <h6><a href="#">Summer Camp Adventure</a></h6>
                                     <ul class="post-meta">
@@ -260,7 +259,7 @@
                                 </div>
 
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-2.jpg"
+                                    <div class="thumb"><a href="#"><img src="/assets/images/resource/post-thumb-2.jpg"
                                                 alt=""></a></div>
                                     <h6><a href="#">Robotics Workshop</a></h6>
                                     <ul class="post-meta">
@@ -270,7 +269,7 @@
                                 </div>
 
                                 <div class="post">
-                                    <div class="thumb"><a href="#"><img src="assets/images/resource/post-thumb-3.jpg"
+                                    <div class="thumb"><a href="#"><img src="/assets/images/resource/post-thumb-3.jpg"
                                                 alt=""></a></div>
                                     <h6><a href="#">Art and Creativity Festival</a></h6>
                                     <ul class="post-meta">
@@ -284,7 +283,7 @@
 
                         <!-- Contact Widget -->
                         <div class="blog-contact-widget"
-                            style="background-image:url(assets/images/resource/contact-widget_bg.jpg)">
+                            style="background-image:url(/assets/images/resource/contact-widget_bg.jpg)">
                             <div class="blog-contact-widget_icon">
                                 <i class="flaticon-phone-call"></i>
                             </div>

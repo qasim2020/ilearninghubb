@@ -29,7 +29,9 @@ exports.event = async (req, res) => {
             return res.status(404).send('Event not found');
         }
 
-        return res.render('event', { event: event });
+        return res.render('event', { 
+            event: event
+        });
 
     } catch (error) {
         console.error('Event could not be fetched:', error);
