@@ -3,8 +3,6 @@ const router = express.Router();
 const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.index);
-router.get('/event-detail', (req,res) => {
-    res.render('event-detail');
-});
+router.get('/event/:slug', indexController.event);
 
 module.exports = router;

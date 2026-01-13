@@ -161,17 +161,15 @@
         </div>
         <div class="program-one_carousel swiper-container">
             <div class="swiper-wrapper">
-                {{#if recentEvents}}
-                {{#each recentEvents}}
-                <!-- Slide -->
+                {{#if events}}
+                {{#each events}}
                 <div class="swiper-slide">
-                    <!-- Program Block One -->
                     <div class="program-block_one">
                         <div class="program-block_one-inner">
                             <div class="program-block_one-image">
                                 <div style="width: 100%; height: 250px; overflow: hidden;">
-                                    {{#if this.imageUrl}}
-                                    <img src="{{this.imageUrl}}" alt="{{this.title}}"
+                                    {{#if this.bannerImg}}
+                                    <img src="{{this.bannerImg}}" alt="{{this.title}}"
                                         style="width: 100%; height: 100%; object-fit: cover;" />
                                     {{else}}
                                     <img src="assets/images/resource/event-placeholder.jpg" alt="{{this.title}}"
@@ -179,26 +177,19 @@
                                         onerror="this.src='assets/images/resource/program-1.jpg'" />
                                     {{/if}}
                                 </div>
-                                {{#if this.videoUrl}}
-                                <div class="program-block_one-video">
-                                    <a href="{{this.videoUrl}}" class="lightbox-video program-block_one-play">
-                                        <span class="flaticon-play"><i class="ripple"></i></span>
-                                    </a>
-                                </div>
-                                {{/if}}
                             </div>
                             <div class="program-block_one-content">
                                 <div class="program-block_one-date">
-                                    {{formatDate this.date "D"}} <span>{{formatDate this.date "MMM"}}</span>
+                                    {{this.noOfDays}} <span>days</span>
                                 </div>
                                 <h5 class="program-block_one-title"><a
-                                        href="/event-detail?id={{this._id}}">{{this.title}}</a></h5>
+                                        href="/event-detail/{{this.slug}}">{{this.title}}</a></h5>
                                 <div class="program-block_one-text"
                                     style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
-                                    {{this.description}}</div>
+                                    {{{this.pageDetail}}}</div>
                                 <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                    <div class="program-block_one-experiance">{{this.ageRange}}</div>
-                                    <a class="program-block_one-join" href="/event-detail?id={{this._id}}">view more
+                                    <div class="program-block_one-experiance">{{this.ageGroup}}</div>
+                                    <a class="program-block_one-join" href="/event/{{this.slug}}">view more
                                         <i class="flaticon-next-1"></i></a>
                                 </div>
                             </div>
