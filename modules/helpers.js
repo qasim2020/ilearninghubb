@@ -171,6 +171,11 @@ const regexMatch = function(value, pattern) {
     return regex.test(value);
 }
 
+const csvArray = function(csvString) {
+    if (!csvString) return [];
+    return csvString.split(",").map(v => v.trim());
+};
+
 module.exports = {
     eq,
     compareIds,
@@ -198,5 +203,6 @@ module.exports = {
     camelCaseWithCommaToNormalString,
     // getSvgForFirstLetter,
     regexMatch,
-    getValueOfFieldInArray
+    getValueOfFieldInArray,
+    csvArray
   };

@@ -39,12 +39,7 @@
                 <div class="blog-detail">
                     <div class="blog-detail_inner">
                         <div class="blog-detail_image">
-                            {{#if event.imageUrl}}
-                            <img src="{{event.imageUrl}}" alt="{{event.title}}" />
-                            {{else}}
-                            <img src="/assets/images/resource/event-1.jpg" alt="Event"
-                                onerror="this.src='/assets/images/resource/program-1.jpg'" />
-                            {{/if}}
+                            <img src="{{event.bannerImg}}" alt="{{event.title}}" />
                         </div>
                         <div class="blog-detail_content">
                             <div class="blog-detail_author-outer d-flex align-items-center flex-wrap">
@@ -52,41 +47,30 @@
                                     <div class="blog-detail-author-image">
                                         <img src="/assets/images/resource/author-16.png" alt="" />
                                     </div>
-                                    <i>By</i> iLearningHubb
+                                    <i>By</i> {{event.pageAuthor}}
                                 </div>
                                 <ul class="blog-detail-meta d-flex align-items-center flex-wrap">
-                                    <li><span class="icon fa-regular fa-calendar fa-fw"></span>{{formatDate event.date
-                                        "D MMM, YYYY"}}</li>
-                                    <li><span class="icon fa-solid fa-users fa-fw"></span>{{event.ageRange}}</li>
+                                    <li><span class="icon fa-regular fa-calendar fa-fw"></span>{{event.pagePublishDate}}
+                                    </li>
+                                    <li><span class="icon fa-solid fa-users fa-fw"></span>{{event.ageGroup}}</li>
                                 </ul>
                             </div>
                             <h3 class="blog-detail_heading">{{event.title}}</h3>
 
                             <div class="event-description">
-                                {{#if event.description}}
-                                <p>{{event.description}}</p>
-                                {{else}}
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in
-                                    hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur,
-                                    ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.
-                                    Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque
-                                    nibh nibh, at maximus ante fermentum sit amet.</p>
-                                <p>Our event brings together children of all backgrounds for an unforgettable experience
-                                    filled with learning, creativity, and fun. Through engaging activities and expert
-                                    guidance, participants develop valuable skills while building lasting friendships in
-                                    a safe, supportive environment.</p>
-                                {{/if}}
+                                {{{event.pageDetail}}}
                             </div>
 
                             <blockquote>
                                 <i class="fa-solid fa-quote-left fa-fw"></i>
-                                "Education is not the filling of a pail, but the lighting of a fire."
+                                {{event.pageQuote}}
                                 <div class="d-flex justify-content-end">
-                                    <span>William Butler Yeats</span>
+                                    <span>{{event.pageQuoteAuthor}}</span>
                                 </div>
                             </blockquote>
 
                             <!-- Event Video Section -->
+                            {{#if event.galleryImages}}
                             <div class="event-videos-section">
                                 <h3>Event Highlights</h3>
 
@@ -133,31 +117,27 @@
                                     </div>
                                 </div>
                             </div>
+                            {{/if}}
 
                             <h3>Event Takeaways</h3>
-                            <p>Participating in this event offers children numerous benefits that extend beyond the
-                                immediate experience. The skills and memories gained here will continue to influence
-                                their development and shape their future interactions.</p>
+                            <p>{{event.takeawaySummary}}</p>
 
                             <ul class="blog-detail_list">
-                                <li><i class="fa-solid fa-check fa-fw"></i>Develop confidence through interactive
-                                    challenges</li>
-                                <li><i class="fa-solid fa-check fa-fw"></i>Build teamwork and communication skills</li>
-                                <li><i class="fa-solid fa-check fa-fw"></i>Create lasting memories and friendships</li>
-                                <li><i class="fa-solid fa-check fa-fw"></i>Learn in a safe, supportive environment</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i>{{event.takeawayFirst}}</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i>{{event.takeawaySecond}}</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i>{{event.takeawayThird}}</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i>{{event.takeawayFourth}}</li>
                             </ul>
 
                             <!-- Post Share Options-->
                             <div class="post-share-options">
                                 <div class="post-share-inner d-flex justify-content-between flex-wrap">
-                                    <div class="post-tags"><a href="#">Education</a> <a href="#">Activities</a> <a
-                                            href="#">Learning</a></div>
-                                    <ul class="social-links">
-                                        <li><a href="#" class="fa-brands fa-facebook-f fa-fw"></a></li>
-                                        <li><a href="#" class="fa-brands fa-twitter fa-fw"></a></li>
-                                        <li><a href="#" class="fa-brands fa-instagram fa-fw"></a></li>
-                                        <li><a href="#" class="fa-brands fa-youtube fa-fw"></a></li>
-                                    </ul>
+                                    <div class="post-tags">
+                                        {{#each (csvArray event.tags)}}
+                                        <a href="#">{{this}}</a>
+                                        {{/each}}
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -195,38 +175,24 @@
                                     <li>
                                         <i class="flaticon-calendar"></i>
                                         <strong>Date:</strong>
-                                        <span>{{formatDate event.date "D MMM, YYYY"}}</span>
+                                        <span>{{event.date}}</span>
                                     </li>
                                     <li>
                                         <i class="flaticon-clock"></i>
-                                        <strong>Time:</strong>
-                                        <span>10:00 AM - 3:00 PM</span>
+                                        <strong>No of Days:</strong>
+                                        <span>{{event.noOfDays}}</span>
                                     </li>
                                     <li>
                                         <i class="flaticon-maps-and-flags"></i>
                                         <strong>Location:</strong>
-                                        <span>iLearningHubb Campus</span>
+                                        <span>{{event.location}}</span>
                                     </li>
                                     <li>
                                         <i class="flaticon-user"></i>
                                         <strong>Age Group:</strong>
-                                        <span>{{event.ageRange}}</span>
+                                        <span>{{event.ageGroup}}</span>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <!-- Search Widget -->
-                        <div class="sidebar-widget search-box">
-                            <div class="widget-content">
-                                <h5 class="sidebar-widget_title">Search Here</h5>
-                                <form method="post" action="/contact">
-                                    <div class="form-group">
-                                        <input type="search" name="search-field" value="" placeholder="Search..."
-                                            required>
-                                        <button type="submit"><span class="icon fa fa-search"></span></button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
 
