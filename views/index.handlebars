@@ -673,7 +673,15 @@
 
                     <!-- Default Form -->
                     <div class="default-form">
-                        <form method="post" action="blog.html">
+                        <style>
+                            #landing-ticket-submit {
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                min-width: 200px;
+                            }
+                        </style>
+                        <form id="landing-ticket-form" method="post" action="/api/tickets" novalidate>
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label>Child's Full Name</label>
@@ -697,7 +705,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label>Child's Age</label>
-                                    <select name="currency" class="custom-select-box">
+                                    <select name="childAge" class="custom-select-box">
                                         <option>10 - 12</option>
                                         <option>13 - 15</option>
                                         <option>16 - 18</option>
@@ -709,7 +717,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label>Medical
                                         Conditions/Allergies</label>
-                                    <select name="currency" class="custom-select-box">
+                                    <select name="medicalConditions" class="custom-select-box">
                                         <option>No</option>
                                         <option>Yes</option>
                                     </select>
@@ -720,15 +728,19 @@
                                     <textarea class="" name="message" placeholder=""></textarea>
                                 </div>
 
+                                <input type="hidden" name="source" value="landing-registration" />
+
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <div id="landing-form-message" class="mb-3" style="display: none;"></div>
                                     <!-- Button Box -->
-                                    <button type="submit" class="theme-btn btn-style-two">
+                                    <button type="submit" class="theme-btn btn-style-two" id="landing-ticket-submit">
                                         <span class="btn-wrap">
                                             <span class="text-one">Submit Now
                                                 <i class="flaticon-next-1"></i></span>
                                             <span class="text-two">Submit Now
                                                 <i class="flaticon-next-1"></i></span>
                                         </span>
+                                        <span class="d-none" data-sending-label>Sending...</span>
                                     </button>
                                 </div>
                             </div>
@@ -739,6 +751,78 @@
             </div>
         </div>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('landing-ticket-form');
+        if (!form) return;
+
+        const submitBtn = document.getElementById('landing-ticket-submit');
+        const btnWrap = submitBtn ? submitBtn.querySelector('.btn-wrap') : null;
+        const textOne = submitBtn ? submitBtn.querySelector('.text-one') : null;
+        const textTwo = submitBtn ? submitBtn.querySelector('.text-two') : null;
+        const originalTextOne = textOne ? textOne.innerHTML : '';
+        const originalTextTwo = textTwo ? textTwo.innerHTML : '';
+        const messageEl = document.getElementById('landing-form-message');
+
+        const setMessage = (text, type) => {
+            if (!messageEl) return;
+            messageEl.style.display = 'block';
+            messageEl.className = `alert alert-${type}`;
+            messageEl.textContent = text;
+        };
+
+        const setLoading = (isLoading) => {
+            if (submitBtn) submitBtn.disabled = isLoading;
+            if (isLoading) {
+                if (textOne) textOne.textContent = 'Sending...';
+                if (textTwo) textTwo.textContent = 'Sending...';
+            } else {
+                if (textOne) textOne.innerHTML = originalTextOne;
+                if (textTwo) textTwo.innerHTML = originalTextTwo;
+            }
+        };
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            setMessage('', '');
+            if (messageEl) messageEl.style.display = 'none';
+            setLoading(true);
+
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    const message = result.message === 'missing'
+                        ? 'Please fill out required fields.'
+                        : 'Sorry, there was an error sending your message.';
+                    setMessage(message, 'danger');
+                    setLoading(false);
+                    return;
+                }
+
+                setMessage('Thank you! Your message has been sent successfully.', 'success');
+                form.reset();
+            } catch (error) {
+                setMessage('Sorry, there was an error sending your message.', 'danger');
+            } finally {
+                setLoading(false);
+            }
+        });
+    });
+</script>
 </section>
 <!-- End Registration One -->
 
