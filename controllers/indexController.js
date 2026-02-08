@@ -9,7 +9,11 @@ exports.index = async (req, res) => {
         const [settings, programs, blogs, pages] = await Promise.all([
             Settings.findOne({ key: 'main' }).lean(),
             Program.find({ isActive: true }).sort({ createdAt: -1 }).lean(),
-            Blog.find({ isActive: true }).sort({ publishedAt: -1, createdAt: -1 }).lean(),
+            Blog.find({
+                $or: [{ isActive: true }, { isActive: { $exists: false } }],
+            })
+                .sort({ publishedAt: -1, createdAt: -1 })
+                .lean(),
             Page.find({}).lean(),
         ]);
 
@@ -17,8 +21,17 @@ exports.index = async (req, res) => {
         const normalizeImageUrl = (url) => {
             if (!url) return '';
             if (/^https?:\/\//i.test(url)) return url;
-            if (cmsBaseUrl && url.startsWith('/')) return `${cmsBaseUrl}${url}`;
-            return url;
+
+            const cleaned = String(url).trim().replace(/^\.{1,2}\//, '');
+            const uploadMatch = cleaned.match(/uploads\/.*$/i);
+            if (uploadMatch) return `/${uploadMatch[0]}`;
+
+            if (cmsBaseUrl) {
+                if (cleaned.startsWith('/')) return `${cmsBaseUrl}${cleaned}`;
+                return `${cmsBaseUrl}/${cleaned}`;
+            }
+
+            return cleaned;
         };
 
         const stripHtml = (value) => String(value || '').replace(/<[^>]*>/g, '').trim();
@@ -63,7 +76,7 @@ exports.index = async (req, res) => {
             programs: normalizedPrograms || [],
             blogs: normalizedBlogs || [],
             pages: pagesByKey,
-            blogPosts: blogs || [],
+            blogPosts: normalizedBlogs || [],
         });
 
     } catch (error) {
@@ -77,7 +90,10 @@ exports.blogPost = async (req, res) => {
         const { slug } = req.params;
         const [settings, blog] = await Promise.all([
             Settings.findOne({ key: 'main' }).lean(),
-            Blog.findOne({ slug, isActive: true }).lean(),
+            Blog.findOne({
+                slug,
+                $or: [{ isActive: true }, { isActive: { $exists: false } }],
+            }).lean(),
         ]);
 
         if (!blog) {
@@ -92,8 +108,17 @@ exports.blogPost = async (req, res) => {
         const normalizeImageUrl = (url) => {
             if (!url) return '';
             if (/^https?:\/\//i.test(url)) return url;
-            if (cmsBaseUrl && url.startsWith('/')) return `${cmsBaseUrl}${url}`;
-            return url;
+
+            const cleaned = String(url).trim().replace(/^\.{1,2}\//, '');
+            const uploadMatch = cleaned.match(/uploads\/.*$/i);
+            if (uploadMatch) return `/${uploadMatch[0]}`;
+
+            if (cmsBaseUrl) {
+                if (cleaned.startsWith('/')) return `${cmsBaseUrl}${cleaned}`;
+                return `${cmsBaseUrl}/${cleaned}`;
+            }
+
+            return cleaned;
         };
 
         const normalizedSettings = {

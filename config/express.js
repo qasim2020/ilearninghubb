@@ -53,9 +53,11 @@ const getCorrectPath = (basePath, relativePath) => {
 
 const kidscampPath = getCorrectPath(__dirname, 'kidscamp');
 const assetsPath = path.join(kidscampPath, 'assets');
+const uploadsPath = path.join(__dirname, '..', '..', 'ilearninghubb-cms', 'uploads');
 
 app.use(express.static(kidscampPath));
 app.use('/assets', express.static(assetsPath));
+app.use('/uploads', express.static(uploadsPath));
 
 app.use((req, res, next) => {
     const ext = path.extname(req.url).toLowerCase();
