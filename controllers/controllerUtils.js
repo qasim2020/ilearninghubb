@@ -1,14 +1,12 @@
-const mongoose = require('mongoose');
-const createModel = require('../modules/createModel');
-const BrandSettings = require('../models/brand_settings')
+const Settings = require('../models/Settings');
 
 const getSettings = async () => {
     try {
-        const settings = await BrandSettings.findOne({ brand: 'hubb' }).lean();
-        return settings || { brand: 'hubb', properties: {} };
+        const settings = await Settings.findOne({ key: 'main' }).lean();
+        return settings || {};
     } catch (err) {
         console.error('Error Fetching data:', err);
-        return { brand: 'hubb', properties: {} };
+        return {};
     }
 };
 
@@ -22,7 +20,11 @@ const renderPage = async (req, res, template, additionalData = {}, statusCode = 
                 siginURL: process.env.SIGNIN_URL,
                 page: template,
                 ...additionalData
-            }
+            },
+            settings,
+            siginURL: process.env.SIGNIN_URL,
+            page: template,
+            ...additionalData
         };
 
         if (statusCode !== 200) {
@@ -34,11 +36,15 @@ const renderPage = async (req, res, template, additionalData = {}, statusCode = 
         console.error(`Error rendering ${template}:`, err);
         res.status(500).render('error', {
             data: {
-                settings: { brand: 'hubb', properties: {} },
+                settings: {},
                 siginURL: process.env.SIGNIN_URL,
                 page: 'error',
                 error: process.env.NODE_ENV === 'production' ? 'An error occurred' : err.message
-            }
+            },
+            settings: {},
+            siginURL: process.env.SIGNIN_URL,
+            page: 'error',
+            error: process.env.NODE_ENV === 'production' ? 'An error occurred' : err.message
         });
     }
 };

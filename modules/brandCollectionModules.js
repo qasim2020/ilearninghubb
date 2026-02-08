@@ -1,8 +1,8 @@
-const BrandSettings = require('../models/brand_settings');
+const Settings = require('../models/Settings');
 
 const getBrandData = async () => {
-    const data = await BrandSettings.findOne({}, {sort: {_id: -1}}).lean();
-    return data;
+    const data = await Settings.findOne({ key: 'main' }).lean();
+    return data || {};
 }
 
 module.exports = {

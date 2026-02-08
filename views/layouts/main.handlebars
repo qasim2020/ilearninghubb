@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>iLearningHubb</title>
+    <title>{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}</title>
     <!-- Stylesheets -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet" />
     <link href="/assets/css/style.css" rel="stylesheet" />
@@ -161,8 +161,8 @@
                             <div class="footer_column">
                                 <div class="footer-widget">
                                     <div class="footer-logo">
-                                        <a href="/"><img src="/assets/images/footer-logo.png" alt="iLearningHubb Logo"
-                                                title="iLearningHubb"
+                                        <a href="/"><img src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/footer-logo.png{{/if}}" alt="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}} Logo"
+                                            title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}"
                                                 style="margin-left: -19px; height: 150px; object-fit: contain;" /></a>
                                     </div>
                                     <div class="footer-text">Inspiring young minds every step of the way. Building
@@ -213,34 +213,60 @@
                                     <h5 class="footer-title">Our Socials</h5>
                                     <div class="footer-text">Stay updated with our latest news and events.</div>
                                     <ul class="social-list mt-3">
+                                        {{#if settings.socialFacebook}}
                                         <li class="footer-social-media">
-                                            <a class="" href="https://facebook.com/">
+                                            <a class="" href="{{settings.socialFacebook}}">
                                                 <span style="width: 30px; margin-right: 10px;"><i
                                                         class="fa-brands fa-facebook"></i> </span>
                                                 Facebook
                                             </a>
                                         </li>
+                                        {{/if}}
+                                        {{#if settings.socialTwitter}}
                                         <li class="footer-social-media">
-                                            <a class="" href="https://twitter.com/">
+                                            <a class="" href="{{settings.socialTwitter}}">
                                                 <span style="width: 30px; margin-right: 10px;"><i
                                                         class="fa-brands fa-twitter"></i> </span>
                                                 Twitter
                                             </a>
                                         </li>
+                                        {{/if}}
+                                        {{#if settings.socialYouTube}}
                                         <li class="footer-social-media">
-                                            <a class="" href="https://youtube.com/">
+                                            <a class="" href="{{settings.socialYouTube}}">
                                                 <span style="width: 30px; margin-right: 10px;"><i
                                                         class="fa-brands fa-youtube"></i> </span>
                                                 YouTube
                                             </a>
                                         </li>
+                                        {{/if}}
+                                        {{#if settings.socialInstagram}}
                                         <li class="footer-social-media">
-                                            <a class="" href="https://instagram.com/">
+                                            <a class="" href="{{settings.socialInstagram}}">
                                                 <span style="width: 30px; margin-right: 10px;"><i
                                                         class="fa-brands fa-instagram"></i> </span>
                                                 Instagram
                                             </a>
                                         </li>
+                                        {{/if}}
+                                        {{#if settings.socialLinkedIn}}
+                                        <li class="footer-social-media">
+                                            <a class="" href="{{settings.socialLinkedIn}}">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-linkedin"></i> </span>
+                                                LinkedIn
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                        {{#if settings.socialTikTok}}
+                                        <li class="footer-social-media">
+                                            <a class="" href="{{settings.socialTikTok}}">
+                                                <span style="width: 30px; margin-right: 10px;"><i
+                                                        class="fa-brands fa-tiktok"></i> </span>
+                                                TikTok
+                                            </a>
+                                        </li>
+                                        {{/if}}
                                     </ul>
                                 </div>
                             </div>

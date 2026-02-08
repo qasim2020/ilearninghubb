@@ -147,7 +147,7 @@
     </div>
 </section>
 
-<!-- Recent Events -->
+<!-- Recent Programs -->
 <section class="program-one events-section" style="padding-top: 60px; padding-bottom: 60px;">
     <div class="program-one_icon" style="
                         background-image: url(assets/images/icons/icon-7.png);
@@ -155,41 +155,39 @@
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title">
-            <div class="sec-title_title">Our Events</div>
+            <div class="sec-title_title">Our Programs</div>
             <h2 class="sec-title_heading">From Our Most <span>Recent</span> <br />
-                Events</h2>
+                Programs</h2>
         </div>
         <div class="program-one_carousel swiper-container">
             <div class="swiper-wrapper">
-                {{#if events}}
-                {{#each events}}
+                {{#if programs.length}}
+                {{#each programs}}
                 <div class="swiper-slide">
                     <div class="program-block_one">
                         <div class="program-block_one-inner">
                             <div class="program-block_one-image">
                                 <div style="width: 100%; height: 250px; overflow: hidden;">
-                                    {{#if this.bannerImg}}
-                                    <img src="{{this.bannerImg}}" alt="{{this.title}}"
-                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                    {{else}}
-                                    <img src="assets/images/resource/event-placeholder.jpg" alt="{{this.title}}"
+                                    <img src="{{#if this.imageUrlResolved}}{{this.imageUrlResolved}}{{else}}assets/images/resource/event-placeholder.jpg{{/if}}" alt="{{this.title}}"
                                         style="width: 100%; height: 100%; object-fit: cover;"
                                         onerror="this.src='assets/images/resource/program-1.jpg'" />
-                                    {{/if}}
                                 </div>
                             </div>
                             <div class="program-block_one-content">
-                                <div class="program-block_one-date">
-                                    {{this.noOfDays}} <span>days</span>
+                                <div class="program-block_one-date" style="display:flex; flex-direction:column; align-items:center; line-height:1;">
+                                    <span style="font-size: 22px; font-weight: 700;">{{this.durationValue}}</span>
+                                    {{#if this.durationLabel}}
+                                    <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">{{this.durationLabel}}</span>
+                                    {{/if}}
                                 </div>
                                 <h5 class="program-block_one-title"><a
-                                        href="/event-detail/{{this.slug}}">{{this.title}}</a></h5>
+                                        href="/program-detail.html">{{this.title}}</a></h5>
                                 <div class="program-block_one-text"
                                     style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
-                                    {{{this.pageDetail}}}</div>
+                                    {{#if this.descriptionText}}{{this.descriptionText}}{{else}}Learn more about this program.{{/if}}</div>
                                 <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                    <div class="program-block_one-experiance">{{this.ageGroup}}</div>
-                                    <a class="program-block_one-join" href="/event/{{this.slug}}">view more
+                                    <div class="program-block_one-experiance">{{this.ageRange}}</div>
+                                    <a class="program-block_one-join" href="/program-detail.html">view more
                                         <i class="flaticon-next-1"></i></a>
                                 </div>
                             </div>
@@ -316,120 +314,47 @@
         </div>
     </div>
 </section>
-<!-- End Recent Events -->
+<!-- End Recent Programs -->
 
-<!-- Start Activities -->
-<section class="program-one" style="padding-top: 60px; padding-bottom: 60px;">
-    <div class="program-one_icon" style="
-                        background-image: url(assets/images/icons/icon-4.png);
-                    "></div>
+
+<!-- Latest Blogs -->
+<section class="news-one" style="padding-top: 60px; padding-bottom: 60px;">
     <div class="auto-container">
-        <div class="sec-title">
-            <div class="sec-title_title">Our Activities</div>
-            <h2 class="sec-title_heading">Young Minds <span>Adventures</span> <br />
-                and Innovations</h2>
+        <div class="sec-title centered">
+            <div class="sec-title_title">Latest Blogs</div>
+            <h2 class="sec-title_heading">Insights & <span>Updates</span></h2>
         </div>
-        <div class="program-one_carousel swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="program-block_one">
-                        <div class="program-block_one-inner">
-                            <div class="program-block_one-image">
-                                <div style="width: 100%; height: 250px; overflow: hidden;">
-                                    <img src="assets/images/resource/about-2i.jpg" alt=""
-                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                </div>
-                            </div>
-                            <div class="program-block_one-content">
-                                <div class="program-block_one-date">12 <span>days</span></div>
-                                <h5 class="program-block_one-title"><a href="program-detail.html">Fitness
-                                        Challenge</a></h5>
-                                <div class="program-block_one-text"
-                                    style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
-                                    Youths build strength, coordination, and confidence through fun exercises and active
-                                    play. Our program promotes healthy habits and a love for movement from an early age.
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                    <div class="program-block_one-experiance">8-14 years old</div>
-                                    <a class="program-block_one-join" href="program-detail.html">join now
-                                        <i class="flaticon-next-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
+        <div class="row clearfix">
+            {{#if blogs.length}}
+            {{#each blogs}}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100">
+                    <div style="width: 100%; height: 220px; overflow: hidden;">
+                        <img src="{{#if this.coverImageUrlResolved}}{{this.coverImageUrlResolved}}{{else}}assets/images/resource/about-1i.jpg{{/if}}" alt="{{this.title}}"
+                            style="width: 100%; height: 100%; object-fit: cover;" />
                     </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="program-block_one">
-                        <div class="program-block_one-inner">
-                            <div class="program-block_one-image">
-                                <div style="width: 100%; height: 250px; overflow: hidden;">
-                                    <img src="assets/images/resource/about-5i.jpg" alt=""
-                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                </div>
-                            </div>
-                            <div class="program-block_one-content">
-                                <div class="program-block_one-date">12 <span>days</span></div>
-                                <h5 class="program-block_one-title"><a href="program-detail.html">Health
-                                        Education</a></h5>
-                                <div class="program-block_one-text"
-                                    style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
-                                    Through engaging lessons and activities, youths learn about nutrition, hygiene, and
-                                    wellness—empowering them to make smart, healthy choices every single day.</div>
-                                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                    <div class="program-block_one-experiance">8-14 years old</div>
-                                    <a class="program-block_one-join" href="program-detail.html">join now
-                                        <i class="flaticon-next-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="program-block_one">
-                        <div class="program-block_one-inner">
-                            <div class="program-block_one-image">
-                                <div style="width: 100%; height: 250px; overflow: hidden;">
-                                    <img src="assets/images/resource/about-2i.jpg" alt=""
-                                        style="width: 100%; height: 100%; object-fit: cover;" />
-                                </div>
-                            </div>
-                            <div class="program-block_one-content">
-                                <div class="program-block_one-date">12 <span>days</span></div>
-                                <h5 class="program-block_one-title"><a href="program-detail.html">Sports
-                                        Activities</a></h5>
-                                <div class="program-block_one-text"
-                                    style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
-                                    Team games and outdoor sports teach youths the value of teamwork, discipline, and
-                                    staying active—all while having loads of fun and building lasting friendships.</div>
-                                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                    <div class="program-block_one-experiance">8-14 years old</div>
-                                    <a class="program-block_one-join" href="program-detail.html">join now
-                                        <i class="flaticon-next-1"></i></a>
-                                </div>
-                            </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/blog/{{this.slug}}">{{this.title}}</a></h5>
+                        <p class="card-text" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            {{#if this.excerpt}}{{this.excerpt}}{{else}}Read the latest update from our team.{{/if}}
+                        </p>
+                        <div class="d-flex justify-content-start">
+                            <a class="program-block_one-join" href="/blog/{{this.slug}}">view more
+                                <i class="flaticon-next-1"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- If we need pagination -->
-            <div class="program-one_carousel-pagination"></div>
-
-            <!-- Navigation arrows in standard position -->
-            <div class="swiper-button-prev program-one_carousel-prev"
-                style="width: 50px; height: 50px; margin-top: 0; top: 50%; transform: translateY(-50%); left: 10px; background: transparent; border: 2px solid #ccc; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 0;">
-                <i class="fas fa-chevron-left" style="font-size: 22px; color: #333; transition: all 0.3s ease;"></i>
+            {{/each}}
+            {{else}}
+            <div class="col-12 text-center">
+                <p>No blog posts yet.</p>
             </div>
-            <div class="swiper-button-next program-one_carousel-next"
-                style="width: 50px; height: 50px; margin-top: 0; top: 50%; transform: translateY(-50%); right: 10px; background: transparent; border: 2px solid #ccc; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 0;">
-                <i class="fas fa-chevron-right" style="font-size: 22px; color: #333; transition: all 0.3s ease;"></i>
-            </div>
+            {{/if}}
         </div>
     </div>
 </section>
-<!-- End Activities -->
+<!-- End Latest Blogs -->
 
 <!-- Testimonial One and Key Values Combined Section -->
 <section class="combined-section">

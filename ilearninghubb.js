@@ -63,7 +63,6 @@ const htmlPages = [
 ];
 
 htmlPages.forEach(page => {
-    console.log(page);
     app.get(`/${page}.html`, (req, res) => {
         const viewPath = path.join(__dirname, 'views', `${page}.handlebars`);
         if (fs.existsSync(viewPath)) {

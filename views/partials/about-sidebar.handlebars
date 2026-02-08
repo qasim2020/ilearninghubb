@@ -9,7 +9,7 @@
                 <img src="/assets/images/resource/about-1i.jpg" alt="" />
             </div>
             <div class="content-box">
-                <h3>About <span>iLearningHubb</span></h3>
+                <h3>About <span>{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}</span></h3>
                 <div class="text">At iLearningHubb, we spark curiosity and build confidence through playful learning.
                     Our programs are designed to inspire young minds, encourage growth, and make education truly joyful.
                 </div>
@@ -22,10 +22,12 @@
             </div>
         </div>
         <div class="social-box">
-            <a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            {{#if settings.socialFacebook}}<a href="{{settings.socialFacebook}}"><i class="fa-brands fa-facebook-f"></i></a>{{/if}}
+            {{#if settings.socialTwitter}}<a href="{{settings.socialTwitter}}"><i class="fa-brands fa-twitter"></i></a>{{/if}}
+            {{#if settings.socialYouTube}}<a href="{{settings.socialYouTube}}"><i class="fa-brands fa-youtube"></i></a>{{/if}}
+            {{#if settings.socialInstagram}}<a href="{{settings.socialInstagram}}"><i class="fa-brands fa-instagram"></i></a>{{/if}}
+            {{#if settings.socialLinkedIn}}<a href="{{settings.socialLinkedIn}}"><i class="fa-brands fa-linkedin"></i></a>{{/if}}
+            {{#if settings.socialTikTok}}<a href="{{settings.socialTikTok}}"><i class="fa-brands fa-tiktok"></i></a>{{/if}}
         </div>
     </div>
 </div>

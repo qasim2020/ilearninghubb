@@ -5,8 +5,12 @@
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                     <div class="nav-outer d-flex align-items-center flex-wrap">
                         <div class="logo-box">
-                            <div class="logo"><a href="/"><img src="/assets/images/logo-11.png" alt="iLearningHubb Logo"
-                                        title="iLearningHubb" class="responsive-logo" /></a></div>
+                            <div class="logo"><a href="/">
+                                    <img src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/logo-11.png{{/if}}"
+                                        alt="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}} Logo"
+                                        title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}"
+                                        class="responsive-logo" />
+                                </a></div>
                         </div>
                     </div>
 
@@ -27,7 +31,7 @@
                                 <li class="dropdown"><a href="#">About</a>
                                     <ul>
                                         <li><a href="/about-us.html">About Us</a></li>
-                                        <li><a href="/about-bootcamp.html">About Bootcamp</a></li>
+                                        <li><a href="/faq.html">FAQ</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Events</a>
@@ -36,11 +40,10 @@
                                         <li><a href="/past-events.html">Past Events</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/pricing.html">Pricing</a></li>
                                 <li class="dropdown"><a href="#">Blog Posts</a>
                                     <ul>
                                         {{#each blogPosts}}
-                                        <li><a href="/blog/{{this.slug}}">{{this.name}}</a></li>
+                                        <li><a href="/blog/{{this.slug}}">{{#if this.title}}{{this.title}}{{else}}{{this.name}}{{/if}}</a></li>
                                         {{/each}}
                                     </ul>
                                 </li>
@@ -90,8 +93,9 @@
         <div class="close-btn"><span class="icon flaticon-close"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="/assets/images/logo-11.png" alt="iLearningHubb Logo"
-                        title="iLearningHubb" class="responsive-mobile-logo" /></a>
+            <div class="nav-logo"><a href="/"><img src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/logo-11.png{{/if}}"
+                        alt="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}} Logo"
+                        title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}" class="responsive-mobile-logo" /></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->

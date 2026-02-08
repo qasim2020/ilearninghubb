@@ -1,0 +1,32 @@
+<section class="page-title" style="background-image: url(assets/images/background/pricing-bg.jpg);">
+    <div class="auto-container">
+        <h1 style="color: #ffffff;">{{blog.title}}</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li>Blog</li>
+        </ul>
+    </div>
+</section>
+
+<section class="blog-detail" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-10 col-md-12 col-sm-12 offset-lg-1">
+                {{#if blog.coverImageUrlResolved}}
+                <div style="width: 100%; height: 420px; overflow: hidden; border-radius: 12px; margin-bottom: 30px;">
+                    <img src="{{blog.coverImageUrlResolved}}" alt="{{blog.title}}"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+                {{/if}}
+
+                {{#if blog.excerpt}}
+                <p class="lead" style="margin-bottom: 24px;">{{blog.excerpt}}</p>
+                {{/if}}
+
+                <div class="blog-detail_content">
+                    {{{blog.content}}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

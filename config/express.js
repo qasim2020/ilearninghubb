@@ -8,8 +8,14 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.engine('handlebars', exphbs.engine({ helpers: hbsHelpers }));
+app.engine('handlebars', exphbs.engine({
+    helpers: hbsHelpers,
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, '..', 'views', 'layouts'),
+    partialsDir: path.join(__dirname, '..', 'views', 'partials'),
+}));
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, '..', 'views'));
 app.use(
     session({
         name: 'i-learning-hubb',
