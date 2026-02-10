@@ -133,6 +133,7 @@ exports.blogPost = async (req, res) => {
         const normalizedBlog = {
             ...blog,
             coverImageUrlResolved: normalizeImageUrl(blog.coverImageUrl),
+            specialFeatures: blog.specialFeatures || '',
         };
 
         const normalizedBlogs = (blogs || []).map((b) => ({

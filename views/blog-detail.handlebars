@@ -26,6 +26,12 @@
                 <div class="blog-detail_content">
                     {{{blog.content}}}
                 </div>
+
+                {{#if blog.specialFeatures}}
+                <div class="blog-special-features" style="margin-top:18px; padding:12px; background:#f9f9f9; border-left:4px solid var(--main-color);">
+                    {{{blog.specialFeatures}}}
+                </div>
+                {{/if}}
             </div>
         </div>
     </div>
