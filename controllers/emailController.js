@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const Ticket = require('../models/Ticket');
+const Subscription = require('../models/Subscription');
 const Settings = require('../models/Settings');
 
 const buildRedirectUrl = (req, status) => {
@@ -156,5 +157,26 @@ exports.sendMail = async (req, res) => {
             { success: false, message: 'error' },
             'error'
         );
+    }
+};
+
+exports.subscribe = async (req, res) => {
+    try {
+        const email = String((req.body.email || req.body.search-field || '').trim()).toLowerCase();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return res.status(400).json({ success: false, message: 'missing' });
+        }
+
+        // upsert subscription (ignore duplicate errors)
+        try {
+            await Subscription.updateOne({ email }, { $setOnInsert: { email, source: 'footer-subscribe' } }, { upsert: true });
+        } catch (e) {
+            // ignore unique constraint errors
+        }
+
+        return res.json({ success: true });
+    } catch (err) {
+        console.error('Error saving subscription:', err);
+        return res.status(500).json({ success: false, message: 'error' });
     }
 };

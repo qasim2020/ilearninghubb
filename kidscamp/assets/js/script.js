@@ -76,7 +76,8 @@
     //Mobile Nav Hide Show
     if ($('.mobile-menu').length) {
         //$('.mobile-menu .menu-box').mCustomScrollbar();
-        var mobileMenuContent = $('.main-header .nav-outer .main-menu').html();
+        // Some templates place `.main-menu` outside `.nav-outer` so select the main-menu directly
+        var mobileMenuContent = $('.main-header .main-menu').html();
         $('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
         $('.sticky-header .main-menu').append(mobileMenuContent);
 
@@ -1117,6 +1118,82 @@
                 $('#success-message, #error-message, #missing-message').hide();
             }, 5000);
         }
+    });
+
+    // AJAX submit for contact form on page-detail (prevent full page reload)
+    $(document).on('submit', '#contact-form', function (e) {
+        e.preventDefault();
+        var $form = $(this);
+        var $btn = $form.find('button[type="submit"]');
+        var $textOne = $btn.find('.text-one');
+        var $textTwo = $btn.find('.text-two');
+        var origOne = $textOne.length ? $textOne.text() : $btn.text();
+        var origTwo = $textTwo.length ? $textTwo.text() : $btn.text();
+
+        if ($textOne.length) $textOne.text('Sending...');
+        if ($textTwo.length) $textTwo.text('Sending...');
+        $btn.prop('disabled', true).addClass('loading');
+
+        $.ajax({
+            url: $form.attr('action'),
+            method: ($form.attr('method') || 'POST'),
+            data: $form.serialize(),
+            dataType: 'json'
+        }).done(function (resp) {
+            if (resp && resp.success) {
+                $('#contact-form-message').html('<div class="alert alert-success">Thank you! Your message has been sent successfully.</div>');
+                $form[0].reset();
+            } else if (resp && resp.message === 'missing') {
+                $('#contact-form-message').html('<div class="alert alert-warning">Please fill out all required fields.</div>');
+            } else {
+                $('#contact-form-message').html('<div class="alert alert-danger">Sorry, there was an error sending your message. Please try again later.</div>');
+            }
+        }).fail(function () {
+            $('#contact-form-message').html('<div class="alert alert-danger">Sorry, there was an error sending your message. Please try again later.</div>');
+        }).always(function () {
+            if ($textOne.length) $textOne.text(origOne);
+            if ($textTwo.length) $textTwo.text(origTwo);
+            $btn.prop('disabled', false).removeClass('loading');
+        });
+        return false;
+    });
+
+    // AJAX submit for footer subscribe form (prevent full page reload)
+    $(document).on('submit', '#subscribe-form', function (e) {
+        e.preventDefault();
+        var $form = $(this);
+        var $btn = $form.find('button[type="submit"]');
+        var $textOne = $btn.find('.text-one');
+        var $textTwo = $btn.find('.text-two');
+        var origOne = $textOne.length ? $textOne.text() : $btn.text();
+        var origTwo = $textTwo.length ? $textTwo.text() : $btn.text();
+
+        if ($textOne.length) $textOne.text('Sending...');
+        if ($textTwo.length) $textTwo.text('Sending...');
+        $btn.prop('disabled', true).addClass('loading');
+
+        $.ajax({
+            url: $form.attr('action'),
+            method: ($form.attr('method') || 'POST'),
+            data: $form.serialize(),
+            dataType: 'json'
+        }).done(function (resp) {
+            if (resp && resp.success) {
+                $('#subscribe-form-message').html('<div class="alert alert-success">Subscription successful. Thank you!</div>');
+                $form[0].reset();
+            } else if (resp && resp.message) {
+                $('#subscribe-form-message').html('<div class="alert alert-warning">' + resp.message + '</div>');
+            } else {
+                $('#subscribe-form-message').html('<div class="alert alert-danger">Sorry, could not subscribe. Please try again later.</div>');
+            }
+        }).fail(function () {
+            $('#subscribe-form-message').html('<div class="alert alert-danger">Sorry, could not subscribe. Please try again later.</div>');
+        }).always(function () {
+            if ($textOne.length) $textOne.text(origOne);
+            if ($textTwo.length) $textTwo.text(origTwo);
+            $btn.prop('disabled', false).removeClass('loading');
+        });
+        return false;
     });
 
 })(window.jQuery);

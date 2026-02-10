@@ -1189,6 +1189,16 @@
     -o-transition: all 900ms ease;
 }
 
+/* Ensure mobile menu links are visible (override header white link rules) */
+.mobile-menu .navigation > li > a,
+.mobile-menu .navigation li a {
+	color: var(--black-color) !important;
+}
+
+.mobile-menu .navigation li a:hover {
+	color: var(--main-color) !important;
+}
+
 .mobile-menu-visible .mobile-menu .menu-box{
 	right:0px;
 	-webkit-transition-delay: 600ms;

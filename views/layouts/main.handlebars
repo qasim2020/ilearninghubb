@@ -131,12 +131,12 @@
                             </div>
                             <div class="column col-lg-6 col-md-12 col-sm-12">
                                 <div class="newsletter-box">
-                                    <form method="post" action="contact.html">
+                                    <form id="subscribe-form" method="post" action="/api/subscribe">
                                         <div class="form-group">
                                             <span class="icon fa-regular fa-envelope fa-fw"></span>
-                                            <input type="email" name="search-field" value=""
+                                            <input type="email" name="email" id="subscribe-email" value=""
                                                 placeholder="Enter Email Here" required />
-                                            <button type="submit" class="template-btn btn-style-one">
+                                            <button type="submit" id="subscribe-btn" class="template-btn btn-style-one">
                                                 <span class="btn-wrap">
                                                     <span class="text-one">Subscribe Now
                                                         <i class="flaticon-next-1"></i></span>
@@ -145,6 +145,7 @@
                                                 </span>
                                             </button>
                                         </div>
+                                        <div id="subscribe-form-message" style="margin-top:8px;"></div>
                                     </form>
                                 </div>
                             </div>
@@ -180,12 +181,19 @@
                                         <h5 class="footer-title">Quick Links</h5>
                                         <ul class="footer-list">
                                             <li><a href="/">Home</a></li>
-                                            <li><a href="/about-us">About Us</a></li>
-                                            <li><a href="/about-bootcamp">About Bootcamp</a></li>
-                                            <li><a href="/contact">Contact Us</a></li>
-                                            <li><a href="/register">Register</a></li>
-                                            <li><a href="/events">Events</a></li>
+                                            {{#if pages.about}}
+                                            <li><a href="/page/about">{{pages.about.title}}</a></li>
+                                            {{/if}}
+                                            {{#if pages.contact}}
+                                            <li><a href="/page/contact">{{pages.contact.title}}</a></li>
+                                            {{/if}}
+                                            {{#if pages.faq}}
+                                            <li><a href="/page/faq">{{pages.faq.title}}</a></li>
+                                            {{/if}}
                                             <li><a href="/programs">Programs</a></li>
+                                            {{#if pages.terms}}
+                                            <li><a href="/page/terms">{{pages.terms.title}}</a></li>
+                                            {{/if}}
                                         </ul>
                                     </div>
                                 </div>
@@ -194,12 +202,7 @@
                                     <div class="footer-widget links-widget">
                                         <h5 class="footer-title">Programs</h5>
                                         <ul class="footer-list">
-                                            <li><a href="#">Fun & Fitness</a></li>
-                                            <li><a href="#">Sports Spectacular</a></li>
-                                            <li><a href="#">Nature's Gymnasts</a></li>
-                                            <li><a href="#">Warrior Training</a></li>
-                                            <li><a href="#">Adventure Explorers</a></li>
-                                            <li><a href="#">Champions Camp</a></li>
+                                            <li><a href="/programs">All Programs</a></li>
                                         </ul>
                                     </div>
                                 </div>

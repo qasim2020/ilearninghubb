@@ -1,0 +1,52 @@
+<section class="page-title">
+    <div class="auto-container">
+        <div class="sec-title">
+            <div class="sec-title_title">Our Programs</div>
+            <h2 class="sec-title_heading">All Available <span>Programs</span></h2>
+        </div>
+    </div>
+</section>
+
+<section class="programs-list" style="padding: 60px 0;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            {{#if programs.length}}
+            {{#each programs}}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="program-block_one">
+                    <div class="program-block_one-inner">
+                        <div class="program-block_one-image">
+                            <div style="width: 100%; height: 220px; overflow: hidden;">
+                                <img src="{{#if this.imageUrlResolved}}{{this.imageUrlResolved}}{{else}}assets/images/resource/event-placeholder.jpg{{/if}}" alt="{{this.title}}"
+                                    style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/resource/program-1.jpg'" />
+                            </div>
+                        </div>
+                        <div class="program-block_one-content">
+                            <div class="program-block_one-date" style="display:flex; flex-direction:column; align-items:center; line-height:1;">
+                                <span style="font-size: 22px; font-weight: 700;">{{this.durationValue}}</span>
+                                {{#if this.durationLabel}}
+                                <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">{{this.durationLabel}}</span>
+                                {{/if}}
+                            </div>
+                            <h5 class="program-block_one-title"><a href="/program/{{this._id}}">{{this.title}}</a></h5>
+                            <div class="program-block_one-text" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                                {{#if this.descriptionText}}{{this.descriptionText}}{{else}}Learn more about this program.{{/if}}
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="program-block_one-experiance">{{this.ageRange}}</div>
+                                <a class="program-block_one-join" href="/program/{{this._id}}">view more
+                                    <i class="flaticon-next-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="col-12">
+                <p>No programs available at the moment. Please check back later.</p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>

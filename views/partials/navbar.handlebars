@@ -30,16 +30,18 @@
                                 <li><a href="/">Home</a></li>
                                 <li class="dropdown"><a href="#">About</a>
                                     <ul>
-                                        <li><a href="/about-us.html">About Us</a></li>
-                                        <li><a href="/faq.html">FAQ</a></li>
+                                        {{#if pages.about}}
+                                        <li><a href="/page/about">{{pages.about.title}}</a></li>
+                                        {{/if}}
+                                        {{#if pages.contact}}
+                                        <li><a href="/page/contact">{{pages.contact.title}}</a></li>
+                                        {{/if}}
+                                        {{#if pages.faq}}
+                                        <li><a href="/page/faq">{{pages.faq.title}}</a></li>
+                                        {{/if}}
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Events</a>
-                                    <ul>
-                                        <li><a href="/upcoming-events.html">Upcoming Events</a></li>
-                                        <li><a href="/past-events.html">Past Events</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="/programs">Programs</a></li>
                                 <li class="dropdown"><a href="#">Blog Posts</a>
                                     <ul>
                                         {{#each blogPosts}}
@@ -47,7 +49,19 @@
                                         {{/each}}
                                     </ul>
                                 </li>
-                                <li><a href="/contact.html">Contact Us</a></li>
+                                <li class="dropdown"><a href="#">Terms</a>
+                                    <ul>
+                                        {{#if pages.terms}}
+                                        <li><a href="/page/terms">{{pages.terms.title}}</a></li>
+                                        {{/if}}
+                                        {{#if pages.privacy}}
+                                        <li><a href="/page/privacy">{{pages.privacy.title}}</a></li>
+                                        {{/if}}
+                                        {{#if pages.cookies}}
+                                        <li><a href="/page/cookies">{{pages.cookies.title}}</a></li>
+                                        {{/if}}
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -73,8 +87,8 @@
                             </a>
                         </div> --}}
 
-                        <!-- About Widget -->
-                        <div class="about-widget d-flex align-items-center">
+                        <!-- Mobile Nav Toggler (hamburger) -->
+                        <div class="mobile-nav-toggler d-flex align-items-center">
                             <span class="hamburger">
                                 <span class="top-bun"></span>
                                 <span class="meat"></span>

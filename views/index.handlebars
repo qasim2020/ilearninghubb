@@ -181,13 +181,13 @@
                                     {{/if}}
                                 </div>
                                 <h5 class="program-block_one-title"><a
-                                        href="/program-detail.html">{{this.title}}</a></h5>
+                                    href="/program/{{this._id}}">{{this.title}}</a></h5>
                                 <div class="program-block_one-text"
                                     style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
                                     {{#if this.descriptionText}}{{this.descriptionText}}{{else}}Learn more about this program.{{/if}}</div>
                                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                                     <div class="program-block_one-experiance">{{this.ageRange}}</div>
-                                    <a class="program-block_one-join" href="/program-detail.html">view more
+                                    <a class="program-block_one-join" href="/program/{{this._id}}">view more
                                         <i class="flaticon-next-1"></i></a>
                                 </div>
                             </div>
