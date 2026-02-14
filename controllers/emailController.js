@@ -114,31 +114,52 @@ exports.sendMail = async (req, res) => {
             data.source ? `Source: ${data.source}` : null,
         ].filter(Boolean);
 
+        const recipients = (Array.isArray(settings.ticketEmails) && settings.ticketEmails.length)
+            ? settings.ticketEmails
+            : (settings.emailToAddress ? [settings.emailToAddress] : ['qasimali24@gmail.com']);
+
         const mailOptions = {
             from: `${fromName} <${fromAddress}>`,
-            to: settings.emailToAddress || 'qasimali24@gmail.com',
+            to: recipients,
             replyTo: email,
             subject,
             text: lines.join('\n'),
             html: lines.map((line) => `<p>${line}</p>`).join(''),
         };
 
-        try {
-            await transporter.sendMail(mailOptions);
-        } catch (sendError) {
-            const isTimeout = sendError?.code === 'ETIMEDOUT'
-                || /Greeting never received/i.test(sendError?.message || '');
+        // Send to each recipient individually to avoid exposing other recipients
+        const sendToRecipient = async (recipient) => {
+            const opts = Object.assign({}, mailOptions, { to: recipient });
+            try {
+                await transporter.sendMail(opts);
+            } catch (sendError) {
+                const isTimeout = sendError?.code === 'ETIMEDOUT'
+                    || /Greeting never received/i.test(sendError?.message || '');
 
-            if (!isTimeout) {
-                throw sendError;
+                if (!isTimeout) {
+                    console.error('Error sending email to a recipient:', sendError);
+                    return;
+                }
+
+                const currentPort = Number(settings.emailPort) || 587;
+                const fallbackPort = currentPort === 465 ? 587 : 465;
+                const fallbackSecure = fallbackPort === 465;
+
+                const fallbackTransport = buildTransport(fallbackPort, fallbackSecure);
+                try {
+                    await fallbackTransport.sendMail(opts);
+                } catch (fallbackErr) {
+                    console.error('Fallback send failed for a recipient:', fallbackErr);
+                }
             }
+        };
 
-            const currentPort = Number(settings.emailPort) || 587;
-            const fallbackPort = currentPort === 465 ? 587 : 465;
-            const fallbackSecure = fallbackPort === 465;
-
-            const fallbackTransport = buildTransport(fallbackPort, fallbackSecure);
-            await fallbackTransport.sendMail(mailOptions);
+        for (const r of recipients) {
+            // sequential send to avoid disclosing recipient list and reduce rate issues
+            // errors are logged generically (without recipient email)
+            // continue sending to remaining recipients even if one fails
+            // eslint-disable-next-line no-await-in-loop
+            await sendToRecipient(r);
         }
 
         return sendResponse(
