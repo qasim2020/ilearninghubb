@@ -293,6 +293,7 @@ exports.programDetail = async (req, res) => {
             ...program,
             imageUrlResolved: normalizeImageUrl(program.imageUrl),
             gallery,
+            specialFeatures: program.specialFeatures || '',
         };
 
         // fetch up to 2 other active programs (exclude current)
