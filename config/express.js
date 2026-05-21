@@ -53,7 +53,18 @@ const getCorrectPath = (basePath, relativePath) => {
 
 const kidscampPath = getCorrectPath(__dirname, 'kidscamp');
 const assetsPath = path.join(kidscampPath, 'assets');
-const uploadsPath = path.join(__dirname, '..', '..', 'ilearninghubb-cms', 'uploads');
+const getUploadsPath = () => {
+    const candidates = [
+        process.env.CMS_UPLOADS_PATH,
+        process.env.UPLOADS_PATH,
+        path.join(__dirname, '..', '..', 'ilh-admin', 'uploads'),
+        path.join(__dirname, '..', '..', 'ilearninghubb-cms', 'uploads'),
+    ].filter(Boolean);
+
+    return candidates.find((candidate) => fs.existsSync(candidate)) || candidates[0];
+};
+
+const uploadsPath = getUploadsPath();
 
 app.use(express.static(kidscampPath));
 app.use('/assets', express.static(assetsPath));
@@ -106,8 +117,10 @@ app.get('/debug/images', (req, res) => {
             images: allImages,
             staticPaths: [
                 kidscampPath,
-                assetsPath
-            ]
+                assetsPath,
+                uploadsPath,
+            ],
+            uploadsPath,
         });
     } catch (err) {
         res.status(500).json({
@@ -126,4 +139,4 @@ app.get('/assets/images/:filename', (req, res) => {
     res.sendFile(path.join(kidscampPath, 'assets', 'images', req.params.filename));
 });
 
-module.exports = { app, kidscampPath, assetsPath };
+module.exports = { app, kidscampPath, assetsPath, uploadsPath };
