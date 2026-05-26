@@ -1,0 +1,235 @@
+<style>
+    .gallery-thumb-box {
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 8px;
+        position: relative;
+        background: #f7f7f7;
+    }
+
+    .gallery-one_block-inner {
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery-one_block-overlay {
+        opacity: 0;
+        -webkit-transform: none !important;
+        -ms-transform: none !important;
+        transform: none !important;
+        -webkit-transform-origin: center center !important;
+        -ms-transform-origin: center center !important;
+        transform-origin: center center !important;
+        transition: opacity 0.14s ease-in-out !important;
+    }
+
+    .gallery-one_block-inner:hover .gallery-one_block-overlay {
+        opacity: 1;
+        -webkit-transform: none !important;
+        -ms-transform: none !important;
+        transform: none !important;
+    }
+
+    .gallery-thumb-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-play-badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.72);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .gallery-image-icon {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .styled-pagination .ellipsis {
+        line-height: 48px;
+        height: 50px;
+        min-width: 36px;
+        display: inline-block;
+        text-align: center;
+        color: rgba(var(--color-four-rgb), 0.6);
+        font-weight: 600;
+    }
+
+    @media (max-width: 575.98px) {
+        .gallery-one_block {
+            margin-bottom: 16px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .gallery-thumb-box {
+            height: 190px;
+        }
+    }
+</style>
+
+<section class="page-title">
+    <div class="color-one"></div>
+    <div class="color-two"></div>
+    <div class="color-three"></div>
+    <div class="color-four"></div>
+    <div class="auto-container">
+        <h2>Our Gallery</h2>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/"><i class="flaticon-home"></i> Home</a></li>
+            <li>Our Gallery</li>
+        </ul>
+    </div>
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallaxx">
+                <use xlink:href="#gentle-wave" x="148" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="100" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="70" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+</section>
+
+<section class="gallery-one" id="gallery-section" style="padding-top: 90px; padding-bottom: 60px;">
+    <div class="auto-container">
+        <div id="gallery-content">
+            <div class="row clearfix">
+                {{#if galleryMedia.length}}
+                {{#each galleryMedia}}
+                <div class="gallery-one_block col-6 col-md-6 col-lg-3">
+                    <div class="gallery-one_block-inner">
+                        <div class="gallery-one_block-image gallery-thumb-box">
+                            {{#if (eq this.type "video")}}
+                            <a href="{{this.url}}" data-fslightbox="gallery-media" data-type="video" data-autoplay
+                                style="display:block; width:100%; height:100%; position:relative;">
+                                <img src="{{this.thumbnailUrl}}" alt="{{this.title}}" onerror="this.src='/assets/images/gallery/1.jpg'" />
+                                <div class="gallery-one_block-overlay">
+                                    <span class="gallery-one_block-icon" aria-label="Play video">
+                                        <span class="gallery-play-badge">
+                                            <i class="fa-solid fa-play" style="font-size:14px; line-height:1; margin-left:2px;"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </a>
+                            {{else}}
+                            <a href="{{this.url}}" data-fslightbox="gallery-media" data-type="image"
+                                style="display:block; width:100%; height:100%; position:relative;">
+                                <img src="{{this.thumbnailUrl}}" alt="{{this.title}}" onerror="this.src='/assets/images/gallery/1.jpg'" />
+                                <div class="gallery-one_block-overlay">
+                                    <span class="gallery-one_block-icon" aria-label="Open image">
+                                        <i class="fa-regular fa-image gallery-image-icon"></i>
+                                    </span>
+                                </div>
+                            </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="col-12">
+                    <p>Gallery media will appear here as programs are updated.</p>
+                </div>
+                {{/if}}
+            </div>
+
+            {{#if (neq totalPages 1)}}
+            <ul class="styled-pagination text-center">
+                {{#if prevPageHref}}
+                <li class="prev"><a href="{{prevPageHref}}">Prev</a></li>
+                {{/if}}
+                {{#each paginationItems}}
+                {{#if (eq this.type "ellipsis")}}
+                <li><span class="ellipsis">...</span></li>
+                {{else}}
+                <li><a href="{{this.href}}" class="{{#if this.isActive}}active{{/if}}">{{this.pageNumber}}</a></li>
+                {{/if}}
+                {{/each}}
+                {{#if nextPageHref}}
+                <li class="next"><a href="{{nextPageHref}}">Next</a></li>
+                {{/if}}
+            </ul>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const section = document.getElementById('gallery-section');
+        const content = document.getElementById('gallery-content');
+        if (!section || !content) return;
+
+        function initLightboxes() {
+            if (typeof window.refreshFsLightbox === 'function') {
+                window.refreshFsLightbox();
+                return;
+            }
+
+            let attempts = 0;
+            const maxAttempts = 20;
+            const retry = function () {
+                attempts += 1;
+                if (typeof window.refreshFsLightbox === 'function') {
+                    window.refreshFsLightbox();
+                    return;
+                }
+                if (attempts < maxAttempts) {
+                    window.setTimeout(retry, 150);
+                }
+            };
+            retry();
+        }
+
+        async function loadGalleryPage(url, pushState) {
+            section.style.opacity = '0.5';
+            try {
+                const response = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+                if (!response.ok) throw new Error('Failed to load gallery page');
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const nextContent = doc.getElementById('gallery-content');
+                if (!nextContent) throw new Error('Invalid gallery response');
+                content.innerHTML = nextContent.innerHTML;
+                initLightboxes();
+                if (pushState) window.history.pushState({ galleryUrl: url }, '', url);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                section.style.opacity = '1';
+            }
+        }
+
+        section.addEventListener('click', function (event) {
+            const link = event.target.closest('.styled-pagination a');
+            if (!link) return;
+            event.preventDefault();
+            loadGalleryPage(link.href, true);
+        });
+
+        window.addEventListener('popstate', function () {
+            if (window.location.pathname === '/gallery') {
+                loadGalleryPage(window.location.href, false);
+            }
+        });
+
+        initLightboxes();
+    })();
+</script>

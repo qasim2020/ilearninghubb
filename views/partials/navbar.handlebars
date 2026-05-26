@@ -5,71 +5,63 @@
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                     <div class="nav-outer d-flex align-items-center flex-wrap">
                         <div class="logo-box">
-                            <div class="logo"><a href="/">
+                            <div class="logo">
+                                <a href="/">
                                     <img src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/logo-11.png{{/if}}"
                                         alt="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}} Logo"
                                         title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}"
                                         class="responsive-logo" />
-                                </a></div>
+                                </a>
+                            </div>
                         </div>
+
+                        <nav class="main-menu navbar-expand-md">
+                            <div class="navbar-header">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="dropdown"><a href="#">About</a>
+                                        <ul>
+                                            <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="/faq">FAQs</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/programs">Programs</a></li>
+                                    <li><a href="/gallery">Gallery</a></li>
+                                    <li class="dropdown"><a href="#">Blog Posts</a>
+                                        <ul>
+                                            {{#each blogPosts}}
+                                            <li><a
+                                                    href="/blog/{{this.slug}}">{{#if this.title}}{{this.title}}{{else}}{{this.name}}{{/if}}</a>
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Terms</a>
+                                        <ul>
+                                            <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                            <li><a href="/cookies-policy">Cookies Policy</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/contact-us">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
 
-                    <nav class="main-menu navbar-expand-md">
-                        <div class="navbar-header">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-
-                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-                            <ul class="navigation clearfix">
-                                <li><a href="/">Home</a></li>
-                                <li class="dropdown"><a href="#">About</a>
-                                    <ul>
-                                        {{#if pages.about}}
-                                        <li><a href="/page/about">{{pages.about.title}}</a></li>
-                                        {{/if}}
-                                        {{#if pages.contact}}
-                                        <li><a href="/page/contact">{{pages.contact.title}}</a></li>
-                                        {{/if}}
-                                        {{#if pages.faq}}
-                                        <li><a href="/page/faq">{{pages.faq.title}}</a></li>
-                                        {{/if}}
-                                    </ul>
-                                </li>
-                                <li><a href="/programs">Programs</a></li>
-                                <li class="dropdown"><a href="#">Blog Posts</a>
-                                    <ul>
-                                        {{#each blogPosts}}
-                                        <li><a href="/blog/{{this.slug}}">{{#if this.title}}{{this.title}}{{else}}{{this.name}}{{/if}}</a></li>
-                                        {{/each}}
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Terms</a>
-                                    <ul>
-                                        {{#if pages.terms}}
-                                        <li><a href="/page/terms">{{pages.terms.title}}</a></li>
-                                        {{/if}}
-                                        {{#if pages.privacy}}
-                                        <li><a href="/page/privacy">{{pages.privacy.title}}</a></li>
-                                        {{/if}}
-                                        {{#if pages.cookies}}
-                                        <li><a href="/page/cookies">{{pages.cookies.title}}</a></li>
-                                        {{/if}}
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-
                     <div class="outer-box d-flex align-items-center">
-                        <!-- Button Box -->
                         <div class="main-header_button me-2">
-                            <a class="theme-btn btn-style-one ticket-register-btn">
+                            <a class="theme-btn btn-style-one" href="/advance-tour-booking">
                                 <span class="btn-wrap">
                                     <span class="text-one">Register Now</span>
                                     <span class="text-two">Register Now</span>
@@ -77,50 +69,29 @@
                             </a>
                         </div>
 
-                        {{!-- <!-- Button Box -->
-                        <div class="main-header_button">
-                            <a href="{{data.siginURL}}" class="theme-btn btn-style-three">
-                                <span class="btn-wrap">
-                                    <span class="text-one">Login</span>
-                                    <span class="text-two">Login</span>
-                                </span>
-                            </a>
-                        </div> --}}
-
-                        <!-- Mobile Nav Toggler (hamburger) -->
-                        <div class="mobile-nav-toggler d-flex align-items-center">
-                            <span class="hamburger">
-                                <span class="top-bun"></span>
-                                <span class="meat"></span>
-                            </span>
-                        </div>
+                        <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--End Header Lower-->
 
-    <!-- Mobile Menu  -->
     <div class="mobile-menu">
         <div class="menu-backdrop"></div>
         <div class="close-btn"><span class="icon flaticon-close"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/logo-11.png{{/if}}"
+            <div class="nav-logo"><a href="/"><img
+                        src="{{#if settings.logoUrl}}{{settings.logoUrl}}{{else}}/assets/images/logo-11.png{{/if}}"
                         alt="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}} Logo"
-                        title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}" class="responsive-mobile-logo" /></a>
+                        title="{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}"
+                        class="responsive-mobile-logo" /></a>
             </div>
-            <div class="menu-outer">
-                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            </div>
+            <div class="menu-outer"></div>
         </nav>
     </div>
-    <!-- End Mobile Menu -->
 </header>
-<!-- End Main Header -->
 
-<!-- Add navbar styling with blue background and reduced padding -->
 <style>
     .main-header {
         background-color: transparent;
@@ -131,36 +102,22 @@
         background-color: transparent;
     }
 
-    .main-header .header-lower .logo-box .logo {
-        position: relative;
-        padding-left: 60px;
-    }
-
-    .navigation>li>a,
-    .main-menu .navigation>li>a {
+    .main-header .main-menu .navigation>li>a {
         color: #ffffff !important;
         padding: 10px 15px !important;
     }
 
-    .navigation>li:hover>a,
-    .main-menu .navigation>li:hover>a {
+    .main-header .main-menu .navigation>li:hover>a {
         color: var(--secondary-color) !important;
     }
 
     .main-header_button .theme-btn {
         margin-left: 10px;
-        padding: 12px 25px !important;
-        font-size: 16px !important;
+        padding: 12px 18px !important;
+        font-size: 14px !important;
         display: flex;
         align-items: center;
         height: 100%;
-    }
-
-    .about-widget,
-    .mobile-nav-toggler {
-        height: 100%;
-        display: flex;
-        align-items: center;
     }
 
     .responsive-logo {
@@ -180,32 +137,35 @@
 
         .main-header,
         .header-lower {
-            background-color: var(--color-four);
+            background-color: transparent;
         }
 
         .responsive-logo {
             max-width: 75px;
         }
+    }
 
-        .main-header .header-lower .logo-box .logo {
-            position: relative;
-            padding: 5px 0px;
+    @media (max-width: 1023px) {
+        .main-header {
+            position: absolute !important;
+            background-color: transparent !important;
+        }
+
+        .main-header .header-lower {
+            background-color: transparent !important;
+        }
+
+        .main-header.fixed-header .header-lower {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            animation: none !important;
+            -webkit-animation: none !important;
         }
     }
 
     @media (max-width: 991px) {
-        .responsive-logo {}
-    }
-
-    @media (max-width: 767px) {
-        .responsive-logo {}
-    }
-
-    @media (max-width: 480px) {
-        .responsive-logo {}
-
-        .responsive-mobile-logo {
-            max-width: 60px;
+        .main-header_button {
+            display: none;
         }
     }
 </style>

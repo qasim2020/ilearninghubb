@@ -114,7 +114,7 @@
 	
 	--primary-color: #204B73;
 	--secondary-color: #F19500;
-	--background-color: #f8f9fa; /* Light gray instead of pure white */
+	--background-color: #fdf3ea;
 	--text-color: #333;
 }
 
@@ -1285,14 +1285,6 @@ section {
   background-color: var(--background-color);
 }
 
-.header-lower,
-.main-header,
-.slider-one,
-.slider-two,
-.slider-three {
-  background-color: #fff;
-}
-
 /* Input fields and forms */
 input, 
 textarea, 
@@ -1307,4 +1299,3 @@ select {
 .btn-style-three {
   font-family: var(--primary-font);
 }
-

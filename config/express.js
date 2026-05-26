@@ -7,7 +7,6 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', exphbs.engine({
     helpers: hbsHelpers,
     defaultLayout: 'main',
@@ -32,9 +31,15 @@ app.use(
     }),
 );
 
-app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({
+    limit: '50mb',
+    verify: (req, res, buf) => {
+        if (req.originalUrl === '/api/checkout/webhook') {
+            req.rawBody = buf;
+        }
+    },
+}));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
 const getCorrectPath = (basePath, relativePath) => {
@@ -69,6 +74,11 @@ const uploadsPath = getUploadsPath();
 app.use(express.static(kidscampPath));
 app.use('/assets', express.static(assetsPath));
 app.use('/uploads', express.static(uploadsPath));
+
+app.use((req, res, next) => {
+    res.locals.assetTs = Date.now();
+    next();
+});
 
 app.use((req, res, next) => {
     const ext = path.extname(req.url).toLowerCase();

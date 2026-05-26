@@ -21,16 +21,12 @@
                                 <div class="slider-one_text">Spark curiosity and build young minds with hands-on
                                     learning, teamwork, and fun in every session.</div>
                                 <div class="slider-one_button d-flex align-items-center flex-wrap">
-                                    <a href="#" class="theme-btn btn-style-one ticket-register-btn">
+                                    <a href="/advance-tour-booking" class="theme-btn btn-style-one">
                                         <span class="btn-wrap">
                                             <span class="text-one">Register now <i class="flaticon-next-1"></i></span>
                                             <span class="text-two">Register now <i class="flaticon-next-1"></i></span>
                                         </span>
                                     </a>
-                                    <div class="slider-one_seats">
-                                        Remains:
-                                        <span>56 Seats</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +51,7 @@
                                     <div class="slider-one_booking-title"><i><img
                                                 src="/assets/images/main-slider/fire.png" alt="" /></i>Early
                                         booking</div>
-                                    <div class="time-countdown clearfix" data-countdown="2026/03/28"></div>
+                                    <div class="time-countdown clearfix" data-countdown="{{#if advanceTourCountdownDate}}{{advanceTourCountdownDate}}{{else}}2027/04/01{{/if}}"></div>
                                 </div>
                             </div>
                         </div>
@@ -637,13 +633,11 @@
                 <div class="registration-one_title-outer">
                     <!-- Sec Title -->
                     <div class="sec-title title-anim">
-                        <div class="sec-title_title">Registration Now!</div>
-                        <h2 class="sec-title_heading">Register for Our Adventure
-                            <span>Bootcamp</span> Today!
+                        <div class="sec-title_title">Potential Registrations</div>
+                        <h2 class="sec-title_heading">Advance Tour
+                            <span>Registration</span>
                         </h2>
-                        <div class="sec-title_text">Register your child for an unforgettable experience combining
-                            Islamic learning with exciting outdoor activities. Fun, faith, and friendships — all in one
-                            vibrant summer tour!</div>
+                        <div class="sec-title_text">Fill in the form and make the payment for advance booking. We will reach you near the tour program to confirm your booking on priority over normal bookings.</div>
                     </div>
 
                     <ul class="registration-one_list">
@@ -669,7 +663,7 @@
             <!-- Title Column -->
             <div class="registration-one_form-column col-lg-6 col-md-12 col-sm-12">
                 <div class="registration-one_form-outer">
-                    <h3 class="registration-one_title">Bootcamp Registration</h3>
+                    <h3 id="advance-tour-registration" class="registration-one_title">Advance Tour Registration</h3>
 
                     <!-- Default Form -->
                     <div class="default-form">
@@ -680,67 +674,75 @@
                                 justify-content: center;
                                 min-width: 200px;
                             }
+
+                            #landing-ticket-form input[type="number"] {
+                                position: relative;
+                                display: block;
+                                width: 100%;
+                                height: 60px;
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 28px;
+                                padding: 10px 25px;
+                                border-radius: 6px;
+                                color: var(--black-color);
+                                background-color: var(--white-color);
+                                border: 1px solid transparent;
+                                transition: all 300ms ease;
+                            }
+
+                            #landing-ticket-form input[type="number"]:focus {
+                                border-color: var(--main-color);
+                            }
+
+                            #landing-ticket-form input::placeholder,
+                            #landing-ticket-form textarea::placeholder {
+                                color: rgba(var(--color-four-rgb), 0.50);
+                            }
+
+                            #landing-ticket-form input::-webkit-input-placeholder,
+                            #landing-ticket-form textarea::-webkit-input-placeholder {
+                                color: rgba(var(--color-four-rgb), 0.50);
+                            }
                         </style>
-                        <form id="landing-ticket-form" method="post" action="/api/tickets" novalidate>
+                        <form id="landing-ticket-form" method="post" action="/api/advance-tour/checkout/session" novalidate>
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Child's Full Name</label>
-                                    <input type="text" name="firstname" placeholder="" required="" />
+                                    <label>Guardian name</label>
+                                    <input type="text" id="landingAdvanceName" name="name" placeholder="Guardian name" required />
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Guardian Name</label>
-                                    <input type="text" name="lastname" placeholder="" required="" />
+                                    <label>Email address</label>
+                                    <input type="email" id="landingAdvanceEmail" name="email" placeholder="Email address" required />
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Email Address</label>
-                                    <input type="text" name="email" placeholder="" required="" />
+                                    <label>Phone number</label>
+                                    <input type="text" id="landingAdvancePhone" name="phone" placeholder="Phone number" />
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Phone Number</label>
-                                    <input type="text" name="phone" placeholder="" required="" />
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Child's Age</label>
-                                    <select name="childAge" class="custom-select-box">
-                                        <option>10 - 12</option>
-                                        <option>13 - 15</option>
-                                        <option>16 - 18</option>
-                                        <option>19 - 21</option>
-                                        <option>22 - 24</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label>Medical
-                                        Conditions/Allergies</label>
-                                    <select name="medicalConditions" class="custom-select-box">
-                                        <option>No</option>
-                                        <option>Yes</option>
-                                    </select>
+                                    <label>Number of children</label>
+                                    <input type="number" id="landingAdvanceQuantity" name="quantity" value="1" min="1" placeholder="Number of children" required />
                                 </div>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <label>Additional Message</label>
-                                    <textarea class="" name="message" placeholder=""></textarea>
+                                    <label>Children names</label>
+                                    <textarea id="landingAdvanceChildrenNames" name="childrenNames" placeholder="Children names (comma or new line separated)"></textarea>
                                 </div>
-
-                                <input type="hidden" name="source" value="landing-registration" />
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                     <div id="landing-form-message" class="mb-3" style="display: none;"></div>
                                     <!-- Button Box -->
                                     <button type="submit" class="theme-btn btn-style-two" id="landing-ticket-submit">
                                         <span class="btn-wrap">
-                                            <span class="text-one">Submit Now
+                                            <span class="text-one">Proceed to payment
                                                 <i class="flaticon-next-1"></i></span>
-                                            <span class="text-two">Submit Now
+                                            <span class="text-two">Proceed to payment
                                                 <i class="flaticon-next-1"></i></span>
                                         </span>
-                                        <span class="d-none" data-sending-label>Sending...</span>
+                                        <span class="d-none" data-sending-label>Creating checkout...</span>
                                     </button>
                                 </div>
                             </div>
@@ -774,8 +776,8 @@
         const setLoading = (isLoading) => {
             if (submitBtn) submitBtn.disabled = isLoading;
             if (isLoading) {
-                if (textOne) textOne.textContent = 'Sending...';
-                if (textTwo) textTwo.textContent = 'Sending...';
+                if (textOne) textOne.textContent = 'Creating checkout...';
+                if (textTwo) textTwo.textContent = 'Creating checkout...';
             } else {
                 if (textOne) textOne.innerHTML = originalTextOne;
                 if (textTwo) textTwo.innerHTML = originalTextTwo;
@@ -788,16 +790,19 @@
             if (messageEl) messageEl.style.display = 'none';
             setLoading(true);
 
-            const formData = new FormData(form);
-            const payload = Object.fromEntries(formData.entries());
+            const payload = {
+                name: document.getElementById('landingAdvanceName').value.trim(),
+                email: document.getElementById('landingAdvanceEmail').value.trim(),
+                phone: document.getElementById('landingAdvancePhone').value.trim(),
+                quantity: document.getElementById('landingAdvanceQuantity').value,
+                childrenNames: document.getElementById('landingAdvanceChildrenNames').value.trim(),
+            };
 
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest',
-                        'Accept': 'application/json',
                     },
                     body: JSON.stringify(payload),
                 });
@@ -805,18 +810,16 @@
                 const result = await response.json().catch(() => ({}));
 
                 if (!response.ok) {
-                    const message = result.message === 'missing'
-                        ? 'Please fill out required fields.'
-                        : 'Sorry, there was an error sending your message.';
-                    setMessage(message, 'danger');
-                    setLoading(false);
-                    return;
+                    throw new Error(result.error || 'Unable to start checkout');
                 }
 
-                setMessage('Thank you! Your message has been sent successfully.', 'success');
-                form.reset();
+                if (!result.checkoutUrl) {
+                    throw new Error('Stripe checkout URL missing');
+                }
+
+                window.location.href = result.checkoutUrl;
             } catch (error) {
-                setMessage('Sorry, there was an error sending your message.', 'danger');
+                setMessage(error.message || 'Failed to start checkout', 'danger');
             } finally {
                 setLoading(false);
             }

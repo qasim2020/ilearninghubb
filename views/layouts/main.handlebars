@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <title>{{#if settings.brandName}}{{settings.brandName}}{{else}}iLearningHubb{{/if}}</title>
     <!-- Stylesheets -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link href="/assets/css/meanmenu.min.css" rel="stylesheet" />
-    <link href="/assets/css/responsive.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css?v={{assetTs}}" rel="stylesheet" />
+    <link href="/assets/css/style.css?v={{assetTs}}" rel="stylesheet" />
+    <link href="/assets/css/meanmenu.min.css?v={{assetTs}}" rel="stylesheet" />
+    <link href="/assets/css/responsive.css?v={{assetTs}}" rel="stylesheet" />
 
     <!-- Google Fonts - Modern Font Stack -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -35,6 +35,11 @@
         /* Modern Font Stack */
         body {
             font-family: 'Poppins', 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+            background-color: #fdf3ea !important;
+        }
+
+        .page-wrapper {
+            background-color: #fdf3ea !important;
         }
 
         h1,
@@ -70,16 +75,34 @@
             padding: 14px 30px !important;
         }
 
-        .footer-social-media {
-            margin-bottom: 10px;
-        }
-
         .pt-0 {
             padding-top: 0 !important;
         }
 
         .copyright {
             font-family: 'Playfair Display', serif !important;
+        }
+
+        .main-footer .images-outer .image-box {
+            width: 92px;
+            height: 92px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .main-footer .images-outer .image-box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-footer .images-outer .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
@@ -173,7 +196,7 @@
                             </div>
                         </div>
 
-                        <!-- Column 2: Quick Links -->
+                        <!-- Column 2: Dynamic Programs + Blogs -->
                         <div class="big-column col-lg-5 col-md-12 col-sm-12">
                             <div class="row clearfix">
                                 <div class="footer_column col-lg-6 col-md-6 col-sm-12">
@@ -181,19 +204,13 @@
                                         <h5 class="footer-title">Quick Links</h5>
                                         <ul class="footer-list">
                                             <li><a href="/">Home</a></li>
-                                            {{#if pages.about}}
-                                            <li><a href="/page/about">{{pages.about.title}}</a></li>
-                                            {{/if}}
-                                            {{#if pages.contact}}
-                                            <li><a href="/page/contact">{{pages.contact.title}}</a></li>
-                                            {{/if}}
-                                            {{#if pages.faq}}
-                                            <li><a href="/page/faq">{{pages.faq.title}}</a></li>
-                                            {{/if}}
+                                            <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="/contact-us">Contact Us</a></li>
+                                            <li><a href="/faq">FAQs</a></li>
                                             <li><a href="/programs">Programs</a></li>
-                                            {{#if pages.terms}}
-                                            <li><a href="/page/terms">{{pages.terms.title}}</a></li>
-                                            {{/if}}
+                                            <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                            <li><a href="/cookies-policy">Cookies Policy</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -203,77 +220,69 @@
                                         <h5 class="footer-title">Programs</h5>
                                         <ul class="footer-list">
                                             <li><a href="/programs">All Programs</a></li>
+                                            {{#if footerPrograms.length}}
+                                            {{#each footerPrograms}}
+                                            <li><a href="/program/{{this._id}}">{{this.title}}</a></li>
+                                            {{/each}}
+                                            {{else}}
+                                            <li><a href="/programs">Browse Programs</a></li>
+                                            {{/if}}
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Column 3: Social Media -->
                         <div class="big-column col-lg-3 col-md-12 col-sm-12">
-                            <div class="footer_column">
-                                <div class="footer-widget social-widget">
-                                    <h5 class="footer-title">Our Socials</h5>
-                                    <div class="footer-text">Stay updated with our latest news and events.</div>
-                                    <ul class="social-list mt-3">
-                                        {{#if settings.socialFacebook}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialFacebook}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-facebook"></i> </span>
-                                                Facebook
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                        {{#if settings.socialTwitter}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialTwitter}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-twitter"></i> </span>
-                                                Twitter
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                        {{#if settings.socialYouTube}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialYouTube}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-youtube"></i> </span>
-                                                YouTube
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                        {{#if settings.socialInstagram}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialInstagram}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-instagram"></i> </span>
-                                                Instagram
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                        {{#if settings.socialLinkedIn}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialLinkedIn}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-linkedin"></i> </span>
-                                                LinkedIn
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                        {{#if settings.socialTikTok}}
-                                        <li class="footer-social-media">
-                                            <a class="" href="{{settings.socialTikTok}}">
-                                                <span style="width: 30px; margin-right: 10px;"><i
-                                                        class="fa-brands fa-tiktok"></i> </span>
-                                                TikTok
-                                            </a>
-                                        </li>
-                                        {{/if}}
-                                    </ul>
+                            <div class="row clearfix">
+                                <div class="footer_column col-lg-12 col-md-12 col-sm-12">
+                                    <div class="footer-widget links-widget">
+                                        <h5 class="footer-title">Blogs</h5>
+                                        <ul class="footer-list">
+                                            <li><a href="/blogs">All Blogs</a></li>
+                                            {{#if footerBlogs.length}}
+                                            {{#each footerBlogs}}
+                                            <li><a href="/blog/{{this.slug}}">{{this.title}}</a></li>
+                                            {{/each}}
+                                            {{else}}
+                                            <li><a href="/blogs">Browse Blogs</a></li>
+                                            {{/if}}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Column 4: Theme-style Gallery + Social -->
+                        <div class="big-column col-lg-12 col-md-12 col-sm-12">
+                            <div class="footer_column">
+                                <div class="footer-widget instagram-widget">
+                                    <h5 class="footer-title">Gallery</h5>
+                                    <div class="images-outer clearfix">
+                                        {{#if footerGalleryImages.length}}
+                                        {{#each footerGalleryImages}}
+                                        <figure class="image-box">
+                                            <a href="{{this.url}}" data-fslightbox="footer-gallery" data-type="image">
+                                                <img src="{{this.url}}" alt="{{this.title}}">
+                                            </a>
+                                        </figure>
+                                        {{/each}}
+                                        {{else}}
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-1.jpg" alt="Gallery"></a></figure>
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-2.jpg" alt="Gallery"></a></figure>
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-3.jpg" alt="Gallery"></a></figure>
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-4.jpg" alt="Gallery"></a></figure>
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-5.jpg" alt="Gallery"></a></figure>
+                                        <figure class="image-box"><a href="/gallery"><img src="/assets/images/gallery/instagram-6.jpg" alt="Gallery"></a></figure>
+                                        {{/if}}
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <a href="/gallery">View full gallery <i class="flaticon-next-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -306,63 +315,6 @@
         </svg>
     </div>
 
-
-    <div id="ticketOverlay"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 9999;">
-        <div id="ticketContainer"
-            style="position: relative; width: 90%; max-width: 1000px; height: 80%; margin: 5% auto; background-color: white; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.4); overflow: hidden;">
-            <div id="closeTicketBtn"
-                style="position: absolute; top: 15px; right: 15px; font-size: 24px; color: #333; cursor: pointer; z-index: 10000; background-color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; box-shadow: 0 0 5px rgba(0,0,0,0.3);">
-                ✕</div>
-            <iframe id="ticketTailorFrame"
-                src="https://www.tickettailor.com/all-tickets/islamiclearninghubb/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
-                style="width: 100%; height: 100%; border: none;">
-            </iframe>
-        </div>
-    </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all register buttons by class instead of a single button by ID
-            const ticketBtns = document.querySelectorAll('.ticket-register-btn');
-            const overlay = document.getElementById('ticketOverlay');
-            const closeBtn = document.getElementById('closeTicketBtn');
-
-            // Add click listener to each button
-            ticketBtns.forEach(function (btn) {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    overlay.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
-                });
-            });
-
-            // Close overlay when close button is clicked
-            closeBtn.addEventListener('click', function () {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            });
-
-            // Close overlay when clicking outside the container
-            overlay.addEventListener('click', function (e) {
-                if (e.target === overlay) {
-                    overlay.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                }
-            });
-
-            // Listen for escape key
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && overlay.style.display === 'block') {
-                    overlay.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                }
-            });
-        });
-    </script>
-
-
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -383,6 +335,7 @@
     <script src="/assets/js/ScrollSmoother.min.js"></script>
 
     <script src="/assets/js/magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fslightbox/index.js"></script>
     <script src="/assets/js/nav-tool.js"></script>
     <script src="/assets/js/jquery-ui.js"></script>
     <script src="/assets/js/jquery.countdown.js"></script>

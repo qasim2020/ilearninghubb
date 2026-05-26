@@ -1,0 +1,59 @@
+<section class="page-title">
+    <div class="color-one"></div>
+    <div class="color-two"></div>
+    <div class="color-three"></div>
+    <div class="color-four"></div>
+    <div class="auto-container">
+        <h2>Our Blogs</h2>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/"><i class="flaticon-home"></i> Home</a></li>
+            <li>Our Blogs</li>
+        </ul>
+    </div>
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallaxx">
+                <use xlink:href="#gentle-wave" x="148" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="100" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="70" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+</section>
+
+<section class="news-one" style="padding: 90px 0 60px;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            {{#if blogs.length}}
+            {{#each blogs}}
+            <div class="news-block_one col-lg-4 col-md-6 col-sm-12">
+                <div class="news-block_one-inner">
+                    <div class="news-block_one-image">
+                        <a href="/blog/{{this.slug}}">
+                            <img src="{{#if this.coverImageUrlResolved}}{{this.coverImageUrlResolved}}{{else}}/assets/images/resource/news-1.jpg{{/if}}"
+                                alt="{{#if this.title}}{{this.title}}{{else}}{{this.name}}{{/if}}" />
+                        </a>
+                    </div>
+                    <div class="news-block_one-content">
+                        <h5 class="news-block_one-title">
+                            <a href="/blog/{{this.slug}}">{{#if this.title}}{{this.title}}{{else}}{{this.name}}{{/if}}</a>
+                        </h5>
+                        <div class="news-block_one-text">{{#if this.excerptText}}{{this.excerptText}}{{else}}Read the latest update from our team.{{/if}}</div>
+                        <a class="news-block_one-more" href="/blog/{{this.slug}}">Read more <i class="flaticon-next-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="col-12">
+                <p>No blog posts available yet. Please check back soon.</p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>

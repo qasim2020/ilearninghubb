@@ -1030,6 +1030,30 @@
             mainClass: 'mfp-fade',
             removalDelay: 160,
             preloader: false,
+            callbacks: {
+                elementParse: function (item) {
+                    var src = (item.el && item.el.attr('href')) || '';
+                    var isLocalVideo =
+                        /^\/uploads\//i.test(src) ||
+                        /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(src);
+
+                    if (!isLocalVideo) {
+                        item.type = 'iframe';
+                        return;
+                    }
+
+                    var escapedSrc = src.replace(/"/g, '&quot;');
+                    item.type = 'inline';
+                    item.src =
+                        '<div class="mfp-figure" style="max-width:920px; margin:0 auto;">' +
+                        '<video controls autoplay playsinline style="width:100%; height:auto; background:#000;">' +
+                        '<source src="' +
+                        escapedSrc +
+                        '" type="video/mp4">' +
+                        '</video>' +
+                        '</div>';
+                },
+            },
             iframe: {
                 patterns: {
                     youtube: {

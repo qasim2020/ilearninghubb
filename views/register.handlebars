@@ -1,90 +1,269 @@
-// Add this script to your page
+<section class="page-title">
+    <div class="color-one"></div>
+    <div class="color-two"></div>
+    <div class="color-three"></div>
+    <div class="color-four"></div>
+    <div class="auto-container">
+        <h2>Advance Tour Booking</h2>
+        <ul class="bread-crumb clearfix">
+            <li><a href="/"><i class="flaticon-home"></i> Home</a></li>
+            <li>Advance Tour Booking</li>
+        </ul>
+    </div>
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallaxx">
+                <use xlink:href="#gentle-wave" x="148" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="100" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="70" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+</section>
 
-document.addEventListener('DOMContentLoaded', function() {
-  // First, add the Ticket Tailor script to the page
-  const scriptTag = document.createElement('script');
-  scriptTag.src = "https://cdn.tickettailor.com/js/widgets/min/widget.js";
-  scriptTag.setAttribute('data-url', "https://www.tickettailor.com/all-tickets/islamiclearninghubb/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true");
-  scriptTag.setAttribute('data-type', "inline");
-  scriptTag.setAttribute('data-inline-minimal', "true");
-  scriptTag.setAttribute('data-inline-show-logo', "false");
-  scriptTag.setAttribute('data-inline-bg-fill', "false");
-  scriptTag.setAttribute('data-inline-inherit-ref-from-url-param', "");
-  scriptTag.setAttribute('data-inline-ref', "website_widget");
-  document.head.appendChild(scriptTag);
-  
-  // Create a hidden div to hold the widget
-  const widgetContainer = document.createElement('div');
-  widgetContainer.id = 'ticket-tailor-container';
-  widgetContainer.className = 'tt-widget';
-  widgetContainer.style.display = 'none';
-  widgetContainer.style.position = 'fixed';
-  widgetContainer.style.top = '50%';
-  widgetContainer.style.left = '50%';
-  widgetContainer.style.transform = 'translate(-50%, -50%)';
-  widgetContainer.style.zIndex = '1000';
-  widgetContainer.style.backgroundColor = 'white';
-  widgetContainer.style.padding = '20px';
-  widgetContainer.style.borderRadius = '10px';
-  widgetContainer.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
-  widgetContainer.style.maxWidth = '90%';
-  widgetContainer.style.maxHeight = '90%';
-  widgetContainer.style.overflow = 'auto';
-  
-  // Create close button
-  const closeButton = document.createElement('div');
-  closeButton.innerHTML = '&times;';
-  closeButton.style.position = 'absolute';
-  closeButton.style.top = '10px';
-  closeButton.style.right = '15px';
-  closeButton.style.fontSize = '24px';
-  closeButton.style.cursor = 'pointer';
-  closeButton.style.color = '#333';
-  closeButton.onclick = function() {
-    widgetContainer.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Enable scrolling again
-  };
-  
-  // Create fallback content
-  const fallbackDiv = document.createElement('div');
-  fallbackDiv.className = 'tt-widget-fallback';
-  fallbackDiv.innerHTML = '<p><a href="https://www.tickettailor.com/all-tickets/islamiclearninghubb/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_247311" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p>';
-  
-  widgetContainer.appendChild(closeButton);
-  widgetContainer.appendChild(fallbackDiv);
-  document.body.appendChild(widgetContainer);
-  
-  // Add overlay background
-  const overlay = document.createElement('div');
-  overlay.id = 'ticket-tailor-overlay';
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-  overlay.style.zIndex = '999';
-  overlay.style.display = 'none';
-  overlay.onclick = function() {
-    widgetContainer.style.display = 'none';
-    overlay.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Enable scrolling again
-  };
-  document.body.appendChild(overlay);
-  
-  // Update all register now buttons to open the Ticket Tailor widget
-  const registerButtons = document.querySelectorAll('a[href="/register"]');
-  registerButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      widgetContainer.style.display = 'block';
-      overlay.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-      
-      // Initialize or refresh the widget if needed
-      if (window.TT && typeof window.TT.initializeWidgets === 'function') {
-        window.TT.initializeWidgets();
-      }
-    });
-  });
-});
+<section class="contact-form-section" style="padding-top:90px;">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="form-column col-lg-7 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <h3>Reserve your child spot (NOK {{advanceTour.bookingPriceNok}} per child)</h3>
+                    <div class="text">Secure priority access now. This advance payment is separate from later per-program ticket booking.</div>
+
+                    {{#if (eq checkoutStatus "success")}}
+                    <div class="alert alert-success">Payment successful. Your advance booking is confirmed.</div>
+                    {{/if}}
+                    {{#if (eq checkoutStatus "cancel")}}
+                    <div class="alert alert-warning">Checkout cancelled. No payment was taken.</div>
+                    {{/if}}
+
+                    <div class="default-form contact-form">
+                        <div id="advance-tour-message" aria-live="polite" style="margin-bottom:12px; display:none;"></div>
+                        <form id="advance-tour-checkout-form">
+                            <div class="row clearfix">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="text" id="advanceName" placeholder="Guardian name" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="email" id="advanceEmail" placeholder="Email address" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="text" id="advancePhone" placeholder="Phone number">
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="number" id="advanceQuantity" value="1" min="1" placeholder="Number of children"
+                                        required>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <textarea id="advanceChildrenNames"
+                                        placeholder="Children names (comma or new line separated)"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <button type="submit" id="advanceCheckoutButton" class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Proceed to payment <i class="flaticon-next-1"></i></span>
+                                            <span class="text-two">Proceed to payment <i class="flaticon-next-1"></i></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-column col-lg-5 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="info-block_two-inner advance-summary-card">
+                        <h4>Booking Summary</h4>
+                        <div class="advance-summary-grid">
+                            <div class="advance-summary-row">
+                                <span>Price per child</span>
+                                <strong>NOK {{advanceTour.bookingPriceNok}}</strong>
+                            </div>
+                            <div class="advance-summary-row">
+                                <span>Children selected</span>
+                                <strong id="advanceSummaryQuantity">1</strong>
+                            </div>
+                            <div class="advance-summary-row advance-summary-total">
+                                <span>Total due now</span>
+                                <strong id="advanceSummaryTotal">NOK {{advanceTour.bookingPriceNok}}</strong>
+                            </div>
+                        </div>
+                        <ul class="advance-summary-points">
+                            <li>Priority access to upcoming tour/program details</li>
+                            <li>No seat limit on advance booking</li>
+                            <li>Program ticket seats are managed separately</li>
+                        </ul>
+                        <div class="advance-proof">Already {{advanceTour.bookedSeats}} advance bookings placed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-form .form-group input[type="number"] {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        padding: 10px 25px;
+        border-radius: 6px;
+        color: rgba(var(--color-four-rgb), 0.5);
+        background-color: var(--color-three);
+        border: 1px solid rgba(var(--main-color-rgb), 0.1);
+        transition: all 300ms ease;
+    }
+
+    .contact-form .form-group input[type="number"]:focus {
+        border-color: var(--main-color);
+    }
+
+    .contact-form .form-group input[type="number"]::-webkit-outer-spin-button,
+    .contact-form .form-group input[type="number"]::-webkit-inner-spin-button {
+        margin: 0;
+    }
+
+    .advance-summary-card {
+        border-radius: 10px;
+        border: 1px solid rgba(var(--main-color-rgb), 0.15);
+        background: linear-gradient(180deg, rgba(var(--main-color-rgb), 0.06) 0%, rgba(255, 255, 255, 0.92) 100%);
+        padding: 28px;
+    }
+
+    .advance-summary-grid {
+        margin-top: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(var(--main-color-rgb), 0.12);
+        background-color: #fff;
+    }
+
+    .advance-summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(var(--main-color-rgb), 0.1);
+        font-size: 15px;
+        color: rgba(var(--color-four-rgb), 0.78);
+    }
+
+    .advance-summary-row:last-child {
+        border-bottom: none;
+    }
+
+    .advance-summary-row strong {
+        color: var(--color-four);
+        font-weight: 600;
+    }
+
+    .advance-summary-total {
+        background-color: rgba(var(--main-color-rgb), 0.08);
+        font-size: 16px;
+    }
+
+    .advance-summary-points {
+        margin: 16px 0 0;
+        padding-left: 18px;
+        color: rgba(var(--color-four-rgb), 0.78);
+    }
+
+    .advance-summary-points li {
+        margin-bottom: 7px;
+    }
+
+    .advance-proof {
+        margin-top: 14px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--main-color);
+    }
+</style>
+
+<script>
+    (function () {
+        const form = document.getElementById('advance-tour-checkout-form');
+        if (!form) return;
+
+        const button = document.getElementById('advanceCheckoutButton');
+        const message = document.getElementById('advance-tour-message');
+        const textOne = button.querySelector('.text-one');
+        const textTwo = button.querySelector('.text-two');
+        const origOne = textOne.textContent;
+        const origTwo = textTwo.textContent;
+        const quantityInput = document.getElementById('advanceQuantity');
+        const summaryQty = document.getElementById('advanceSummaryQuantity');
+        const summaryTotal = document.getElementById('advanceSummaryTotal');
+        const unitPrice = Number('{{advanceTour.bookingPriceNok}}') || 0;
+
+        const syncSummary = function () {
+            const qty = Math.max(1, Number.parseInt(quantityInput.value || '1', 10) || 1);
+            quantityInput.value = qty;
+            if (summaryQty) summaryQty.textContent = String(qty);
+            if (summaryTotal) summaryTotal.textContent = `NOK ${qty * unitPrice}`;
+        };
+
+        if (quantityInput) {
+            quantityInput.addEventListener('input', syncSummary);
+            quantityInput.addEventListener('change', syncSummary);
+            syncSummary();
+        }
+
+        const setMessage = function (text, type) {
+            message.style.display = 'block';
+            message.className = `alert alert-${type}`;
+            message.textContent = text;
+        };
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            button.disabled = true;
+            textOne.textContent = 'Creating checkout...';
+            textTwo.textContent = 'Creating checkout...';
+            message.style.display = 'none';
+
+            const payload = {
+                name: document.getElementById('advanceName').value.trim(),
+                email: document.getElementById('advanceEmail').value.trim(),
+                phone: document.getElementById('advancePhone').value.trim(),
+                quantity: document.getElementById('advanceQuantity').value,
+                childrenNames: document.getElementById('advanceChildrenNames').value.trim(),
+            };
+
+            try {
+                const response = await fetch('/api/advance-tour/checkout/session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    throw new Error(result.error || 'Unable to start checkout');
+                }
+
+                if (!result.checkoutUrl) {
+                    throw new Error('Stripe checkout URL missing');
+                }
+
+                window.location.href = result.checkoutUrl;
+            } catch (error) {
+                setMessage(error.message || 'Failed to start checkout', 'danger');
+                button.disabled = false;
+                textOne.textContent = origOne;
+                textTwo.textContent = origTwo;
+            }
+        });
+    })();
+</script>
