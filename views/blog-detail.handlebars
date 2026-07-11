@@ -1,4 +1,27 @@
-<section class="page-title" style="background-image: url(/assets/images/background/contact-bg.jpg);">
+<style>
+    .program-hero-dark {
+        position: relative;
+        overflow: hidden;
+    }
+    .program-hero-dark::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.58);
+    }
+    .program-hero-dark .auto-container {
+        position: relative;
+        z-index: 1;
+    }
+    .program-hero-dark h1,
+    .program-hero-dark .page-breadcrumb li,
+    .program-hero-dark .page-breadcrumb li a {
+        color: #fff !important;
+    }
+</style>
+
+<section class="page-title program-hero-dark"
+    style="background-image: url('{{#if blog.coverImageUrlResolved}}{{blog.coverImageUrlResolved}}{{else}}/assets/images/background/contact-bg.jpg{{/if}}');">
     <div class="auto-container">
         <h1 style="color: #ffffff;">{{blog.title}}</h1>
         <ul class="page-breadcrumb">
@@ -12,13 +35,6 @@
     <div class="auto-container">
         <div class="row clearfix">
             <div class="col-lg-10 col-md-12 col-sm-12 offset-lg-1">
-                {{#if blog.coverImageUrlResolved}}
-                <div style="width: 100%; height: 420px; overflow: hidden; border-radius: 12px; margin-bottom: 30px;">
-                    <img src="{{blog.coverImageUrlResolved}}" alt="{{blog.title}}"
-                        style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                {{/if}}
-
                 {{#if blog.excerpt}}
                 <p class="lead" style="margin-bottom: 24px;">{{blog.excerpt}}</p>
                 {{/if}}

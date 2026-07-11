@@ -1167,8 +1167,12 @@
             if (resp && resp.success) {
                 $('#contact-form-message').html('<div class="alert alert-success">Thank you! Your message has been sent successfully.</div>');
                 $form[0].reset();
+                if (window.turnstile) window.turnstile.reset();
             } else if (resp && resp.message === 'missing') {
                 $('#contact-form-message').html('<div class="alert alert-warning">Please fill out all required fields.</div>');
+            } else if (resp && resp.message === 'captcha') {
+                $('#contact-form-message').html('<div class="alert alert-warning">Please complete the CAPTCHA verification.</div>');
+                if (window.turnstile) window.turnstile.reset();
             } else {
                 $('#contact-form-message').html('<div class="alert alert-danger">Sorry, there was an error sending your message. Please try again later.</div>');
             }

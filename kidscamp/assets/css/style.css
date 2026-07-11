@@ -7883,7 +7883,7 @@ h3 {
 .contact-form .form-group select,
 .contact-form .form-group textarea{
 	background-color:var(--color-three);
-	color:rgba(var(--color-four-rgb), 0.50);
+	color:rgba(var(--color-four-rgb), 0.85);
 	border:1px solid rgba(var(--main-color-rgb), 0.10);
 }
 

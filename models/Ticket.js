@@ -54,12 +54,12 @@ const TicketSchema = new mongoose.Schema(
         },
         paymentIntentId: {
             type: String,
-            default: '',
+            default: null,
             trim: true,
         },
         checkoutSessionId: {
             type: String,
-            default: '',
+            default: null,
             trim: true,
             unique: true,
             sparse: true,

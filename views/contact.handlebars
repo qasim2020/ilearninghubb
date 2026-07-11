@@ -83,9 +83,7 @@
             <div class="form-column col-lg-6 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <h3>Contact Us Right Now</h3>
-                    <div class="text">Your email address will not be published. Required fields are marked *</div>
                     <div class="default-form contact-form">
-                        <div id="contact-form-message" aria-live="polite" style="margin-bottom:12px;"></div>
                         <form method="post" action="/api/tickets" id="contact-form">
                             <div class="row clearfix">
                                 <!--Form Group-->
@@ -102,6 +100,11 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                     <textarea class="" name="message" placeholder="Type comment here*" required></textarea>
                                 </div>
+                                {{#if turnstileSiteKey}}
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <div class="cf-turnstile" data-sitekey="{{turnstileSiteKey}}"></div>
+                                </div>
+                                {{/if}}
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <button type="submit" class="template-btn btn-style-one">
                                         <span class="btn-wrap">
@@ -109,6 +112,9 @@
                                             <span class="text-two">Submit now <i class="flaticon-next-1"></i></span>
                                         </span>
                                     </button>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div id="contact-form-message" aria-live="polite" style="margin-top:12px;"></div>
                                 </div>
 
                             </div>
@@ -121,7 +127,7 @@
                 <div class="inner-column">
                     <div class="map-one_map">
                         <iframe id="gmap_canvas"
-                            src="https://maps.google.com/maps?q=59.835104,10.788577&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+                            src="https://maps.google.com/maps?q=59.91345365457869,10.736806616121342&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
                     </div>
                 </div>
             </div>

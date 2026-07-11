@@ -45,6 +45,25 @@ exports.sendMail = async (req, res) => {
         return sendResponse(req, res, 400, { success: false, message: 'missing' }, 'missing');
     }
 
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY || '';
+    if (turnstileSecret) {
+        const token = (data['cf-turnstile-response'] || '').trim();
+        try {
+            const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ secret: turnstileSecret, response: token, remoteip: req.ip }),
+            });
+            const verifyData = await verifyRes.json();
+            if (!verifyData.success) {
+                return sendResponse(req, res, 400, { success: false, message: 'captcha' }, 'error');
+            }
+        } catch (captchaErr) {
+            console.error('Turnstile verification error:', captchaErr);
+            return sendResponse(req, res, 400, { success: false, message: 'captcha' }, 'error');
+        }
+    }
+
     try {
         const ticket = await Ticket.create({
             name,
@@ -64,7 +83,8 @@ exports.sendMail = async (req, res) => {
         const settings = await Settings.findOne({ key: 'main' }).lean();
 
         if (!settings?.emailHost || !settings?.emailPort || !settings?.emailUser || !settings?.emailPass) {
-            throw new Error('Email settings missing in Settings collection.');
+            console.warn('Email settings missing in Settings collection — ticket saved but no email sent.');
+            return sendResponse(req, res, 200, { success: true, ticketId: ticket._id }, 'success');
         }
 
         const buildTransport = (portOverride, secureOverride) => {

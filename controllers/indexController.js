@@ -840,6 +840,7 @@ exports.contactUs = async (req, res) => {
             settings: normalizedSettings,
             blogPosts: normalizedBlogs,
             pages: pagesByKey,
+            turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || '',
         });
     } catch (error) {
         console.error('Error loading contact page:', error);
@@ -903,13 +904,14 @@ exports.advanceTourBooking = async (req, res) => {
 
 exports.aboutUs = async (req, res) => {
     try {
-        const [settings, blogs, pages, teamMembersRaw] = await Promise.all([
+        const [settings, blogs, pages, teamMembersRaw, programs] = await Promise.all([
             Settings.findOne({ key: 'main' }).lean(),
             Blog.find({ $or: [{ isActive: true }, { isActive: { $exists: false } }] })
                 .sort({ publishedAt: -1, createdAt: -1 })
                 .lean(),
             Page.find({}).lean(),
             TeamMember.find({}).sort({ sortOrder: -1, createdAt: -1, _id: -1 }).lean(),
+            Program.find({ $or: [{ isActive: true }, { isActive: { $exists: false } }] }, { imageUrl: 1, gallery: 1, title: 1 }).lean(),
         ]);
 
         const cmsBaseUrl = process.env.CMS_BASE_URL || '';
@@ -932,11 +934,31 @@ exports.aboutUs = async (req, res) => {
 
         const teamMembers = normalizeTeamMembers(teamMembersRaw, normalizeImageUrl);
 
+        // Collect gallery images from program.gallery
+        const programImages = [];
+        for (const p of (programs || [])) {
+            const gallery = Array.isArray(p.gallery) ? p.gallery : [];
+            for (const item of gallery) {
+                if ((item?.type || 'image') === 'video') continue;
+                if ((item?.status || 'ready') !== 'ready') continue;
+                const u = item?.url || item?.originalUrl || (item?.filename ? `/uploads/${item.filename}` : '');
+                const resolved = u ? normalizeImageUrl(u) : null;
+                if (resolved && !programImages.includes(resolved)) programImages.push(resolved);
+            }
+        }
+        // Shuffle and pick up to 3
+        for (let i = programImages.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [programImages[i], programImages[j]] = [programImages[j], programImages[i]];
+        }
+        const aboutImages = programImages.slice(0, 3);
+
         return res.render('about-us', {
             settings: normalizedSettings,
             blogPosts: normalizedBlogs,
             pages: pagesByKey,
             teamMembers,
+            aboutImages,
         });
     } catch (error) {
         console.error('Error loading about us page:', error);

@@ -40,7 +40,7 @@
                     <div class="about-one_image">
                         <div class="about-one_color-one"></div>
                         <div class="about-one_color-two"></div>
-                        <img src="/assets/images/resource/about-1.png" alt="" />
+                        <img src="{{#if aboutImages.[0]}}{{aboutImages.[0]}}{{else}}/assets/images/resource/about-1.png{{/if}}" alt="" style="width:100%;height:100%;object-fit:cover;" />
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
             <div class="value-one_image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="value-one_image-outer">
                     <div class="value-one_image">
-                        <img src="/assets/images/resource/value.png" alt="" />
+                        <img src="{{#if aboutImages.[1]}}{{aboutImages.[1]}}{{else}}/assets/images/resource/value.png{{/if}}" alt="" style="width:100%;height:100%;object-fit:cover;" />
                     </div>
                 </div>
             </div>
@@ -190,7 +190,7 @@
 
 <section class="counter-one">
     <div class="auto-container">
-        <div class="inner-container" style="background-image:url(/assets/images/background/counter-bg.png)">
+        <div class="inner-container" style="background-image:url('{{#if aboutImages.[2]}}{{aboutImages.[2]}}{{else}}/assets/images/background/counter-bg.png{{/if}}'); background-size:cover; background-position:center;">
             <div class="row clearfix">
                 <div class="counter-block_one col-xl-3 col-lg-6 col-md-6 col-sm-6">
                     <div class="counter-block_one-inner wow flipInX" data-wow-delay="0ms" data-wow-duration="1500ms">
